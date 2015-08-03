@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     public Animator animLegs;
     public Animator armRight;
     public Animator armLeft;
+    private SpriteRenderer armRightSprite;
+    private SpriteRenderer armLeftSprite;
     public SpriteRenderer wepRight;
     public SpriteRenderer wepLeft;
     public PolygonCollider2D wepColliderRight;
@@ -38,6 +40,9 @@ public class Player : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
+        armRightSprite = armRight.gameObject.GetComponent<SpriteRenderer>();
+        armLeftSprite = armLeft.gameObject.GetComponent<SpriteRenderer>();
+
         //For testing
         UpdateEquippedItems();
 	}
@@ -52,6 +57,8 @@ public class Player : MonoBehaviour
         rb2D.AddForce(new Vector2(gameObject.transform.right.x * horizontal, gameObject.transform.up.y * vertical) * baseMoveSpeed);
 
         Vector3 facing = mousePosition - transform.position;
+        anim.SetFloat("MoveSpeed", (Mathf.Abs(horizontal) + Mathf.Abs(vertical))); // Get ANY movement on either axis.
+
         if(Mathf.Abs(facing.x) > Mathf.Abs(facing.y))
         {
             armRight.gameObject.SetActive(true);
@@ -63,8 +70,10 @@ public class Player : MonoBehaviour
                 animLegs.SetInteger("Facing", (int)Facing.RIGHT);
                 armRight.SetInteger("Facing", (int)Facing.RIGHT);
                 armLeft.SetInteger("Facing", (int)Facing.RIGHT);
+                armLeftSprite.sortingOrder = -2;
                 wepLeft.sortingOrder = -1;
                 wepRight.sortingOrder = 2;
+                armRightSprite.sortingOrder = 3;
             }
                 
             else
@@ -73,8 +82,10 @@ public class Player : MonoBehaviour
                 animLegs.SetInteger("Facing", (int)Facing.LEFT);
                 armRight.SetInteger("Facing", (int)Facing.LEFT);
                 armLeft.SetInteger("Facing", (int)Facing.LEFT);
+                armLeftSprite.sortingOrder = 3;
                 wepLeft.sortingOrder = 2;
                 wepRight.sortingOrder = -1;
+                armRightSprite.sortingOrder = -2;
             }
         }
         else
