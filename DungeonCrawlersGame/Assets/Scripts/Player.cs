@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb2D;
     private Animator anim;
     public Animator animLegs;
+    public Animator armRight;
+    public Animator armLeft;
     public SpriteRenderer wepRight;
     public SpriteRenderer wepLeft;
     public PolygonCollider2D wepColliderRight;
@@ -52,10 +54,15 @@ public class Player : MonoBehaviour
         Vector3 facing = mousePosition - transform.position;
         if(Mathf.Abs(facing.x) > Mathf.Abs(facing.y))
         {
+            armRight.gameObject.SetActive(true);
+            armLeft.gameObject.SetActive(true);
+
             if(facing.x > 0)
             {
                 anim.SetInteger("Facing", (int)Facing.RIGHT);
                 animLegs.SetInteger("Facing", (int)Facing.RIGHT);
+                armRight.SetInteger("Facing", (int)Facing.RIGHT);
+                armLeft.SetInteger("Facing", (int)Facing.RIGHT);
                 wepLeft.sortingOrder = -1;
                 wepRight.sortingOrder = 2;
             }
@@ -64,18 +71,24 @@ public class Player : MonoBehaviour
             {
                 anim.SetInteger("Facing", (int)Facing.LEFT);
                 animLegs.SetInteger("Facing", (int)Facing.LEFT);
+                armRight.SetInteger("Facing", (int)Facing.LEFT);
+                armLeft.SetInteger("Facing", (int)Facing.LEFT);
                 wepLeft.sortingOrder = 2;
                 wepRight.sortingOrder = -1;
             }
         }
         else
         {
+            armRight.gameObject.SetActive(false);
+            armLeft.gameObject.SetActive(false);
+
             if (facing.y > 0)
             {
                 anim.SetInteger("Facing", (int)Facing.UP);
                 animLegs.SetInteger("Facing", (int)Facing.UP);
                 wepLeft.sortingOrder = -1;
                 wepRight.sortingOrder = -1;
+
             }  
             else
             {
