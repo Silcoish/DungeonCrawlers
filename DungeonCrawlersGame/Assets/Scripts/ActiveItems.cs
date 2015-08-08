@@ -3,8 +3,6 @@ using System.Collections;
 
 public class ActiveItems : MonoBehaviour 
 {
-    public static ActiveItems inst;
-
     public GameObject wepLeft;         // Left Equipped Weapon
     public GameObject wepRight;        // Right Equipped Weapon
     public GameObject wepLeftOff;      // Left Secondary Weapon
@@ -12,18 +10,6 @@ public class ActiveItems : MonoBehaviour
     public GameObject pas1;            // Passive Item 1
     public GameObject pas2;            // Passive Item 2
     public GameObject pas3;            // Passive Item 3
-
-    void Awake()
-    {
-        if(ActiveItems.inst == null)
-        {
-            ActiveItems.inst = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
     void SwapLeftHand()
     {

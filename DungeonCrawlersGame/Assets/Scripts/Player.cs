@@ -11,12 +11,6 @@ enum Facing
 
 public class Player : MonoBehaviour 
 {
-    public float baseMoveSpeed = 10.0F;
-
-    private Stats stats;
-    private Inventory inventory;
-    private ActiveItems activeItems;
-
     private BoxCollider2D boxCol2D;
     private Rigidbody2D rb2D;
     private Animator anim;
@@ -30,11 +24,10 @@ public class Player : MonoBehaviour
     public PolygonCollider2D wepColliderRight;
     public PolygonCollider2D wepColliderLeft;
 
+    public int baseMoveSpeed = 10;
+
 	void Start () 
     {
-        stats = GetComponent<Stats>();
-        inventory = GetComponent<Inventory>();
-        activeItems = GetComponent<ActiveItems>();
 
         boxCol2D = GetComponent<BoxCollider2D>();
         rb2D = GetComponent<Rigidbody2D>();
@@ -54,7 +47,7 @@ public class Player : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        rb2D.AddForce(new Vector2(gameObject.transform.right.x * horizontal, gameObject.transform.up.y * vertical) * baseMoveSpeed);
+        rb2D.AddForce(new Vector2(gameObject.transform.right.x * horizontal, gameObject.transform.up.y * vertical) * (baseMoveSpeed + GameManager.inst.stats.spd));
 
         Vector3 facing = mousePosition - transform.position;
         anim.SetFloat("MoveSpeed", (Mathf.Abs(horizontal) + Mathf.Abs(vertical))); // Get ANY movement on either axis.
@@ -118,7 +111,7 @@ public class Player : MonoBehaviour
 
     void TakeDamage(int amount)
     {
-        stats.hpCur -= amount; 
+        GameManager.inst.stats.hpCur -= amount; 
 
         // Do we check for death here or in update?
     }
@@ -145,9 +138,9 @@ public class Player : MonoBehaviour
     void UpdateEquippedItems()
     {
         // Not sure how much of a performance hit this is. Alternatively we could reference these components in the weapon script. (1 GetComponent per weapon)
-        wepRight.sprite = ActiveItems.inst.wepRight.GetComponent<SpriteRenderer>().sprite;
-        wepLeft.sprite = ActiveItems.inst.wepLeft.GetComponent<SpriteRenderer>().sprite;
-        wepColliderRight.points = ActiveItems.inst.wepRight.GetComponent<PolygonCollider2D>().points;
-        wepColliderLeft.points = ActiveItems.inst.wepLeft.GetComponent<PolygonCollider2D>().points;
+        wepRight.sprite = GameManager.inst.activeItems.wepRight.GetComponent<SpriteRenderer>().sprite;
+        wepLeft.sprite = GameManager.inst.activeItems.wepLeft.GetComponent<SpriteRenderer>().sprite;
+        wepColliderRight.points = GameManager.inst.activeItems.wepRight.GetComponent<PolygonCollider2D>().points;
+        wepColliderLeft.points = GameManager.inst.activeItems.wepLeft.GetComponent<PolygonCollider2D>().points;
     }
 }

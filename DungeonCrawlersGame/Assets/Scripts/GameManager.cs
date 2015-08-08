@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour {
 	public MidiSystem midiSystem;
 	public Dungeon dungeon;
 	public DungeonSets dungeonSets;
+    public Stats stats;
+    public Inventory inventory;
+    public ActiveItems activeItems;
 
 	void Awake()
 	{
