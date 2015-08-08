@@ -59,7 +59,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311708490eee84547b98bf188fc799fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: PH Sword
+  type: 0
+  rarity: 0
+  price: 10
   dmg: 1
+  minDmg: 0
+  maxDmg: 0
   cd: 1
   ammCur: 0
   ammMax: 0
@@ -95,7 +101,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: name
+      value: PH Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: price
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 116298}
