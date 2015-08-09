@@ -12,7 +12,7 @@ public class DungeonGeneration {
 
 	public Dungeon.Room CreateRoom()
 	{
-		return new Dungeon.Room(0, 0, set.room);
+		return new Dungeon.Room(set.room);
 	}
 
 }
