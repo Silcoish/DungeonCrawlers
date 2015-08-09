@@ -11,20 +11,35 @@ public class Dungeon : MonoBehaviour{
 	[System.Serializable]
 	public class Room
 	{
-		GameObject roomGameobject;
+		DungeonSets.DungeonPieces set;
 		int x, y;
 
-		public Room(GameObject go)
+		public Room(DungeonSets.DungeonPieces sett)
 		{
-			roomGameobject = go;
-			//Instantiate(go, new Vector2(x, y), Quaternion.identity);
+			set = sett;
 		}
 
 		public void SpawnRoom(int xx, int yy)
 		{
-			int x = xx;
-			int y = yy;
-			Instantiate(roomGameobject, new Vector2(x * 19.2f, -y * 10.8f), Quaternion.identity);
+			x = xx;
+			y = yy;
+			print(x);
+			print(y);
+			Instantiate(set.room, new Vector2(x * 19.2f, -y * 10.8f), Quaternion.identity);
+		}
+
+		public void SpawnDoor(bool u, bool r, bool d, bool l)
+		{
+			print(x);
+			print(y);
+			if (u)
+				Instantiate(set.northDoor, new Vector2(x * 19.2f, -y * 10.8f + 4.09f), set.northDoor.transform.rotation);
+			else if (r)
+				Instantiate(set.eastDoor, new Vector2(x * 19.2f + 9.15f, -y * 10.8f), set.eastDoor.transform.rotation);
+			else if (d)
+				Instantiate(set.southDoor, new Vector2(x * 19.2f, -y * 10.8f - 4.92f), set.southDoor.transform.rotation);
+			else if (l)
+				Instantiate(set.westDoor, new Vector2(x * 19.2f - 8.95f, -y * 10.8f), set.westDoor.transform.rotation);
 		}
 	};
 
@@ -67,6 +82,28 @@ public class Dungeon : MonoBehaviour{
 			if(grid[i] != -1)
 			{
 				rooms[grid[i]].SpawnRoom(i % GRID_WIDTH, (int)Mathf.Floor(i / GRID_HEIGHT));
+			}
+		}
+
+		SpawnDoors();
+	}
+
+	void SpawnDoors()
+	{
+		for(int i = 0; i < grid.Length; i++)
+		{
+			if(grid[i] != -1)
+			{
+				if (grid[i + 1] != -1)
+				{
+					rooms[grid[i]].SpawnDoor(false, true, false, false);//.CreateDoor(rooms[grid[i]], DungeonGeneration.Direction.RIGHT);
+					rooms[grid[i + 1]].SpawnDoor(false, false, false, true); //dg.CreateDoor(rooms[grid[i + 1]], DungeonGeneration.Direction.LEFT);
+				}
+				if(grid[i + GRID_WIDTH] != -1)
+				{
+					rooms[grid[i]].SpawnDoor(false, false, true, false);//.CreateDoor(rooms[grid[i]], DungeonGeneration.Direction.RIGHT);
+					rooms[grid[i + GRID_WIDTH]].SpawnDoor(true, false, false, false); //dg.CreateDoor(rooms[grid[i + 1]], DungeonGeneration.Direction.LEFT);
+				}
 			}
 		}
 	}

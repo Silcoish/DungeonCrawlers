@@ -117,10 +117,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   set:
   - room: {fileID: 169632, guid: 7dcf7a0662730984c9a9b4b9e59bb443, type: 2}
-    northDoor: {fileID: 0}
-    eastDoor: {fileID: 0}
-    southDoor: {fileID: 0}
-    westDoor: {fileID: 0}
+    northDoor: {fileID: 152006, guid: b53785e05b134784689e7ce52a285b41, type: 2}
+    eastDoor: {fileID: 104206, guid: 59a8df59b206a57498f94352122a0c0c, type: 2}
+    southDoor: {fileID: 150346, guid: 667e8848d16857b4a9bf9940e8550728, type: 2}
+    westDoor: {fileID: 165924, guid: 06d05d1a7bdbde141ad77c824a397e31, type: 2}
 --- !u!4 &280131125
 Transform:
   m_ObjectHideFlags: 0
