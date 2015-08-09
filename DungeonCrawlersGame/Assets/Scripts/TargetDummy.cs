@@ -24,11 +24,13 @@ public class TargetDummy : MonoBehaviour
     {     
         if(col.gameObject.tag == "Player")
         {
-            col.gameObject.GetComponent<Player>().TakeDamage(damage, transform.position, knockback);
+			Vector2 kbForce = gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
+			col.gameObject.GetComponent<Player>().OnTakeDamage(damage, kbForce * knockback);
         }
         if(col.gameObject.tag == "Enemy")
         {
-            col.gameObject.GetComponent<Enemy>().OnTakeDamage(transform.position, damage);
+			Vector2 kbForce = gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
+			col.gameObject.GetComponent<Enemy>().OnTakeDamage(damage, kbForce * knockback);
         }
 
         // If we standardize the damage call
