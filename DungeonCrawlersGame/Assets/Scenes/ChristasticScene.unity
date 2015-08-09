@@ -183,7 +183,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 79afc5ed825cffb4e9cc2871a1f47352, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f0c2cf7480ad1d14dbba386857014ca3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &58698679
 Transform:
@@ -225,6 +225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   midiSystem: {fileID: 328638544}
+  dungeon: {fileID: 0}
+  dungeonSets: {fileID: 0}
 --- !u!4 &87859852
 Transform:
   m_ObjectHideFlags: 0
