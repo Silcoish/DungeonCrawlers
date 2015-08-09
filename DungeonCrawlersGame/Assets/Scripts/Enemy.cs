@@ -9,6 +9,9 @@ public class Enemy : MonoBehaviour
 
 	public int health;
 
+	public int collisionDamage = 1;
+	public float knockbackForce = 0;
+
 
 	private Rigidbody2D rb;
 
@@ -141,14 +144,14 @@ public class Enemy : MonoBehaviour
 	/// Damge could be = to 0
 	/// </summary>
 	/// <param name="dam"></param>
-	public void OnTakeDamage(Vector2 origin, int dam)
+	public void OnTakeDamage(int dam, Vector2 knockbackForce)
 	{
 		health -= dam;
 
 		//Loop through Behaviours and call on take damage
 		for (int i = 0; i < enemyBehaviours.Count; i++)
 		{
-			enemyBehaviours[i].OnTakeDamage(origin, dam);
+			enemyBehaviours[i].OnTakeDamage(dam, knockbackForce);
 		}
 
 
@@ -174,30 +177,31 @@ public class Enemy : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            col.gameObject.GetComponent<Player>().TakeDamage(0, transform.position, 5);
+			Vector2 kbForce = gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
+            col.gameObject.GetComponent<Player>().OnTakeDamage(collisionDamage, kbForce * knockbackForce );
         }
         if (col.gameObject.tag == "Enemy")
         {
-            col.gameObject.GetComponent<Enemy>().OnTakeDamage(transform.position, 0);
+            //Enmemies do not take collision damage from other enemies.
         }
 
         // If we standardize the damage call
         //col.gameObject.GetComponent<Damageable>().TakeDamage(damage, transform.position, knockback);
     }
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "WepLeft")
-        {
-            Weapon wep = GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>();
-            //TakeDamage(wep.dmg /* * stat.str*/, col.transform.position, wep.kb/* * stat.str?*/);
-            OnTakeDamage(col.transform.position, wep.dmg);
-        }
-        if (col.gameObject.tag == "WepRight")
-        {
-            Weapon wep = GameManager.inst.activeItems.wepRight.GetComponent<Weapon>();
-            //TakeDamage(wep.dmg /* * stat.str*/, col.transform.position, wep.kb/* * stat.str?*/);
-            OnTakeDamage(col.transform.position, wep.dmg);
-        }
-    }
+	//void OnTriggerEnter2D(Collider2D col)
+	//{
+	//	if (col.gameObject.tag == "WepLeft")
+	//	{
+	//		Weapon wep = GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>();
+	//		//TakeDamage(wep.dmg /* * stat.str*/, col.transform.position, wep.kb/* * stat.str?*/);
+	//		OnTakeDamage(col.transform.position, wep.dmg);
+	//	}
+	//	if (col.gameObject.tag == "WepRight")
+	//	{
+	//		Weapon wep = GameManager.inst.activeItems.wepRight.GetComponent<Weapon>();
+	//		//TakeDamage(wep.dmg /* * stat.str*/, col.transform.position, wep.kb/* * stat.str?*/);
+	//		OnTakeDamage(col.transform.position, wep.dmg);
+	//	}
+	//}
 }

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     public Stats stats;
     public Inventory inventory;
     public ActiveItems activeItems;
+    public VendorInventory vendorInventory;
 
 	void Awake()
 	{
