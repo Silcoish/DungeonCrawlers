@@ -141,14 +141,14 @@ public class Enemy : MonoBehaviour
 	/// Damge could be = to 0
 	/// </summary>
 	/// <param name="dam"></param>
-	public void OnTakeDamage(Vector2 origin, int dam)
+	public void OnTakeDamage(int dam, Vector2 knockbackForce)
 	{
 		health -= dam;
 
 		//Loop through Behaviours and call on take damage
 		for (int i = 0; i < enemyBehaviours.Count; i++)
 		{
-			enemyBehaviours[i].OnTakeDamage(origin, dam);
+			enemyBehaviours[i].OnTakeDamage(dam, knockbackForce);
 		}
 
 

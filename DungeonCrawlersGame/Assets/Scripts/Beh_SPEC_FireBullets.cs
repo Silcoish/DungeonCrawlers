@@ -29,14 +29,14 @@ public class Beh_SPEC_FireBullets : Behaviour
 
 	public override void BehaviourUpdate(Enemy en)
 	{
-		print("fire");
+		//print("fire");
 		if (sub.state == NoteSubscribe.State.ACTIVE && prevState == NoteSubscribe.State.DEACTIVE)
 		{
 			skipCount++;
 		}
 		if (skipCount >= stateSkips)
 		{
-			print("fire");
+			//print("fire");
 			skipCount = 0;
 			FireBullets(en);
 		}
@@ -45,7 +45,7 @@ public class Beh_SPEC_FireBullets : Behaviour
 
 	public void FireBullets(Enemy en)
 	{
-		print("fire 2");
+		//print("fire 2");
 		Vector2 tempDir = en.GetLookDirection().normalized;
 		GLobalFunctions.RotateVector(ref tempDir, -shotAngle);
 		float angleDif = (shotAngle * 2) / numberOfBullets;
@@ -59,8 +59,9 @@ public class Beh_SPEC_FireBullets : Behaviour
 
 	public void FireBullet(Vector2 dir)
 	{
-		print("fire 3");
+		//print("fire 3");
 		GameObject tempBullet = Instantiate(bullet,gameObject.transform.position, gameObject.transform.rotation) as GameObject;
+		Physics2D.IgnoreCollision(tempBullet.GetComponent<Collider2D>(),gameObject.GetComponent<Collider2D>(), true);
 		Rigidbody2D bRB = tempBullet.GetComponent<Rigidbody2D>();
 		bRB.velocity = dir * shotSpeed;
 	}

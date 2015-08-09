@@ -58,7 +58,7 @@ public class Beh_SPEC_RandomDirection : Behaviour
 		{
 			if (hits[i].collider.tag == "Wall")
 			{
-				print("wall");
+				//print("wall");
 				return true;
 			}
 		}
