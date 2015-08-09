@@ -16,12 +16,12 @@ public class UI_Game : MonoBehaviour
 
     void Update()
     {
-        goldText.text = "" + Inventory.inst.gold;
-        healthText.text = Stats.inst.hpCur + "/" + Stats.inst.hpMax;
+        goldText.text = "" + GameManager.inst.inventory.gold;
+        healthText.text = GameManager.inst.stats.hpCur + "/" + GameManager.inst.stats.hpMax;
 
         // Will need to move these into a function call when required, rather than every update.
-        wepLeft.sprite = ActiveItems.inst.wepLeft.GetComponent<SpriteRenderer>().sprite;
-        wepRight.sprite = ActiveItems.inst.wepRight.GetComponent<SpriteRenderer>().sprite;
+        wepLeft.sprite = GameManager.inst.activeItems.wepLeft.GetComponent<SpriteRenderer>().sprite;
+        wepRight.sprite = GameManager.inst.activeItems.wepRight.GetComponent<SpriteRenderer>().sprite;
     }
 	
 }

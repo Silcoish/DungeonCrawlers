@@ -169,4 +169,35 @@ public class Enemy : MonoBehaviour
 		Destroy(gameObject);
 
 	}
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            col.gameObject.GetComponent<Player>().TakeDamage(0, transform.position, 5);
+        }
+        if (col.gameObject.tag == "Enemy")
+        {
+            col.gameObject.GetComponent<Enemy>().OnTakeDamage(transform.position, 0);
+        }
+
+        // If we standardize the damage call
+        //col.gameObject.GetComponent<Damageable>().TakeDamage(damage, transform.position, knockback);
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "WepLeft")
+        {
+            Weapon wep = GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>();
+            //TakeDamage(wep.dmg /* * stat.str*/, col.transform.position, wep.kb/* * stat.str?*/);
+            OnTakeDamage(col.transform.position, wep.dmg);
+        }
+        if (col.gameObject.tag == "WepRight")
+        {
+            Weapon wep = GameManager.inst.activeItems.wepRight.GetComponent<Weapon>();
+            //TakeDamage(wep.dmg /* * stat.str*/, col.transform.position, wep.kb/* * stat.str?*/);
+            OnTakeDamage(col.transform.position, wep.dmg);
+        }
+    }
 }
