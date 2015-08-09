@@ -4,6 +4,7 @@ using System.Collections;
 public class Beh_DAM_ForceBack : Behaviour 
 {
 	bool isKnockBack;
+	bool firstHit = false;
 	Vector2 Dir;
 
 	[Range(1,50)]
@@ -23,8 +24,17 @@ public class Beh_DAM_ForceBack : Behaviour
 			timer += Time.deltaTime;
 			if (timer > knockbackTime)
 				isKnockBack = false;
-			en.ResetSpeed();
 			en.SetMoveDirection(Dir);
+
+			if (firstHit)
+			{
+				en.SetSpeed(knockbackForce);
+				firstHit = false;
+			}
+			else
+			{
+				en.ResetSpeed();
+			}
 		}
 	}
 
@@ -33,6 +43,7 @@ public class Beh_DAM_ForceBack : Behaviour
 		isKnockBack = true;
 		Dir = knockbackForce;
 		timer = 0;
+		firstHit = true;
 	}
 
 	public override void OnDeath()

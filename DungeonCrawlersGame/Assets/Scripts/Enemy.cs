@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour
 	public Vector2 lookDir;
 	public Vector2 moveDir;
 
+	float damageTimer = 0;
+
 
 	// Use this for initialization
 	void Awake () 
@@ -56,6 +58,14 @@ public class Enemy : MonoBehaviour
 		//Set enemies Movement.
 		gameObject.transform.rotation = Quaternion.FromToRotation(Vector2.up, lookDir);
 		rb.velocity = moveDir.normalized * moveSpeed;
+
+		//Colour Change for taking damage.
+		if (damageTimer > 0)
+		{
+			Color spColor = Color.Lerp(Color.white, Color.red, damageTimer);
+			gameObject.GetComponent<SpriteRenderer>().color = spColor;
+			damageTimer -= Time.deltaTime;
+		}
 	}
 
 
@@ -99,6 +109,10 @@ public class Enemy : MonoBehaviour
 	public void SetLookDirection(float angle)
 	{
 		lookDir = GLobalFunctions.DegToVector(angle);
+	}
+	public void SetLookDirection(Vector2 dir)
+	{
+		lookDir = dir;
 	}
 
 	public void RotateLookDirection(float angle)
@@ -148,6 +162,8 @@ public class Enemy : MonoBehaviour
 	{
 		health -= dam;
 
+		damageTimer = 1;
+
 		//Loop through Behaviours and call on take damage
 		for (int i = 0; i < enemyBehaviours.Count; i++)
 		{
@@ -177,7 +193,7 @@ public class Enemy : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-			Vector2 kbForce = gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
+			Vector2 kbForce = (col.gameObject.transform.position - gameObject.transform.position).normalized;
             col.gameObject.GetComponent<Player>().OnTakeDamage(collisionDamage, kbForce * knockbackForce );
         }
         if (col.gameObject.tag == "Enemy")
@@ -188,6 +204,22 @@ public class Enemy : MonoBehaviour
         // If we standardize the damage call
         //col.gameObject.GetComponent<Damageable>().TakeDamage(damage, transform.position, knockback);
     }
+
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if (col.gameObject.tag == "WepLeft")
+		{
+			Weapon wep = GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>();
+			Vector2 kbForce = -(col.gameObject.transform.position - gameObject.transform.position).normalized;
+			OnTakeDamage(wep.dmg, kbForce);// * wep.kb);
+		}
+		if (col.gameObject.tag == "WepRight")
+		{
+			Weapon wep = GameManager.inst.activeItems.wepRight.GetComponent<Weapon>();
+			Vector2 kbForce = -(col.gameObject.transform.position - gameObject.transform.position).normalized;
+			OnTakeDamage(wep.dmg, kbForce);// * wep.kb);
+		}
+	}
 
 	//void OnTriggerEnter2D(Collider2D col)
 	//{

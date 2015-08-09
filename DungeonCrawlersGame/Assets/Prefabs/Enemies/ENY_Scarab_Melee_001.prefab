@@ -29,8 +29,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 4.95841789, y: 1.17515147, z: 0}
+  m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -78,6 +78,8 @@ MonoBehaviour:
   - {fileID: 11475192}
   - {fileID: 11493414}
   health: 0
+  collisionDamage: 1
+  knockbackForce: 0
   moveSpeed: 0
   lookDir: {x: 0, y: 0}
   moveDir: {x: 0, y: 0}
@@ -107,7 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811483e2626a1a64881cc6fb7412df0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 2
+  rotateToFace: 1
 --- !u!114 &11493414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -120,10 +123,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sub: {fileID: 11445582}
-  movespeed: 50
+  movespeed: 20
   directions: 4
   wallDistanceCheck: 5
-  stateSkips: 1
+  stateSkips: 2
 --- !u!212 &21284978
 SpriteRenderer:
   m_ObjectHideFlags: 1
