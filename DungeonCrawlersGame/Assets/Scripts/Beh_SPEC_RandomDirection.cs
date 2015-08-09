@@ -7,8 +7,6 @@ public class Beh_SPEC_RandomDirection : Behaviour
 
 	NoteSubscribe.State prevState;
 
-	bool type = true;
-
 	public float movespeed;
 	public int directions;
 	[Range(0,15)]
