@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Wall
   - Enemy
+  - Player
+  - WepLeft
+  - WepRight
   layers:
   - Default
   - TransparentFX

@@ -25,6 +25,10 @@ public class Player : MonoBehaviour
     public PolygonCollider2D wepColliderLeft;
 
     public int baseMoveSpeed = 10;
+    private float cdRight;
+    private float cdRightCur;
+    private float cdLeft;
+    private float cdLeftCur;
 
 	void Start () 
     {
@@ -103,35 +107,43 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(Input.GetButton("Fire1") /*&& Weapon.cooldown == 0*/)
+        if(Input.GetButton("Fire1") && cdRightCur < 0)
         {
-            anim.SetTrigger("AttackRight");
+            AttackRightHand();
         }
+        if (Input.GetButton("Fire2") && cdLeftCur < 0)
+        {
+            AttackLeftHand();
+        }
+
+        // Update Cooldown timers
+        cdLeftCur -= Time.deltaTime;
+        cdRightCur -= Time.deltaTime;
     }
 
-    void TakeDamage(int amount)
+    public void TakeDamage(int dmg, Vector2 pos, int kb)
     {
-        GameManager.inst.stats.hpCur -= amount; 
+        GameManager.inst.stats.hpCur -= dmg;
 
-        // Do we check for death here or in update?
+        rb2D.AddForce(((Vector2)transform.position - pos) * kb, ForceMode2D.Impulse);
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if(coll.gameObject.tag == "Enemy")
-        {
-
-        }
     }
 
     void AttackLeftHand()
     {
-        //inv.activeItems.weaponLeft.Attack()
+        anim.SetTrigger("AttackLeft");
+        GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>().Attack();
+        cdLeftCur = cdLeft;
     }
 
     void AttackRightHand()
     {
-        //inv.activeItems.weaponRight.Attack()
+        anim.SetTrigger("AttackRight");
+        GameManager.inst.activeItems.wepRight.GetComponent<Weapon>().Attack();
+        cdRightCur = cdRight;
     }
 
     // Update the weapon sprites and collider volumes on the player based on the data in the equipped weapon prefabs.
@@ -142,5 +154,7 @@ public class Player : MonoBehaviour
         wepLeft.sprite = GameManager.inst.activeItems.wepLeft.GetComponent<SpriteRenderer>().sprite;
         wepColliderRight.points = GameManager.inst.activeItems.wepRight.GetComponent<PolygonCollider2D>().points;
         wepColliderLeft.points = GameManager.inst.activeItems.wepLeft.GetComponent<PolygonCollider2D>().points;
+        cdRight = GameManager.inst.activeItems.wepRight.GetComponent<Weapon>().cd;
+        cdLeft = GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>().cd;
     }
 }

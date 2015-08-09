@@ -7,6 +7,7 @@ public class Weapon : ItemBase
     public int minDmg;      // Rarity Damage Range (Minimum)
     public int maxDmg;      // Rarity Damage Range (Maximum)
     public int cd;          // Cooldown
+    public int kb;          // Knockback Distance
     public int ammCur;      // Current Ammo
     public int ammMax;      // Maximum Ammo
 
@@ -18,7 +19,7 @@ public class Weapon : ItemBase
         type = ItemType.WEAPON;
     }
 
-    void Attack()
+    public void Attack()
     {
 
     }
