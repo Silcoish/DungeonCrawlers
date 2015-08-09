@@ -28,10 +28,10 @@ public class Beh_DAM_ForceBack : Behaviour
 		}
 	}
 
-	public override void OnTakeDamage(Vector2 origin, int dam)
+	public override void OnTakeDamage(int dam, Vector2 knockbackForce)
 	{
 		isKnockBack = true;
-		Dir = ((Vector2)gameObject.transform.position - origin).normalized;
+		Dir = knockbackForce;
 		timer = 0;
 	}
 

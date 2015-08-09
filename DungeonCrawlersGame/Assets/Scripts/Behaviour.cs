@@ -14,7 +14,7 @@ public class Behaviour : MonoBehaviour
 		
 	}
 
-	public virtual void OnTakeDamage(Vector2 origin, int dam)
+	public virtual void OnTakeDamage(int dam, Vector2 knockbackForce)
 	{
 
 	}
