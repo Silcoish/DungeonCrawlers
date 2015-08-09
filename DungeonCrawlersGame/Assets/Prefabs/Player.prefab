@@ -44,7 +44,7 @@ GameObject:
   - 60: {fileID: 6068736}
   m_Layer: 0
   m_Name: WepColliderRight
-  m_TagString: Untagged
+  m_TagString: WepRight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,7 +64,7 @@ GameObject:
   - 95: {fileID: 9522078}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,7 +160,7 @@ GameObject:
   - 60: {fileID: 6067570}
   m_Layer: 0
   m_Name: WepColliderLeft
-  m_TagString: Untagged
+  m_TagString: WepLeft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

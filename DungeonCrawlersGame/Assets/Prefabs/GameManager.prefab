@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &128254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 450898}
+  - 114: {fileID: 11454176}
+  - 114: {fileID: 11456550}
+  - 114: {fileID: 11492864}
+  - 114: {fileID: 11497982}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &450898
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.12163973, y: -.212484658, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11454176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad91a857217f304183608a66bbdf7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  midiSystem: {fileID: 0}
+  dungeon: {fileID: 0}
+  dungeonSets: {fileID: 0}
+  stats: {fileID: 11456550}
+  inventory: {fileID: 11492864}
+  activeItems: {fileID: 11497982}
+--- !u!114 &11456550
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9bdf73d7b2b8ae45add1e5c66095fa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpCur: 100
+  hpMax: 100
+  str: 1
+  def: 1
+  crit: 1
+  spd: 1
+  luck: 1
+--- !u!114 &11492864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7085d04b2485d8439e4856070b9cdf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gold: 0
+  inventory: []
+--- !u!114 &11497982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 631e7f20f777e9a4595fe15ee2d60ba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wepLeft: {fileID: 116298, guid: 135de17eff79c6a4fa39c87b6618c3f8, type: 2}
+  wepRight: {fileID: 116298, guid: 135de17eff79c6a4fa39c87b6618c3f8, type: 2}
+  wepLeftOff: {fileID: 0}
+  wepRightOff: {fileID: 0}
+  pas1: {fileID: 0}
+  pas2: {fileID: 0}
+  pas3: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 128254}
+  m_IsPrefabParent: 1
