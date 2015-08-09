@@ -121,11 +121,11 @@ public class Player : MonoBehaviour
         cdRightCur -= Time.deltaTime;
     }
 
-    public void TakeDamage(int dmg, Vector2 pos, int kb)
+    public void OnTakeDamage(int dmg, Vector2 kb)
     {
         GameManager.inst.stats.hpCur -= dmg;
 
-        rb2D.AddForce(((Vector2)transform.position - pos) * kb, ForceMode2D.Impulse);
+        rb2D.AddForce(kb, ForceMode2D.Impulse);
     }
 
     void OnCollisionEnter2D(Collision2D col)

@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - WepLeft
   - WepRight
+  - Vendor_Weapons
   layers:
   - Default
   - TransparentFX
