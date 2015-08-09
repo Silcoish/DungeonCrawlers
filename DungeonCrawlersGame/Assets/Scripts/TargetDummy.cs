@@ -13,23 +13,23 @@ public class TargetDummy : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
     }
 
-	void TakeDamage(int dmg, Vector2 pos, int kb)
+	void OnTakeDamage(int dmg, Vector2 kb)
     {
         // Does not have hp to be reduced.
 
-        rb2D.AddForce(((Vector2)transform.position - pos) * kb, ForceMode2D.Impulse);
+        rb2D.AddForce(kb, ForceMode2D.Impulse);
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {     
         if(col.gameObject.tag == "Player")
         {
-			Vector2 kbForce = gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
+			Vector2 kbForce = -gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
 			col.gameObject.GetComponent<Player>().OnTakeDamage(damage, kbForce * knockback);
         }
         if(col.gameObject.tag == "Enemy")
         {
-			Vector2 kbForce = gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
+			Vector2 kbForce = -gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
 			col.gameObject.GetComponent<Enemy>().OnTakeDamage(damage, kbForce * knockback);
         }
 
@@ -39,15 +39,31 @@ public class TargetDummy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.tag == "WepLeft")
+        if (col.gameObject.tag == "WepLeft")
         {
             Weapon wep = GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>();
-            TakeDamage(wep.dmg /* * stat.str*/, col.transform.position, wep.kb/* * stat.str?*/);
+            Vector2 kbForce = col.gameObject.GetComponentInParent<Rigidbody2D>().velocity.normalized;
+            OnTakeDamage(wep.dmg, kbForce * wep.kb);
         }
-        if(col.gameObject.tag == "WepRight")
+        if (col.gameObject.tag == "WepRight")
         {
             Weapon wep = GameManager.inst.activeItems.wepRight.GetComponent<Weapon>();
-            TakeDamage(wep.dmg /* * stat.str*/, col.transform.position, wep.kb/* * stat.str?*/);
+            Vector2 kbForce = col.gameObject.GetComponentInParent<Rigidbody2D>().velocity.normalized;
+            OnTakeDamage(wep.dmg, kbForce * wep.kb);
         }
     }
+
+    //void OnTriggerEnter2D(Collider2D col)
+    //{
+    //    if(col.gameObject.tag == "WepLeft")
+    //    {
+    //        Weapon wep = GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>();
+    //        TakeDamage(wep.dmg /* * stat.str*/, col.transform.position, wep.kb/* * stat.str?*/);
+    //    }
+    //    if(col.gameObject.tag == "WepRight")
+    //    {
+    //        Weapon wep = GameManager.inst.activeItems.wepRight.GetComponent<Weapon>();
+    //        TakeDamage(wep.dmg /* * stat.str*/, col.transform.position, wep.kb/* * stat.str?*/);
+    //    }
+    //}
 }
