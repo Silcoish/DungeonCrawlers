@@ -144,7 +144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75fb384c13641d43973bcd82b0e92d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomAmount: 1
+  roomAmount: 10
+  rooms: []
+  grid: 
+  shift: 0
 --- !u!1 &1944786920
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,6 +326,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &2039581121
 Transform:
   m_ObjectHideFlags: 0
@@ -431,3 +435,7 @@ MonoBehaviour:
   midiSystem: {fileID: 2039581122}
   dungeon: {fileID: 280131126}
   dungeonSets: {fileID: 280131124}
+  stats: {fileID: 0}
+  inventory: {fileID: 0}
+  activeItems: {fileID: 0}
+  vendorInventory: {fileID: 0}

@@ -24,7 +24,7 @@ public class Dungeon : MonoBehaviour{
 		{
 			int x = xx;
 			int y = yy;
-			Instantiate(roomGameobject, new Vector2(xx * 19.2f, y), Quaternion.identity);
+			Instantiate(roomGameobject, new Vector2(x * 19.2f, -y * 10.8f), Quaternion.identity);
 		}
 	};
 
@@ -44,18 +44,6 @@ public class Dungeon : MonoBehaviour{
 		CreateRooms();
 	}
 
-	void Update()
-	{
-		if(shift)
-		{
-			ShiftRoomsRight();
-			shift = false;
-			grid[GRID_WIDTH * GRID_HEIGHT - 9] = 1000;
-			grid[GRID_WIDTH * GRID_HEIGHT - 1] = 1001;
-			ShiftRoomsDown();
-		}
-	}
-
 	void CreateRooms()
 	{
 		for (int i = 0; i < roomAmount; i++)
@@ -63,8 +51,11 @@ public class Dungeon : MonoBehaviour{
 			dg = new DungeonGeneration();
 			dg.LoadSet(GameManager.inst.dungeonSets.set[0]);
 			rooms.Add(dg.CreateRoom());
+			if (Random.Range(0, 2) == 0)
+				ShiftRoomsDown();
+			else
+				ShiftRoomsRight();
 			grid[0] = i;
-			ShiftRoomsRight();
 		}
 		SpawnRooms();
 	}
@@ -105,10 +96,20 @@ public class Dungeon : MonoBehaviour{
 	void ShiftRoomsDown()
 	{
 		int[] last = new int[GRID_WIDTH];
-		for(int i = 0; i < GRID_HEIGHT; i++)
+		for (int j = 0; j < GRID_WIDTH; j++)
+			last[j] = grid[GRID_WIDTH * GRID_HEIGHT - 1 - (GRID_WIDTH - 1 - j)];
+		
+		for(int i = GRID_HEIGHT - 2; i >= 0; i--)
 		{
-			for (int j = 0; j < GRID_WIDTH; j++)
-				last[i] = grid[GRID_WIDTH * GRID_HEIGHT - (GRID_WIDTH - j)];
+			for (int k = 0; k < GRID_WIDTH; k++)
+			{
+				grid[(i + 1) * GRID_WIDTH + k] = grid[i * GRID_WIDTH + k];
+			}
+		}
+
+		for(int c = 0; c < GRID_WIDTH; c++)
+		{
+			grid[c] = last[c];
 		}
 	}
 
