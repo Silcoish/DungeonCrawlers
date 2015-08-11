@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     private BoxCollider2D boxCol2D;
     private Rigidbody2D rb2D;
     private Animator anim;
-    public Animator animLegs;
     public Animator armRight;
     public Animator armLeft;
     private SpriteRenderer armRightSprite;
@@ -55,6 +54,8 @@ public class Player : MonoBehaviour
 
         Vector3 facing = mousePosition - transform.position;
         anim.SetFloat("MoveSpeed", (Mathf.Abs(horizontal) + Mathf.Abs(vertical))); // Get ANY movement on either axis.
+        armRight.SetFloat("MoveSpeed", (Mathf.Abs(horizontal) + Mathf.Abs(vertical))); // Get ANY movement on either axis.
+        armLeft.SetFloat("MoveSpeed", (Mathf.Abs(horizontal) + Mathf.Abs(vertical))); // Get ANY movement on either axis.
 
         if(Mathf.Abs(facing.x) > Mathf.Abs(facing.y))
         {
@@ -64,7 +65,6 @@ public class Player : MonoBehaviour
             if(facing.x > 0)
             {
                 anim.SetInteger("Facing", (int)Facing.RIGHT);
-                animLegs.SetInteger("Facing", (int)Facing.RIGHT);
                 armRight.SetInteger("Facing", (int)Facing.RIGHT);
                 armLeft.SetInteger("Facing", (int)Facing.RIGHT);
                 armLeftSprite.sortingOrder = -2;
@@ -76,7 +76,6 @@ public class Player : MonoBehaviour
             else
             {
                 anim.SetInteger("Facing", (int)Facing.LEFT);
-                animLegs.SetInteger("Facing", (int)Facing.LEFT);
                 armRight.SetInteger("Facing", (int)Facing.LEFT);
                 armLeft.SetInteger("Facing", (int)Facing.LEFT);
                 armLeftSprite.sortingOrder = 3;
@@ -93,7 +92,6 @@ public class Player : MonoBehaviour
             if (facing.y > 0)
             {
                 anim.SetInteger("Facing", (int)Facing.UP);
-                animLegs.SetInteger("Facing", (int)Facing.UP);
                 wepLeft.sortingOrder = -1;
                 wepRight.sortingOrder = -1;
 
@@ -101,7 +99,6 @@ public class Player : MonoBehaviour
             else
             {
                 anim.SetInteger("Facing", (int)Facing.DOWN);
-                animLegs.SetInteger("Facing", (int)Facing.DOWN);
                 wepLeft.sortingOrder = 2;
                 wepRight.sortingOrder = 2;
             }

@@ -245,7 +245,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
---- !u!1001 &1134460126
+--- !u!1001 &1156158123
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -282,31 +282,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 406070, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 193952, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 133668, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6068736, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6067570, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 116430, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
-      propertyPath: m_TagString
-      value: WepRight
-      objectReference: {fileID: 0}
-    - target: {fileID: 193952, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
-      propertyPath: m_TagString
-      value: WepLeft
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
@@ -650,6 +626,10 @@ Prefab:
     - target: {fileID: 22402692, guid: 2ed5318a90cb6d242b10a169482afd18, type: 2}
       propertyPath: m_AnchoredPosition.y
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11491686, guid: 2ed5318a90cb6d242b10a169482afd18, type: 2}
+      propertyPath: m_UiScaleMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ed5318a90cb6d242b10a169482afd18, type: 2}
