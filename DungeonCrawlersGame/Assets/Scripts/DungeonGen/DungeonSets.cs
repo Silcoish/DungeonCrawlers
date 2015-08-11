@@ -12,6 +12,8 @@ public class DungeonSets : MonoBehaviour {
 		[SerializeField] public GameObject eastDoor;
 		[SerializeField] public GameObject southDoor;
 		[SerializeField] public GameObject westDoor;
+		[SerializeField] public List<GameObject> enemies;
+		[SerializeField] public List<GameObject> obstacles;
 	};
 
 	[SerializeField] public List<DungeonPieces> set;

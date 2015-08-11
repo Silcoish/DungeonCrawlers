@@ -32,11 +32,6 @@ public class DungeonGeneration {
 		return new Dungeon.Room(set);
 	}
 
-	public void CreateDoor(Dungeon.Room room, Direction dir)
-	{
-
-	}
-
 	/*public void CreateDoor(Dungeon.Room room,  options)
 	{
 		if ((options & Options.UP) == Options.UP)

@@ -121,6 +121,10 @@ MonoBehaviour:
     eastDoor: {fileID: 104206, guid: 59a8df59b206a57498f94352122a0c0c, type: 2}
     southDoor: {fileID: 150346, guid: 667e8848d16857b4a9bf9940e8550728, type: 2}
     westDoor: {fileID: 165924, guid: 06d05d1a7bdbde141ad77c824a397e31, type: 2}
+    enemies:
+    - {fileID: 107970, guid: 94f56c4d820e4064286302a0728d82d8, type: 2}
+    - {fileID: 172340, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
+    obstacles: []
 --- !u!4 &280131125
 Transform:
   m_ObjectHideFlags: 0
@@ -144,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75fb384c13641d43973bcd82b0e92d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomAmount: 10
+  roomAmount: 1
   rooms: []
   grid: 
   shift: 0

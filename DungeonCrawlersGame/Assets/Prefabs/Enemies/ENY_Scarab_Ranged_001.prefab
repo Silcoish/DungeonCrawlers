@@ -31,8 +31,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.75, y: 5.40999985, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -6.50284243, y: 1.70487344, z: 0}
+  m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -81,6 +81,8 @@ MonoBehaviour:
   - {fileID: 11466770}
   - {fileID: 11414946}
   health: 0
+  collisionDamage: 1
+  knockbackForce: 0
   moveSpeed: 0
   lookDir: {x: 0, y: 0}
   moveDir: {x: 0, y: 0}
@@ -112,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e759df69521ea774d942d37f1e734f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  note: 36
+  note: 42
   velocity: 80
   channel: 1
   state: 0
@@ -130,8 +132,8 @@ MonoBehaviour:
   sub: {fileID: 11418800}
   movespeed: 5
   directions: 4
-  wallDistanceCheck: 8
-  stateSkips: 1
+  wallDistanceCheck: 3
+  stateSkips: 2
 --- !u!114 &11474606
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  rotateToFace: 1
 --- !u!114 &11478996
 MonoBehaviour:
   m_ObjectHideFlags: 1

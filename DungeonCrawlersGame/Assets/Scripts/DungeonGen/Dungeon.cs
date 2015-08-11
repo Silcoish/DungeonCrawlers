@@ -13,6 +13,10 @@ public class Dungeon : MonoBehaviour{
 	{
 		DungeonSets.DungeonPieces set;
 		int x, y;
+		float xOffset = 19.2f;
+		float yOffset = 10.8f;
+		List<GameObject> doors;
+		List<GameObject> enemies;
 
 		public Room(DungeonSets.DungeonPieces sett)
 		{
@@ -33,13 +37,22 @@ public class Dungeon : MonoBehaviour{
 			print(x);
 			print(y);
 			if (u)
-				Instantiate(set.northDoor, new Vector2(x * 19.2f, -y * 10.8f + 4.09f), set.northDoor.transform.rotation);
+				Instantiate(set.northDoor, new Vector2(x * xOffset, -y * yOffset + 4.09f), set.northDoor.transform.rotation);
 			else if (r)
-				Instantiate(set.eastDoor, new Vector2(x * 19.2f + 9.15f, -y * 10.8f), set.eastDoor.transform.rotation);
+				Instantiate(set.eastDoor, new Vector2(x * xOffset + 9.15f, -y * yOffset), set.eastDoor.transform.rotation);
 			else if (d)
-				Instantiate(set.southDoor, new Vector2(x * 19.2f, -y * 10.8f - 4.92f), set.southDoor.transform.rotation);
+				Instantiate(set.southDoor, new Vector2(x * xOffset, -y * yOffset - 4.92f), set.southDoor.transform.rotation);
 			else if (l)
-				Instantiate(set.westDoor, new Vector2(x * 19.2f - 8.95f, -y * 10.8f), set.westDoor.transform.rotation);
+				Instantiate(set.westDoor, new Vector2(x * xOffset - 8.95f, -y * yOffset), set.westDoor.transform.rotation);
+		}
+
+		public void SpawnEnemies()
+		{
+			int amount = Random.Range(1, 7);
+			for(int i = 0; i < amount; i++)
+			{
+				Instantiate(set.enemies[Random.Range(0, set.enemies.Count)], new Vector2(x * xOffset, y * yOffset), Quaternion.identity);
+			}
 		}
 	};
 
@@ -104,6 +117,19 @@ public class Dungeon : MonoBehaviour{
 					rooms[grid[i]].SpawnDoor(false, false, true, false);//.CreateDoor(rooms[grid[i]], DungeonGeneration.Direction.RIGHT);
 					rooms[grid[i + GRID_WIDTH]].SpawnDoor(true, false, false, false); //dg.CreateDoor(rooms[grid[i + 1]], DungeonGeneration.Direction.LEFT);
 				}
+			}
+		}
+
+		SpawnEnemies();
+	}
+
+	void SpawnEnemies()
+	{
+		for (int i = 0; i < grid.Length; i++)
+		{
+			if (grid[i] != -1)
+			{
+				rooms[grid[i]].SpawnEnemies();
 			}
 		}
 	}
