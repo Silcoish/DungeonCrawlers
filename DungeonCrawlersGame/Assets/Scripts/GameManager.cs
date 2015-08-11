@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
     public Inventory inventory;
     public ActiveItems activeItems;
     public VendorInventory vendorInventory;
+	public GameObject player;
 
 	void Awake()
 	{

@@ -13,46 +13,87 @@ public class Dungeon : MonoBehaviour{
 	{
 		DungeonSets.DungeonPieces set;
 		int x, y;
+		bool isStartRoom = false;
 		float xOffset = 19.2f;
 		float yOffset = 10.8f;
-		List<GameObject> doors;
+		public GameObject room;
+		GameObject enemiesParentNode;
+		public List<GameObject> doors;
 		List<GameObject> enemies;
 
-		public Room(DungeonSets.DungeonPieces sett)
+		public Room(DungeonSets.DungeonPieces sett, bool startRoom)
 		{
 			set = sett;
+			doors = new List<GameObject>();
+			enemies = new List<GameObject>();
+			isStartRoom = startRoom;
 		}
 
 		public void SpawnRoom(int xx, int yy)
 		{
 			x = xx;
 			y = yy;
-			print(x);
-			print(y);
-			Instantiate(set.room, new Vector2(x * 19.2f, -y * 10.8f), Quaternion.identity);
+			room = (GameObject)Instantiate(set.room, new Vector2(x * 19.2f, -y * 10.8f), Quaternion.identity);
+			enemiesParentNode = new GameObject();
+			enemiesParentNode.transform.parent = room.transform;
+			enemiesParentNode.name = "Enemies";
 		}
 
 		public void SpawnDoor(bool u, bool r, bool d, bool l)
 		{
-			print(x);
-			print(y);
 			if (u)
-				Instantiate(set.northDoor, new Vector2(x * xOffset, -y * yOffset + 4.09f), set.northDoor.transform.rotation);
+			{
+				doors.Add(set.northDoor);
+				doors[doors.Count - 1].transform.position = new Vector2(x * xOffset, -y * yOffset + 4.09f);
+				doors[doors.Count - 1].name = "Door_North";
+				doors[doors.Count - 1].GetComponent<Door>().dir = Door.Direction.NORTH;
+			}
 			else if (r)
-				Instantiate(set.eastDoor, new Vector2(x * xOffset + 9.15f, -y * yOffset), set.eastDoor.transform.rotation);
+			{
+				doors.Add(set.eastDoor);
+				doors[doors.Count - 1].transform.position = new Vector2(x * xOffset + 9.15f, -y * yOffset);
+				doors[doors.Count - 1].name = "Door_East";
+				doors[doors.Count - 1].GetComponent<Door>().dir = Door.Direction.EAST;
+			}
 			else if (d)
-				Instantiate(set.southDoor, new Vector2(x * xOffset, -y * yOffset - 4.92f), set.southDoor.transform.rotation);
+			{
+				doors.Add(set.southDoor);
+				doors[doors.Count - 1].transform.position = new Vector2(x * xOffset, -y * yOffset - 4.92f);
+				doors[doors.Count - 1].name = "Door_South";
+				doors[doors.Count - 1].GetComponent<Door>().dir = Door.Direction.SOUTH;
+			}
 			else if (l)
-				Instantiate(set.westDoor, new Vector2(x * xOffset - 8.95f, -y * yOffset), set.westDoor.transform.rotation);
+			{
+				doors.Add(set.westDoor);
+				doors[doors.Count - 1].transform.position = new Vector2(x * xOffset - 8.95f, -y * yOffset);
+				doors[doors.Count - 1].name = "Door_West";
+				doors[doors.Count - 1].GetComponent<Door>().dir = Door.Direction.WEST;
+			}
+			
+			GameObject tempDoor = (GameObject)Instantiate(doors[doors.Count - 1], doors[doors.Count - 1].transform.position, doors[doors.Count - 1].transform.rotation);
+			tempDoor.transform.parent = room.transform;
 		}
 
 		public void SpawnEnemies()
 		{
-			int amount = Random.Range(1, 7);
-			for(int i = 0; i < amount; i++)
+			if (!isStartRoom)
 			{
-				Instantiate(set.enemies[Random.Range(0, set.enemies.Count)], new Vector2(x * xOffset, y * yOffset), Quaternion.identity);
+				int amount = Random.Range(1, 7);
+				for (int i = 0; i < amount; i++)
+				{
+					enemies.Add(set.enemies[Random.Range(0, set.enemies.Count)]);
+					GameObject tempEnemy = (GameObject)Instantiate(enemies[i], new Vector2(x * xOffset, -y * yOffset), Quaternion.identity);
+					tempEnemy.transform.parent = enemiesParentNode.transform;
+				}
 			}
+			else
+			{
+				GameManager.inst.player = (GameObject)Instantiate(set.player, room.transform.position, Quaternion.identity);
+
+				GameManager.inst.player.GetComponent<Player>().SetRoomData(x, y, room);
+			}
+
+			enemiesParentNode.SetActive(false);
 		}
 	};
 
@@ -74,11 +115,18 @@ public class Dungeon : MonoBehaviour{
 
 	void CreateRooms()
 	{
+		bool startRoomSet = false;
 		for (int i = 0; i < roomAmount; i++)
 		{
 			dg = new DungeonGeneration();
 			dg.LoadSet(GameManager.inst.dungeonSets.set[0]);
-			rooms.Add(dg.CreateRoom());
+			if (Random.Range(i, roomAmount) == (roomAmount - 1) && !startRoomSet)
+			{
+				rooms.Add(dg.CreateRoom(true));
+				startRoomSet = true;
+			}
+			else
+				rooms.Add(dg.CreateRoom(false));
 			if (Random.Range(0, 2) == 0)
 				ShiftRoomsDown();
 			else
@@ -173,6 +221,52 @@ public class Dungeon : MonoBehaviour{
 		for(int c = 0; c < GRID_WIDTH; c++)
 		{
 			grid[c] = last[c];
+		}
+	}
+
+	public void SwitchRooms(Door.Direction dir)
+	{
+		int tempX, tempY;
+		tempX = GameManager.inst.player.GetComponent<Player>().roomData.x;
+		tempY = GameManager.inst.player.GetComponent<Player>().roomData.y;
+
+		switch(dir)
+		{
+			case Door.Direction.NORTH:
+				GameManager.inst.player.GetComponent<Player>().roomData.currentRoom = rooms[grid[(tempY - 1) * GRID_WIDTH + tempX]].room;
+				GameManager.inst.player.GetComponent<Player>().roomData.y -= 1;
+				tempY -= 1;
+				break;
+			case Door.Direction.EAST:
+				GameManager.inst.player.GetComponent<Player>().roomData.currentRoom = rooms[grid[tempY * GRID_WIDTH + tempX + 1]].room;
+				GameManager.inst.player.GetComponent<Player>().roomData.x += 1;
+				tempX += 1;
+				break;
+			case Door.Direction.SOUTH:
+				GameManager.inst.player.GetComponent<Player>().roomData.currentRoom = rooms[grid[(tempY + 1) * GRID_WIDTH + tempX]].room;
+				GameManager.inst.player.GetComponent<Player>().roomData.y += 1;
+				tempY += 1;
+				break;
+			case Door.Direction.WEST:
+				GameManager.inst.player.GetComponent<Player>().roomData.currentRoom = rooms[grid[tempY* GRID_WIDTH + tempX - 1]].room;
+				GameManager.inst.player.GetComponent<Player>().roomData.x -= 1;
+				tempX -= 1;
+				break;
+		}
+
+		int intOppDir = (int)dir + 2;
+		if(intOppDir > 4)
+			intOppDir -= 4;
+
+		for(int i = 0; i < rooms[grid[tempY * GRID_WIDTH + tempX]].doors.Count; i++)
+		{
+			print((int)rooms[grid[tempY * GRID_WIDTH + tempX]].doors[i].GetComponent<Door>().dir);
+			print(intOppDir);
+			if((int)rooms[grid[tempY * GRID_WIDTH + tempX]].doors[i].GetComponent<Door>().dir == intOppDir)
+			{
+				print("Movement");
+				GameManager.inst.player.transform.position = rooms[grid[tempY * GRID_WIDTH + tempX]].doors[i].transform.GetChild(0).transform.position;
+			}
 		}
 	}
 

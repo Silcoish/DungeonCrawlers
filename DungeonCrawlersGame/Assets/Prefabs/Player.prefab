@@ -293,11 +293,11 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: .253214121, y: .746784866}
-      - {x: .641571045, y: .665394008}
+    - - {x: .903327346, y: 1.66175938}
+      - {x: 1.82140636, y: 1.33958626}
       - {x: .15638116, y: .00689820945}
       - {x: -.193895221, y: .00689834356}
-      - {x: -.238302559, y: .47782734}
+      - {x: .0506374538, y: 1.51319361}
 --- !u!60 &6068736
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -311,11 +311,11 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: .0187558755, y: .615488231}
-      - {x: .369598776, y: .468449116}
+    - - {x: .0428366214, y: 1.48230648}
+      - {x: .899321079, y: 1.14264131}
       - {x: .15638116, y: .00689820945}
       - {x: -.193895221, y: .00689834356}
-      - {x: -.407113135, y: .534097195}
+      - {x: -.816446006, y: 1.16013288}
 --- !u!61 &6106080
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -397,6 +397,10 @@ MonoBehaviour:
   wepLeft: {fileID: 21293382}
   wepColliderRight: {fileID: 6068736}
   wepColliderLeft: {fileID: 6067570}
+  roomData:
+    x: 0
+    y: 0
+    currentRoom: {fileID: 0}
   baseMoveSpeed: 15
 --- !u!212 &21222298
 SpriteRenderer:

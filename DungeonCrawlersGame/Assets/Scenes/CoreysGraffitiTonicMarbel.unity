@@ -116,7 +116,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   set:
-  - room: {fileID: 169632, guid: 7dcf7a0662730984c9a9b4b9e59bb443, type: 2}
+  - player: {fileID: 133668, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
+    room: {fileID: 169632, guid: 7dcf7a0662730984c9a9b4b9e59bb443, type: 2}
+    northDoor: {fileID: 152006, guid: b53785e05b134784689e7ce52a285b41, type: 2}
+    eastDoor: {fileID: 104206, guid: 59a8df59b206a57498f94352122a0c0c, type: 2}
+    southDoor: {fileID: 150346, guid: 667e8848d16857b4a9bf9940e8550728, type: 2}
+    westDoor: {fileID: 165924, guid: 06d05d1a7bdbde141ad77c824a397e31, type: 2}
+    enemies:
+    - {fileID: 107970, guid: 94f56c4d820e4064286302a0728d82d8, type: 2}
+    - {fileID: 172340, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
+    obstacles: []
+  - player: {fileID: 0}
+    room: {fileID: 169632, guid: 7dcf7a0662730984c9a9b4b9e59bb443, type: 2}
+    northDoor: {fileID: 152006, guid: b53785e05b134784689e7ce52a285b41, type: 2}
+    eastDoor: {fileID: 104206, guid: 59a8df59b206a57498f94352122a0c0c, type: 2}
+    southDoor: {fileID: 150346, guid: 667e8848d16857b4a9bf9940e8550728, type: 2}
+    westDoor: {fileID: 165924, guid: 06d05d1a7bdbde141ad77c824a397e31, type: 2}
+    enemies:
+    - {fileID: 107970, guid: 94f56c4d820e4064286302a0728d82d8, type: 2}
+    - {fileID: 172340, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
+    obstacles: []
+  - player: {fileID: 0}
+    room: {fileID: 169632, guid: 7dcf7a0662730984c9a9b4b9e59bb443, type: 2}
     northDoor: {fileID: 152006, guid: b53785e05b134784689e7ce52a285b41, type: 2}
     eastDoor: {fileID: 104206, guid: 59a8df59b206a57498f94352122a0c0c, type: 2}
     southDoor: {fileID: 150346, guid: 667e8848d16857b4a9bf9940e8550728, type: 2}
@@ -136,7 +157,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!114 &280131126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,113 +169,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75fb384c13641d43973bcd82b0e92d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomAmount: 1
+  roomAmount: 10
   rooms: []
   grid: 
   shift: 0
---- !u!1 &1944786920
-GameObject:
+--- !u!1001 &1162285785
+Prefab:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1944786925}
-  - 33: {fileID: 1944786924}
-  - 65: {fileID: 1944786923}
-  - 23: {fileID: 1944786922}
-  - 114: {fileID: 1944786921}
-  - 114: {fileID: 1944786926}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1944786921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1944786920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e07f7f31f057b8c4ab1132e74eb9f6d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startCol: {r: 0, g: 0, b: 0, a: 0}
-  endCol: {r: 1, g: 0, b: 0, a: 0}
---- !u!23 &1944786922
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1944786920}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 2cf8aca7cad47334cbdd66233a96194e, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!65 &1944786923
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1944786920}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &1944786924
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1944786920}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1944786925
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1944786920}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
---- !u!114 &1944786926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1944786920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e759df69521ea774d942d37f1e734f9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  note: 42
-  velocity: 80
-  channel: 1
-  state: 1
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 450898, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450898, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450898, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450898, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450898, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450898, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450898, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 450898, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454176, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
+      propertyPath: midiSystem
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454176, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
+      propertyPath: dungeon
+      value: 
+      objectReference: {fileID: 280131126}
+    - target: {fileID: 11454176, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
+      propertyPath: dungeonSets
+      value: 
+      objectReference: {fileID: 280131124}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &2039581116
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +241,6 @@ GameObject:
   - 81: {fileID: 2039581117}
   - 82: {fileID: 2039581123}
   - 114: {fileID: 2039581122}
-  - 114: {fileID: 2039581124}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -351,11 +322,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2039581116}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 329b1e3b1fc30964280f3bbc2309962e, type: 3}
+  m_Script: {fileID: 11500000, guid: 997001982e78aa346b36eb410c4dcf93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filePath: together
-  midiNotes: []
 --- !u!82 &2039581123
 AudioSource:
   m_ObjectHideFlags: 0
@@ -425,21 +394,20 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!114 &2039581124
+--- !u!1 &2131251668 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 128254, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
+  m_PrefabInternal: {fileID: 1162285785}
+--- !u!114 &2131251675
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2039581116}
+  m_GameObject: {fileID: 2131251668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aad91a857217f304183608a66bbdf7dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 329b1e3b1fc30964280f3bbc2309962e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midiSystem: {fileID: 2039581122}
-  dungeon: {fileID: 280131126}
-  dungeonSets: {fileID: 280131124}
-  stats: {fileID: 0}
-  inventory: {fileID: 0}
-  activeItems: {fileID: 0}
-  vendorInventory: {fileID: 0}
+  filePath: together
+  midiNotes: []

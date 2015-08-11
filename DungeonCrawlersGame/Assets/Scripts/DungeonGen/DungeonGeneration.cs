@@ -27,9 +27,9 @@ public class DungeonGeneration {
 		set = s;
 	}
 
-	public Dungeon.Room CreateRoom()
+	public Dungeon.Room CreateRoom(bool startRoom)
 	{
-		return new Dungeon.Room(set);
+		return new Dungeon.Room(set, startRoom);
 	}
 
 	/*public void CreateDoor(Dungeon.Room room,  options)

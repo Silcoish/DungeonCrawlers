@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 enum Facing
@@ -9,8 +9,18 @@ enum Facing
     LEFT
 }
 
+
+
 public class Player : MonoBehaviour 
 {
+	[System.Serializable]
+	public struct RoomData
+	{
+		public int x;
+		public int y;
+		public GameObject currentRoom;
+	};
+
     private BoxCollider2D boxCol2D;
     private Rigidbody2D rb2D;
     private Animator anim;
@@ -22,6 +32,7 @@ public class Player : MonoBehaviour
     public SpriteRenderer wepLeft;
     public PolygonCollider2D wepColliderRight;
     public PolygonCollider2D wepColliderLeft;
+	public RoomData roomData;
 
     public int baseMoveSpeed = 10;
     private float cdRight;
@@ -38,6 +49,9 @@ public class Player : MonoBehaviour
 
         armRightSprite = armRight.gameObject.GetComponent<SpriteRenderer>();
         armLeftSprite = armLeft.gameObject.GetComponent<SpriteRenderer>();
+
+		//roomData = new RoomData();
+		//roomData.x = 10;
 
         //For testing
         UpdateEquippedItems();
@@ -154,4 +168,11 @@ public class Player : MonoBehaviour
         cdRight = GameManager.inst.activeItems.wepRight.GetComponent<Weapon>().cd;
         cdLeft = GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>().cd;
     }
+
+	public void SetRoomData(int xx, int yy, GameObject room)
+	{
+		roomData.x = xx;
+		roomData.y = yy;
+		roomData.currentRoom = room;
+	}
 }

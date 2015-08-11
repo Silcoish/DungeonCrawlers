@@ -7,6 +7,7 @@ public class DungeonSets : MonoBehaviour {
 	[System.Serializable]
 	public class DungeonPieces
 	{
+		[SerializeField] public GameObject player;
 		[SerializeField] public GameObject room;
 		[SerializeField] public GameObject northDoor;
 		[SerializeField] public GameObject eastDoor;
