@@ -43,35 +43,33 @@ public class Dungeon : MonoBehaviour{
 		{
 			if (u)
 			{
+				GameObject tempDoor = (GameObject)Instantiate(set.northDoor, new Vector2(x * xOffset, -y * yOffset + 4.09f), set.northDoor.transform.rotation);
 				doors.Add(set.northDoor);
-				doors[doors.Count - 1].transform.position = new Vector2(x * xOffset, -y * yOffset + 4.09f);
-				doors[doors.Count - 1].name = "Door_North";
+				//doors[doors.Count - 1].name = "Door_North";
 				doors[doors.Count - 1].GetComponent<Door>().dir = Door.Direction.NORTH;
 			}
 			else if (r)
 			{
-				doors.Add(set.eastDoor);
-				doors[doors.Count - 1].transform.position = new Vector2(x * xOffset + 9.15f, -y * yOffset);
-				doors[doors.Count - 1].name = "Door_East";
+				GameObject tempDoor = (GameObject)Instantiate(set.eastDoor, new Vector2(x * xOffset + 9.15f, -y * yOffset), set.eastDoor.transform.rotation);
+				doors.Add(tempDoor);
+				//doors[doors.Count - 1].name = "Door_East";
 				doors[doors.Count - 1].GetComponent<Door>().dir = Door.Direction.EAST;
 			}
 			else if (d)
 			{
-				doors.Add(set.southDoor);
-				doors[doors.Count - 1].transform.position = new Vector2(x * xOffset, -y * yOffset - 4.92f);
-				doors[doors.Count - 1].name = "Door_South";
+				GameObject tempDoor = (GameObject)Instantiate(set.southDoor, new Vector2(x * xOffset, -y * yOffset - 4.92f), set.southDoor.transform.rotation);
+				doors.Add(tempDoor);
+				//doors[doors.Count - 1].name = "Door_South";
 				doors[doors.Count - 1].GetComponent<Door>().dir = Door.Direction.SOUTH;
 			}
 			else if (l)
 			{
-				doors.Add(set.westDoor);
-				doors[doors.Count - 1].transform.position = new Vector2(x * xOffset - 8.95f, -y * yOffset);
-				doors[doors.Count - 1].name = "Door_West";
+				GameObject tempDoor = (GameObject)Instantiate(set.westDoor, new Vector2(x * xOffset - 8.95f, -y * yOffset), set.westDoor.transform.rotation);
+				doors.Add(tempDoor);
+				//doors[doors.Count - 1].name = "Door_West";
 				doors[doors.Count - 1].GetComponent<Door>().dir = Door.Direction.WEST;
 			}
-			
-			GameObject tempDoor = (GameObject)Instantiate(doors[doors.Count - 1], doors[doors.Count - 1].transform.position, doors[doors.Count - 1].transform.rotation);
-			tempDoor.transform.parent = room.transform;
+	
 		}
 
 		public void SpawnEnemies()
@@ -255,17 +253,17 @@ public class Dungeon : MonoBehaviour{
 		}
 
 		int intOppDir = (int)dir + 2;
-		if(intOppDir > 4)
+		if(intOppDir >= 4)
 			intOppDir -= 4;
 
-		for(int i = 0; i < rooms[grid[tempY * GRID_WIDTH + tempX]].doors.Count; i++)
+		Room tempRoom = rooms[grid[tempY * GRID_WIDTH + tempX]];
+		print("Opposite door: " + ((Door.Direction)intOppDir) + ", next room: " + grid[tempY * GRID_WIDTH + tempX]);
+		for(int i = 0; i < tempRoom.doors.Count; i++)
 		{
-			print((int)rooms[grid[tempY * GRID_WIDTH + tempX]].doors[i].GetComponent<Door>().dir);
-			print(intOppDir);
-			if((int)rooms[grid[tempY * GRID_WIDTH + tempX]].doors[i].GetComponent<Door>().dir == intOppDir)
+			if ((int)tempRoom.doors[i].GetComponent<Door>().dir == intOppDir)
 			{
-				print("Movement");
-				GameManager.inst.player.transform.position = rooms[grid[tempY * GRID_WIDTH + tempX]].doors[i].transform.GetChild(0).transform.position;
+				print("hit this weird place");
+				GameManager.inst.player.transform.position = tempRoom.doors[i].transform.GetChild(0).transform.position;
 			}
 		}
 	}
