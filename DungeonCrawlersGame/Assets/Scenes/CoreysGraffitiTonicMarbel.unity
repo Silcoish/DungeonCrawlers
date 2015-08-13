@@ -118,7 +118,7 @@ MonoBehaviour:
   set:
   - player: {fileID: 133668, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
     room: {fileID: 169632, guid: 7dcf7a0662730984c9a9b4b9e59bb443, type: 2}
-    northDoor: {fileID: 152006, guid: b53785e05b134784689e7ce52a285b41, type: 2}
+    northDoor: {fileID: 141042, guid: b53785e05b134784689e7ce52a285b41, type: 2}
     eastDoor: {fileID: 104206, guid: 59a8df59b206a57498f94352122a0c0c, type: 2}
     southDoor: {fileID: 150346, guid: 667e8848d16857b4a9bf9940e8550728, type: 2}
     westDoor: {fileID: 165924, guid: 06d05d1a7bdbde141ad77c824a397e31, type: 2}
@@ -153,11 +153,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 280131123}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .537822604, y: .726783097, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &280131126
 MonoBehaviour:
   m_ObjectHideFlags: 0
