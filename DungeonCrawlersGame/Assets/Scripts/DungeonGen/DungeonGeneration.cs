@@ -32,11 +32,11 @@ public class DungeonGeneration {
 		return new Dungeon.Room(set, startRoom);
 	}
 
-	/*public void CreateDoor(Dungeon.Room room,  options)
+	/*public void CreateDoor(Dungeon.Room room, Options options)
 	{
-		if ((options & Options.UP) == Options.UP)
+		if ((options & Options.UP) != 0)
 			Debug.Log("UP");
-		if (options & Options.RIGHT)
+		if ((options & Options.RIGHT) != 0)
 			Debug.Log("RIGHT");
 		if (options & Options.DOWN)
 			Debug.Log("DOWN");

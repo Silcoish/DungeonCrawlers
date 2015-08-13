@@ -12,6 +12,7 @@ public class Dungeon : MonoBehaviour{
 	public class Room
 	{
 		DungeonSets.DungeonPieces set;
+	//	int id = 0;
 		int x, y;
 		bool isStartRoom = false;
 		float xOffset = 19.2f;
@@ -27,13 +28,18 @@ public class Dungeon : MonoBehaviour{
 			doors = new List<GameObject>();
 			enemies = new List<GameObject>();
 			isStartRoom = startRoom;
+			//id = i;
 		}
+
+		static int i = 0;
 
 		public void SpawnRoom(int xx, int yy)
 		{
 			x = xx;
 			y = yy;
 			room = (GameObject)Instantiate(set.room, new Vector2(x * 19.2f, -y * 10.8f), Quaternion.identity);
+			i++;
+			room.name = i.ToString();
 			enemiesParentNode = new GameObject();
 			enemiesParentNode.transform.parent = room.transform;
 			enemiesParentNode.name = "Enemies";
@@ -44,7 +50,7 @@ public class Dungeon : MonoBehaviour{
 			if (u)
 			{
 				GameObject tempDoor = (GameObject)Instantiate(set.northDoor, new Vector2(x * xOffset, -y * yOffset + 4.09f), set.northDoor.transform.rotation);
-				doors.Add(set.northDoor);
+				doors.Add(tempDoor);
 				//doors[doors.Count - 1].name = "Door_North";
 				doors[doors.Count - 1].GetComponent<Door>().dir = Door.Direction.NORTH;
 			}
@@ -236,7 +242,7 @@ public class Dungeon : MonoBehaviour{
 				tempY -= 1;
 				break;
 			case Door.Direction.EAST:
-				GameManager.inst.player.GetComponent<Player>().roomData.currentRoom = rooms[grid[tempY * GRID_WIDTH + tempX + 1]].room;
+				GameManager.inst.player.GetComponent<Player>().roomData.currentRoom = rooms[grid[tempY * GRID_WIDTH + (tempX + 1)]].room;
 				GameManager.inst.player.GetComponent<Player>().roomData.x += 1;
 				tempX += 1;
 				break;
@@ -257,15 +263,19 @@ public class Dungeon : MonoBehaviour{
 			intOppDir -= 4;
 
 		Room tempRoom = rooms[grid[tempY * GRID_WIDTH + tempX]];
+		print (tempRoom.room.name);
 		print("Opposite door: " + ((Door.Direction)intOppDir) + ", next room: " + grid[tempY * GRID_WIDTH + tempX]);
 		for(int i = 0; i < tempRoom.doors.Count; i++)
 		{
 			if ((int)tempRoom.doors[i].GetComponent<Door>().dir == intOppDir)
 			{
-				print("hit this weird place");
+				print (GameManager.inst.player.transform.position);
 				GameManager.inst.player.transform.position = tempRoom.doors[i].transform.GetChild(0).transform.position;
+				print (GameManager.inst.player.transform.position);
+                //print("Door pos: " + tempRoom.doors[i].transform.GetChild(0).transform.position);
 			}
 		}
+
 	}
 
 }

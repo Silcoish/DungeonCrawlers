@@ -5,9 +5,9 @@ public class Door : MonoBehaviour {
 
 	public enum Direction
 	{
-		NORTH,
-		EAST,
 		SOUTH,
+		EAST,
+        NORTH,
 		WEST
 	}
 
