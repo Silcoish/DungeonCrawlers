@@ -5,6 +5,9 @@ using System.Collections.Generic;
 public class Enemy : MonoBehaviour 
 {
 	[SerializeField]
+	string name;
+
+	[SerializeField]
 	public List<Behaviour> enemyBehaviours = new List<Behaviour>();
 
 	public int health;
@@ -38,6 +41,11 @@ public class Enemy : MonoBehaviour
 			enemyBehaviours[i].BehaviourStart();
 		}
 
+	}
+
+	public string GetName()
+	{
+		return name;
 	}
 	
 	

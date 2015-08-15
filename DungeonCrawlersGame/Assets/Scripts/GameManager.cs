@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 
@@ -12,6 +13,9 @@ public class GameManager : MonoBehaviour {
     public ActiveItems activeItems;
     public VendorInventory vendorInventory;
 	public GameObject player;
+	public GameDataManager gameDataManager;
+	public QuestManager questManager;
+	public Dictionary<string, GameObject> enemyMap;
 
 	void Awake()
 	{
