@@ -1,0 +1,418 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"po",
+				"position"
+			],
+			[
+				"Crea",
+				"CreateDoor"
+			],
+			[
+				"North",
+				"NORTH"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Assets/Scripts/Door.cs",
+			"settings":
+			{
+				"buffer_size": 303,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/Scripts/DungeonGen/Dungeon.cs",
+			"settings":
+			{
+				"buffer_size": 8159,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"pac",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control:in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 600.0
+	},
+	"console":
+	{
+		"height": 244.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/Users/Corey/Documents/dungeon crawlers/DungeonCrawlersGame/Assets/Scripts/DungeonGen/DungeonGeneration.cs",
+		"/D/Users/Corey/Documents/dungeon crawlers/DungeonCrawlersGame/Assets/Scripts/DungeonGen/Dungeon.cs",
+		"/D/Users/Corey/Documents/dungeon crawlers/DungeonCrawlersGame/DungeonCrawlersProject.sublime-project",
+		"/D/Users/Corey/Documents/dungeon crawlers/DungeonCrawlersGame/Assets/Scripts/NoteSubscribe.cs",
+		"/D/Users/Corey/Documents/dungeon crawlers/DungeonCrawlersGame/Assets/Scripts/Door.cs",
+		"/C/Users/Corey/AppData/Roaming/Sublime Text 2/Packages/User/ApplySyntax.sublime-settings",
+		"/D/Users/Corey/Documents/dungeon crawlers/DungeonCrawlersGame/my_project.sublime-project",
+		"/D/Users/Corey/Documents/dungeon crawlers/DungeonCrawlersGame/Assets/Scripts/Player.cs",
+		"/D/Users/Corey/Downloads/devkitPro/GBA/Frogger/main.c",
+		"/D/help",
+		"/D/h",
+		"/C/Users/Corey/AppData/Roaming/Sublime Text 2/Packages/Colorcoder/colorcoder.sublime-settings",
+		"/C/Users/Corey/AppData/Roaming/Sublime Text 2/Packages/User/colorcoder.sublime-settings",
+		"/C/Users/Corey/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/D/Users/Corey/Documents/VRMenu/SmartviewLauncher/Assets/Editor/Image Effects/CameraMotionBlurEditor.js",
+		"/D/Users/Corey/Documents/Dyadic/Assets/Scripts/Mechanics/MirrorRemake.cs",
+		"/D/Users/Corey/Documents/Phenomec Task",
+		"/D/Users/Corey/Documents/Minecraft 10",
+		"/D/Users/Corey/Documents/Timeless Haven",
+		"/D/Users/Corey/Documents/DyadicWebsite/index.php",
+		"/D/Users/Corey/Downloads/devkitPro/devkitPro/examples/gba/audio/maxmod/basic_sound/source/MaxModExample.c",
+		"/D/Users/Corey/Downloads/devkitPro/Makefile",
+		"/D/Users/Corey/Downloads/devkitPro/first.c",
+		"/C/Users/Corey/AppData/Roaming/Sublime Text 2/Packages/Makefile/Make.sublime-build",
+		"/D/Users/Corey/Documents/Dyadic/Assets/MirrorsToDoList",
+		"/D/Users/Corey/Documents/Dyadic/6T4BitesNotes",
+		"/D/Users/Corey/Downloads/devkitPro/devkitPro/libgba/include/gba.h",
+		"/D/Users/Corey/Downloads/devkitPro/devkitPro/examples/gba/graphics/SimpleBGScroll/source/main.c",
+		"/D/Users/Corey/Downloads/devkitPro/devkitPro/examples/gba/graphics/ansi_console/source/console.c",
+		"/D/Users/Corey/Documents/DyadicWebsite/presskit.php",
+		"/D/Users/Corey/Downloads/devkitPro/GBA/Makefile",
+		"/D/Users/Corey/Downloads/devkitPro/GBA/first.c",
+		"/D/Users/Corey/Downloads/veekun-pokedex.sqlite",
+		"/D/Users/Corey/Documents/Dyadic/Assets/Scripts/Shaders/AsciiShader.shader",
+		"/D/Users/Corey/Desktop/C++/TemplePlatformer/TemplePlatformer/assets/files/levels/testLevel.tmx",
+		"/D/Users/Corey/Desktop/C++/TemplePlatformer/TemplePlatformer/assets/files/levels/level1.txt",
+		"/C/Users/Corey/AppData/Local/Temp/Rar$DRa0.210/07_texture_loading_and_rendering/07_texture_loading_and_rendering.cpp",
+		"/D/Users/Corey/Desktop/C++/GameEngine/GameEngine-Core/Src/Maths/Vec2.h",
+		"/D/Users/Corey/Desktop/C++/GameEngine/GameEngine-Core/Src/Maths/Vec2.cpp",
+		"/D/Users/Corey/Desktop/C++/GameEngine/GameEngine-Core/Src/Maths/Mat4.cpp",
+		"/D/Users/Corey/Desktop/C++/GameEngine/GameEngine-Core/Src/Maths/Mat4.h",
+		"/C/Users/Corey/AppData/Local/Temp/Rar$DRa0.290/04_key_presses/04_key_presses.cpp",
+		"/C/Users/Corey/AppData/Local/Temp/Rar$DRa0.441/06_extension_libraries_and_loading_other_image_formats/06_extension_libraries_and_loading_other_image_formats.cpp",
+		"/C/Users/Corey/AppData/Local/Temp/Rar$DRa0.172/03_event_driven_programming/03_event_driven_programming.cpp",
+		"/C/Users/Corey/AppData/Local/Temp/Rar$DRa0.785/02_getting_an_image_on_the_screen/02_getting_an_image_on_the_screen.cpp"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Assets/Scripts/Door.cs",
+					"settings":
+					{
+						"buffer_size": 303,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"colorcode": true,
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Assets/Scripts/DungeonGen/Dungeon.cs",
+					"settings":
+					{
+						"buffer_size": 8159,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								301,
+								301
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"colorcode": true,
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 84.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 247.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 235.0,
+	"status_bar_visible": true
+}

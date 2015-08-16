@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &109298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 446858}
+  - 114: {fileID: 11487438}
+  - 114: {fileID: 11449184}
+  m_Layer: 0
+  m_Name: DungeonManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &446858
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109298}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11449184
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c75fb384c13641d43973bcd82b0e92d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomAmount: 1
+  rooms: []
+  grid: 
+  shift: 0
+--- !u!114 &11487438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 600ec828ff484794a8bd0b9073fd4a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  set:
+  - player: {fileID: 133668, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
+    room: {fileID: 169632, guid: 7dcf7a0662730984c9a9b4b9e59bb443, type: 2}
+    northDoor: {fileID: 141042, guid: b53785e05b134784689e7ce52a285b41, type: 2}
+    eastDoor: {fileID: 104206, guid: 59a8df59b206a57498f94352122a0c0c, type: 2}
+    southDoor: {fileID: 150346, guid: 667e8848d16857b4a9bf9940e8550728, type: 2}
+    westDoor: {fileID: 165924, guid: 06d05d1a7bdbde141ad77c824a397e31, type: 2}
+    enemies:
+    - {fileID: 107970, guid: 94f56c4d820e4064286302a0728d82d8, type: 2}
+    - {fileID: 172340, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
+    obstacles: []
+  - player: {fileID: 0}
+    room: {fileID: 169632, guid: 7dcf7a0662730984c9a9b4b9e59bb443, type: 2}
+    northDoor: {fileID: 152006, guid: b53785e05b134784689e7ce52a285b41, type: 2}
+    eastDoor: {fileID: 104206, guid: 59a8df59b206a57498f94352122a0c0c, type: 2}
+    southDoor: {fileID: 150346, guid: 667e8848d16857b4a9bf9940e8550728, type: 2}
+    westDoor: {fileID: 165924, guid: 06d05d1a7bdbde141ad77c824a397e31, type: 2}
+    enemies:
+    - {fileID: 107970, guid: 94f56c4d820e4064286302a0728d82d8, type: 2}
+    - {fileID: 172340, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
+    obstacles: []
+  - player: {fileID: 0}
+    room: {fileID: 169632, guid: 7dcf7a0662730984c9a9b4b9e59bb443, type: 2}
+    northDoor: {fileID: 152006, guid: b53785e05b134784689e7ce52a285b41, type: 2}
+    eastDoor: {fileID: 104206, guid: 59a8df59b206a57498f94352122a0c0c, type: 2}
+    southDoor: {fileID: 150346, guid: 667e8848d16857b4a9bf9940e8550728, type: 2}
+    westDoor: {fileID: 165924, guid: 06d05d1a7bdbde141ad77c824a397e31, type: 2}
+    enemies:
+    - {fileID: 107970, guid: 94f56c4d820e4064286302a0728d82d8, type: 2}
+    - {fileID: 172340, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
+    obstacles: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 109298}
+  m_IsPrefabParent: 1
