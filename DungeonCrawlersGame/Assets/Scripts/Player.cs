@@ -147,6 +147,10 @@ public class Player : MonoBehaviour
     {
     }
 
+    void OnTriggerStay2D(Collider2D col)
+    {
+    }
+
     void AttackLeftHand()
     {
         anim.SetTrigger("AttackLeft");

@@ -402,6 +402,7 @@ MonoBehaviour:
     y: 0
     currentRoom: {fileID: 0}
   baseMoveSpeed: 15
+  controlsEnabled: 1
 --- !u!212 &21222298
 SpriteRenderer:
   m_ObjectHideFlags: 1

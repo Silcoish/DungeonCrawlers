@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public enum UIState
 {
     GAME = 0,
     MENU,
     STATS,
-    INVENTORY
+    INVENTORY,
+    SHOP
 }
 
 public class UI_Game : MonoBehaviour 
 {
+    public EventSystem es;
     public GameObject UIGame;
     public GameObject UIMenu;
     public GameObject UIStats;

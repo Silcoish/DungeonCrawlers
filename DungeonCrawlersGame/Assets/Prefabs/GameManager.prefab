@@ -51,6 +51,8 @@ MonoBehaviour:
   activeItems: {fileID: 11497982}
   vendorInventory: {fileID: 11482132}
   player: {fileID: 0}
+  gameDataManager: {fileID: 0}
+  questManager: {fileID: 0}
 --- !u!114 &11456550
 MonoBehaviour:
   m_ObjectHideFlags: 1
