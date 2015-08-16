@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11482304}
   m_Layer: 0
   m_Name: Vendor_Weapons
-  m_TagString: Untagged
+  m_TagString: Vendor_Weapons
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopUI: {fileID: 0}
+  defaultSelection: {fileID: 0}
   uiController: {fileID: 0}
   button: {fileID: 111022}
 --- !u!212 &21249348

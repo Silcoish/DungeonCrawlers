@@ -19,6 +19,7 @@ public class UI_Game : MonoBehaviour
     public GameObject UIMenu;
     public GameObject UIStats;
     public GameObject UIInventory;
+    public GameObject defaultSelection;
 
     public UIState state = UIState.GAME;
     public Text goldText;
@@ -73,6 +74,7 @@ public class UI_Game : MonoBehaviour
                 break;
             case 1: // Menu
                 UIMenu.SetActive(true);
+                es.SetSelectedGameObject(defaultSelection);
                 break;
             case 2: // Stats
                 UIStats.SetActive(true);

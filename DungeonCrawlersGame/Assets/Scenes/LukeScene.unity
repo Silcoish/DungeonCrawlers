@@ -223,13 +223,13 @@ Prefab:
       value: 
       objectReference: {fileID: 1087683891}
     - target: {fileID: 11482304, guid: 1e9f4bda4d4c92e4789ca818b537d049, type: 2}
+      propertyPath: defaultSelection
+      value: 
+      objectReference: {fileID: 2140690450}
+    - target: {fileID: 11482304, guid: 1e9f4bda4d4c92e4789ca818b537d049, type: 2}
       propertyPath: uiController
       value: 
       objectReference: {fileID: 1155367430}
-    - target: {fileID: 104332, guid: 1e9f4bda4d4c92e4789ca818b537d049, type: 2}
-      propertyPath: m_TagString
-      value: Vendor_Weapons
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e9f4bda4d4c92e4789ca818b537d049, type: 2}
   m_IsPrefabParent: 0
@@ -449,6 +449,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11429602, guid: 2ed5318a90cb6d242b10a169482afd18, type: 2}
+      propertyPath: m_FirstSelected
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ed5318a90cb6d242b10a169482afd18, type: 2}
   m_IsPrefabParent: 0
@@ -494,3 +498,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8e5d88668a355b43a5a29c8a014edb2, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2140690450 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 154460, guid: 2ed5318a90cb6d242b10a169482afd18, type: 2}
+  m_PrefabInternal: {fileID: 1709644587}

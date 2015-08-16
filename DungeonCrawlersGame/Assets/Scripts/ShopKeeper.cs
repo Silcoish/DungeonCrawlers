@@ -4,6 +4,7 @@ using System.Collections;
 public class ShopKeeper : MonoBehaviour 
 {
     public GameObject shopUI;
+    public GameObject defaultSelection;
     public UI_Game uiController; 
     public GameObject button;
 
@@ -40,6 +41,7 @@ public class ShopKeeper : MonoBehaviour
                 // Enable the shop UI
                 shopUI.SetActive(true);
                 isOpen = true;
+                uiController.es.SetSelectedGameObject(defaultSelection);
             }
 
             if ((Input.GetButtonDown("Cancel") || Input.GetButtonDown("Start")) && isOpen)
