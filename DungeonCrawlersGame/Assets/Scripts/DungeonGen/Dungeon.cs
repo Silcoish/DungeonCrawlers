@@ -17,7 +17,7 @@ public class Dungeon : MonoBehaviour{
 		float xOffset = 19.2f;
 		float yOffset = 10.8f;
 		public GameObject room;
-		GameObject enemiesParentNode;
+		public GameObject enemiesParentNode;
 		public List<GameObject> doors;
 		List<GameObject> enemies;
 
@@ -254,6 +254,8 @@ public class Dungeon : MonoBehaviour{
 		tempX = tempPlayer.roomData.x;
 		tempY = tempPlayer.roomData.y;
 
+		GetRoom(tempX, tempY).enemiesParentNode.SetActive(false);
+
 		switch(dir)
 		{
 			case Door.Direction.NORTH:
@@ -288,6 +290,8 @@ public class Dungeon : MonoBehaviour{
 			if ((int)tempRoom.doors[i].GetComponent<Door>().dir == intOppDir)
 			{
 				GameManager.inst.player.transform.position = tempRoom.doors[i].transform.GetChild(0).transform.position;
+				tempRoom.enemiesParentNode.SetActive(true);
+
 			}
 		}
 

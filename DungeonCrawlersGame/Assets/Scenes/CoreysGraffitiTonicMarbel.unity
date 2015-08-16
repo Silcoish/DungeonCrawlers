@@ -269,7 +269,7 @@ Prefab:
     - target: {fileID: 11454176, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
       propertyPath: midiSystem
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2131251675}
     - target: {fileID: 11454176, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
       propertyPath: dungeon
       value: 
