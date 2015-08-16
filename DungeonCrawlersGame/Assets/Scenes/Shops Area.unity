@@ -326,6 +326,18 @@ Prefab:
       propertyPath: midiSystem
       value: 
       objectReference: {fileID: 1905678089}
+    - target: {fileID: 11454176, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 726201109}
+    - target: {fileID: 11454176, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
+      propertyPath: gameDataManager
+      value: 
+      objectReference: {fileID: 1905678097}
+    - target: {fileID: 11454176, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
+      propertyPath: questManager
+      value: 
+      objectReference: {fileID: 1905678096}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
   m_IsPrefabParent: 0
@@ -512,6 +524,10 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!1 &726201109 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 133668, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
+  m_PrefabInternal: {fileID: 1097239189}
 --- !u!1 &800548880
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +590,7 @@ Transform:
   - {fileID: 191599552}
   - {fileID: 311085473}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &845698350
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +833,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   filePath: together
   midiNotes: []
+--- !u!114 &1905678096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1905678088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4da73b37719082148af4a0b32299006e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allQuests: []
+  currentQuest: {fileID: 0}
+--- !u!114 &1905678097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1905678088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f94aa0a03500b64baba30a9225b689c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1915519788
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,4 +979,46 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ed5318a90cb6d242b10a169482afd18, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &2135307815
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 456210, guid: 1e9f4bda4d4c92e4789ca818b537d049, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -11.4187222
+      objectReference: {fileID: 0}
+    - target: {fileID: 456210, guid: 1e9f4bda4d4c92e4789ca818b537d049, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -59.9722862
+      objectReference: {fileID: 0}
+    - target: {fileID: 456210, guid: 1e9f4bda4d4c92e4789ca818b537d049, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456210, guid: 1e9f4bda4d4c92e4789ca818b537d049, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456210, guid: 1e9f4bda4d4c92e4789ca818b537d049, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456210, guid: 1e9f4bda4d4c92e4789ca818b537d049, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456210, guid: 1e9f4bda4d4c92e4789ca818b537d049, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456210, guid: 1e9f4bda4d4c92e4789ca818b537d049, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1e9f4bda4d4c92e4789ca818b537d049, type: 2}
   m_IsPrefabParent: 0
