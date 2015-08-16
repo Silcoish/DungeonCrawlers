@@ -15,6 +15,12 @@ public class CameraPan : MonoBehaviour
 	public float firstSize;
 	public float secondSize;
 
+	bool isFade = false;
+	float timer = 0;
+	public float fadeTime = 1;
+	public SpriteRenderer imageObject;
+	public Color fadeColour;
+
 	void Awake()
 	{
 		cam = Camera.main;
@@ -29,7 +35,21 @@ public class CameraPan : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-	
+		if (isFade)
+		{
+			timer += Time.deltaTime;
+
+			fadeColour.a = (timer / fadeTime);
+
+
+			imageObject.color = fadeColour;
+
+			if (timer >= fadeTime)
+			{
+				Application.LoadLevel(2);
+			}
+
+		}
 	}
 
 	void OnTriggerStay2D(Collider2D col)
@@ -43,7 +63,11 @@ public class CameraPan : MonoBehaviour
 			cam.transform.localPosition = Vector3.Lerp(firstPos, secondPos, lerp);
 			cam.orthographicSize = Mathf.Lerp(firstSize, secondSize, lerp);
 
-
+			if (lerp > 0.9)
+			{
+				GameManager.inst.player.GetComponent<Player>().controlsEnabled = false;
+				isFade = true;
+			}
 		}
 
 

@@ -146,7 +146,19 @@ public class Player : MonoBehaviour
         GameManager.inst.stats.hpCur -= dmg;
 
         rb2D.AddForce(kb, ForceMode2D.Impulse);
+
+		if (GameManager.inst.stats.hpCur <= 0)
+		{
+			OnDeath();
+
+		}
     }
+
+	void OnDeath()
+	{
+		Application.LoadLevel(1);
+
+	}
 
     void OnCollisionEnter2D(Collision2D col)
     {

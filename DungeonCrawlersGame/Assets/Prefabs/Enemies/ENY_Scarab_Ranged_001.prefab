@@ -17,6 +17,7 @@ GameObject:
   - 114: {fileID: 11418800}
   - 114: {fileID: 11414946}
   - 114: {fileID: 11478996}
+  - 114: {fileID: 11491060}
   m_Layer: 0
   m_Name: ENY_Scarab_Ranged_001
   m_TagString: Enemy
@@ -31,7 +32,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.50284243, y: 1.70487344, z: 0}
+  m_LocalPosition: {x: 18.75, y: 5.40999985, z: 0}
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,9 +82,10 @@ MonoBehaviour:
   - {fileID: 11474606}
   - {fileID: 11466770}
   - {fileID: 11414946}
-  health: 0
-  collisionDamage: 1
-  knockbackForce: 0
+  - {fileID: 11491060}
+  health: 100
+  collisionDamage: 20
+  knockbackForce: 10
   moveSpeed: 0
   lookDir: {x: 0, y: 0}
   moveDir: {x: 0, y: 0}
@@ -163,6 +165,19 @@ MonoBehaviour:
   velocity: 80
   channel: 1
   state: 0
+--- !u!114 &11491060
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de1b43574850de440b41cab97ed1aad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackForce: 6.5999999
+  knockbackTime: .5
 --- !u!212 &21256892
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -199,6 +214,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: knockbackForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: collisionDamage
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -6,9 +6,7 @@ public class GameDataManager : MonoBehaviour
 {
 
 	List<Enemy> allEnemiesKilled = new List<Enemy>();
-
 	int roomsComplete = 0;
-
 	int goldCollected = 0;
 
 

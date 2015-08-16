@@ -15,6 +15,7 @@ GameObject:
   - 114: {fileID: 11420738}
   - 114: {fileID: 11447518}
   - 114: {fileID: 11429380}
+  - 114: {fileID: 11481882}
   m_Layer: 0
   m_Name: ENY_Scarab_Melee_002
   m_TagString: Enemy
@@ -78,9 +79,10 @@ MonoBehaviour:
   enemyBehaviours:
   - {fileID: 11420738}
   - {fileID: 11447518}
-  health: 0
-  collisionDamage: 1
-  knockbackForce: 0
+  - {fileID: 11481882}
+  health: 100
+  collisionDamage: 20
+  knockbackForce: 10
   moveSpeed: 0
   lookDir: {x: 0, y: 0}
   moveDir: {x: 0, y: 0}
@@ -128,6 +130,19 @@ MonoBehaviour:
   directions: 4
   wallDistanceCheck: 5
   stateSkips: 2
+--- !u!114 &11481882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de1b43574850de440b41cab97ed1aad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackForce: 7.19999981
+  knockbackTime: .5
 --- !u!212 &21247066
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -164,6 +179,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: knockbackForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: collisionDamage
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
