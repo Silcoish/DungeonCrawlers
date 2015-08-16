@@ -119,11 +119,31 @@ public class Dungeon : MonoBehaviour{
 
 	void CreateRooms()
 	{
+		dg = new DungeonGeneration();
+		dg.LoadSet(GameManager.inst.dungeonSets.set[0]);
+
+		PlaceRandomRooms();
+	}
+
+	void PlaceRandomRooms()
+	{
+		rooms.Add(dg.CreateRoom(true));
+		grid[GRID_WIDTH * Random.Range(0, GRID_HEIGHT)] = 0;
+		for(int i = 1; i < roomAmount; i++)
+		{
+			rooms.Add(dg.CreateRoom(false));
+			int pos = GRID_WIDTH * Random.Range(0, GRID_HEIGHT) + Random.Range(0, GRID_WIDTH - 1);
+			print(pos);
+			grid[pos] = i;
+		}
+		SpawnRooms();
+	}
+
+	void ShiftingGeneration()
+	{
 		bool startRoomSet = false;
 		for (int i = 0; i < roomAmount; i++)
 		{
-			dg = new DungeonGeneration();
-			dg.LoadSet(GameManager.inst.dungeonSets.set[0]);
 			if (Random.Range(i, roomAmount) == (roomAmount - 1) && !startRoomSet)
 			{
 				rooms.Add(dg.CreateRoom(true));
@@ -263,16 +283,11 @@ public class Dungeon : MonoBehaviour{
 			intOppDir -= 4;
 
 		Room tempRoom = rooms[grid[tempY * GRID_WIDTH + tempX]];
-		print (tempRoom.room.name);
-		print("Opposite door: " + ((Door.Direction)intOppDir) + ", next room: " + grid[tempY * GRID_WIDTH + tempX]);
 		for(int i = 0; i < tempRoom.doors.Count; i++)
 		{
 			if ((int)tempRoom.doors[i].GetComponent<Door>().dir == intOppDir)
 			{
-				print (GameManager.inst.player.transform.position);
 				GameManager.inst.player.transform.position = tempRoom.doors[i].transform.GetChild(0).transform.position;
-				print (GameManager.inst.player.transform.position);
-                //print("Door pos: " + tempRoom.doors[i].transform.GetChild(0).transform.position);
 			}
 		}
 
