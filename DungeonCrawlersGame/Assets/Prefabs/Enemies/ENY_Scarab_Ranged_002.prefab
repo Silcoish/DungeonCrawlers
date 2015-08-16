@@ -17,7 +17,7 @@ GameObject:
   - 114: {fileID: 11495262}
   m_Layer: 0
   m_Name: ENY_Scarab_Ranged_002
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,10 +118,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 424c7c9d6099ffe438bfd659fb757f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   enemyBehaviours:
   - {fileID: 11433650}
   - {fileID: 11432982}
   health: 0
+  collisionDamage: 1
+  knockbackForce: 0
   moveSpeed: 0
   lookDir: {x: 0, y: 0}
   moveDir: {x: 0, y: 0}
@@ -157,7 +160,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 181618}
