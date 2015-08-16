@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-enum Facing
+public enum Facing
 {
     DOWN = 0,
     UP,
