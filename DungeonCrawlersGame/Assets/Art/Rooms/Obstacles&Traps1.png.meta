@@ -1,9 +1,24 @@
 fileFormatVersion: 2
 guid: be2cb51856f476d47889e3b5131bbc2f
-timeCreated: 1439686135
+timeCreated: 1439686815
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Block_1
+    21300002: Block_2
+    21300004: Block_3
+    21300006: Block_4
+    21300008: Block_5
+    21300010: Block_6
+    21300012: Block_7
+    21300014: Block_8
+    21300016: Block_9
+    21300018: Block_10
+    21300020: Block_11
+    21300022: Water_Corner
+    21300024: Water_Straight
+    21300026: Trap_Spike
+    21300028: Obstacles&Traps1_21
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,14 +45,14 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,7 +63,147 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Block_1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 791
+        width: 218
+        height: 223
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Block_2
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 791
+        width: 217
+        height: 223
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Block_3
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 791
+        width: 217
+        height: 223
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Block_4
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 791
+        width: 218
+        height: 223
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Block_5
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 544
+        width: 218
+        height: 224
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Block_6
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 545
+        width: 217
+        height: 223
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Block_7
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 544
+        width: 217
+        height: 224
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Block_8
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 544
+        width: 218
+        height: 224
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Block_9
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 299
+        width: 218
+        height: 223
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Block_10
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 299
+        width: 217
+        height: 223
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Block_11
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 299
+        width: 217
+        height: 223
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Water_Corner
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 82
+        width: 188
+        height: 177
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Water_Straight
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 82
+        width: 188
+        height: 177
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Trap_Spike
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 82
+        width: 188
+        height: 177
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
