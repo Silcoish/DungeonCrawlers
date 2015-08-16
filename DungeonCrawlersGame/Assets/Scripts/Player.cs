@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
     private float cdRightCur;
     private float cdLeft;
     private float cdLeftCur;
+    public Facing dir;
 
 	void Start () 
     {
@@ -81,6 +82,7 @@ public class Player : MonoBehaviour
 
                 if (facing.x > 0)
                 {
+                    dir = Facing.RIGHT;
                     anim.SetInteger("Facing", (int)Facing.RIGHT);
                     armRight.SetInteger("Facing", (int)Facing.RIGHT);
                     armLeft.SetInteger("Facing", (int)Facing.RIGHT);
@@ -92,6 +94,7 @@ public class Player : MonoBehaviour
 
                 else
                 {
+                    dir = Facing.LEFT;
                     anim.SetInteger("Facing", (int)Facing.LEFT);
                     armRight.SetInteger("Facing", (int)Facing.LEFT);
                     armLeft.SetInteger("Facing", (int)Facing.LEFT);
@@ -108,6 +111,7 @@ public class Player : MonoBehaviour
 
                 if (facing.y > 0)
                 {
+                    dir = Facing.UP;
                     anim.SetInteger("Facing", (int)Facing.UP);
                     wepLeft.sortingOrder = -1;
                     wepRight.sortingOrder = -1;
@@ -115,6 +119,7 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
+                    dir = Facing.DOWN;
                     anim.SetInteger("Facing", (int)Facing.DOWN);
                     wepLeft.sortingOrder = 2;
                     wepRight.sortingOrder = 2;
