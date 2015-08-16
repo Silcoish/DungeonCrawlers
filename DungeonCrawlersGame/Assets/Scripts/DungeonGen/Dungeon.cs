@@ -120,8 +120,8 @@ public class Dungeon : MonoBehaviour{
 		dg = new DungeonGeneration();
 		dg.LoadSet(GameManager.inst.dungeonSets.set[0]);
 
-		PlaceRandomRooms();
-		//ShiftingGeneration();
+		//PlaceRandomRooms();
+		ShiftingGeneration();
 	}
 
 	void PlaceRandomRooms()
