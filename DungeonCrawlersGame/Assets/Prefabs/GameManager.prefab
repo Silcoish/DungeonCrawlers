@@ -82,8 +82,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0ba725d37f6194f92982e4f188b98e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons: []
-  passives: []
+  weapons:
+  - {fileID: 116298, guid: 135de17eff79c6a4fa39c87b6618c3f8, type: 2}
+  - {fileID: 116298, guid: 135de17eff79c6a4fa39c87b6618c3f8, type: 2}
+  - {fileID: 116298, guid: 135de17eff79c6a4fa39c87b6618c3f8, type: 2}
+  passives:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &11492864
 MonoBehaviour:
   m_ObjectHideFlags: 1
