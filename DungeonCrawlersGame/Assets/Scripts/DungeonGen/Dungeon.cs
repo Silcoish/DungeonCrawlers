@@ -109,6 +109,16 @@ public class Dungeon : MonoBehaviour{
 	 
 	void Start()
 	{
+		if (GameManager.inst.dungeon == null)
+		{
+			GameManager.inst.dungeon = this;
+
+		}
+		else
+		{
+			Destroy(this);
+		}
+
 		grid = new int[GRID_WIDTH * GRID_HEIGHT];
 		ResetRooms();
 

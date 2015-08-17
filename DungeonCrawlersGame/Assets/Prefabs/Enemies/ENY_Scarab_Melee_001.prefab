@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 424c7c9d6099ffe438bfd659fb757f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Scarab
   enemyBehaviours:
   - {fileID: 11475192}
   - {fileID: 11493414}
@@ -191,6 +191,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: collisionDamage
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: name
+      value: Scarab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

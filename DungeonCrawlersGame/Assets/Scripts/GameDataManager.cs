@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 public class GameDataManager : MonoBehaviour 
 {
-
-	List<Enemy> allEnemiesKilled = new List<Enemy>();
-	int roomsComplete = 0;
-	int goldCollected = 0;
+	[SerializeField]
+	public List<Enemy> allEnemiesKilled = new List<Enemy>();
+	public int roomsComplete = 0;
+	public int goldCollected = 0;
 
 
 	public void ResetData()

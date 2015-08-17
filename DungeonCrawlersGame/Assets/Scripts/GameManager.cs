@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour {
 			GameManager.inst = this;
 		else
 			Destroy(gameObject);
+
+		DontDestroyOnLoad(gameObject);
 	}
 
 	public void MidiSubscribe(NoteSubscribe sub)
