@@ -11,7 +11,8 @@ public class QST_KillEnemies : Quest
 	{
 		if (GameManager.inst.gameDataManager.GetEnemiesKilled(enemyName) >= kills)
 			return true;
-		else return false;
+		else 
+			return false;
 	}
 
 	public override void Randomise()

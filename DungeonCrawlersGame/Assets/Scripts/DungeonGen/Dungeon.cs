@@ -259,6 +259,14 @@ public class Dungeon : MonoBehaviour{
 
 	public void SwitchRooms(Door.Direction dir)
 	{
+		//Check is Quest Complete
+		if (GameManager.inst.questManager.currentQuest.CheckProgress())
+		{
+			Application.LoadLevel(1);
+		}
+
+
+
 		int tempX, tempY;
 		Player tempPlayer = GameManager.inst.player.GetComponent<Player>();
 		tempX = tempPlayer.roomData.x;
