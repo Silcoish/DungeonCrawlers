@@ -187,13 +187,14 @@ public class Enemy : MonoBehaviour
 
 	public void OnDeath()
 	{
+		GameManager.inst.gameDataManager.allEnemiesKilled.Add(this);
 		//Loop through Behaviours and call on death
 		for (int i = 0; i < enemyBehaviours.Count; i++)
 		{
 			enemyBehaviours[i].OnDeath();
 		}
 
-		Destroy(gameObject);
+		gameObject.SetActive(false);
 
 	}
 

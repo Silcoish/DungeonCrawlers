@@ -4,6 +4,19 @@ using System.Collections.Generic;
 
 public class DungeonSets : MonoBehaviour {
 
+	void Start()
+	{
+		if (GameManager.inst.dungeonSets == null)
+		{
+			GameManager.inst.dungeonSets = this;
+		}
+		else
+		{
+			Destroy(this);
+		}
+
+	}
+
 	[System.Serializable]
 	public class DungeonPieces
 	{
