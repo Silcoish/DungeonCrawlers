@@ -77,9 +77,6 @@ public class Player : MonoBehaviour
 
             if (Mathf.Abs(facing.x) > Mathf.Abs(facing.y))
             {
-                armRight.gameObject.SetActive(true);
-                armLeft.gameObject.SetActive(true);
-
                 if (facing.x > 0)
                 {
                     dir = Facing.RIGHT;
@@ -106,13 +103,12 @@ public class Player : MonoBehaviour
             }
             else
             {
-                armRight.gameObject.SetActive(false);
-                armLeft.gameObject.SetActive(false);
-
                 if (facing.y > 0)
                 {
                     dir = Facing.UP;
                     anim.SetInteger("Facing", (int)Facing.UP);
+                    armRight.SetInteger("Facing", (int)Facing.UP);
+                    armLeft.SetInteger("Facing", (int)Facing.UP);
                     wepLeft.sortingOrder = -1;
                     wepRight.sortingOrder = -1;
 
@@ -121,16 +117,18 @@ public class Player : MonoBehaviour
                 {
                     dir = Facing.DOWN;
                     anim.SetInteger("Facing", (int)Facing.DOWN);
+                    armRight.SetInteger("Facing", (int)Facing.DOWN);
+                    armLeft.SetInteger("Facing", (int)Facing.DOWN);
                     wepLeft.sortingOrder = 2;
                     wepRight.sortingOrder = 2;
                 }
             }
 
-            if (Input.GetButton("Fire1") && cdRightCur < 0)
+            if (Input.GetButton("Fire2") && cdRightCur < 0)
             {
                 AttackRightHand();
             }
-            if (Input.GetButton("Fire2") && cdLeftCur < 0)
+            if (Input.GetButton("Fire1") && cdLeftCur < 0)
             {
                 AttackLeftHand();
             }
@@ -170,14 +168,14 @@ public class Player : MonoBehaviour
 
     void AttackLeftHand()
     {
-        anim.SetTrigger("AttackLeft");
+        armLeft.SetTrigger("Attack");
         GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>().Attack();
         cdLeftCur = cdLeft;
     }
 
     void AttackRightHand()
     {
-        anim.SetTrigger("AttackRight");
+        armRight.SetTrigger("Attack");
         GameManager.inst.activeItems.wepRight.GetComponent<Weapon>().Attack();
         cdRightCur = cdRight;
     }
