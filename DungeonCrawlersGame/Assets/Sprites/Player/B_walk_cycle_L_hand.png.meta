@@ -1,9 +1,15 @@
 fileFormatVersion: 2
 guid: b613ed1f7e1f427459926f38d3609f06
-timeCreated: 1440281711
+timeCreated: 1440284515
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: B_walk_cycle_L_hand_0
+    21300002: B_walk_cycle_L_hand_1
+    21300004: B_walk_cycle_L_hand_2
+    21300006: B_walk_cycle_L_hand_3
+    21300008: B_walk_cycle_L_hand_4
+    21300010: B_walk_cycle_L_hand_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -27,28 +33,88 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 2048
+  maxTextureSize: 4096
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: B_walk_cycle_L_hand_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 454
+        width: 322
+        height: 454
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: B_walk_cycle_L_hand_1
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 454
+        width: 322
+        height: 454
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: B_walk_cycle_L_hand_2
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 454
+        width: 322
+        height: 454
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: B_walk_cycle_L_hand_3
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 454
+        width: 322
+        height: 454
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: B_walk_cycle_L_hand_4
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 454
+        width: 322
+        height: 454
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: B_walk_cycle_L_hand_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 322
+        height: 454
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
