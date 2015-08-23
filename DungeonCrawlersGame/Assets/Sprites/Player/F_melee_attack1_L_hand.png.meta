@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6728800f8987b554a9c5a9e1c49a36be
-timeCreated: 1440290883
+timeCreated: 1440296672
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -60,7 +60,7 @@ TextureImporter:
         width: 502
         height: 412
       alignment: 9
-      pivot: {x: .579999983, y: .779999971}
+      pivot: {x: .400000006, y: .769999981}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: F_melee_attack1_L_hand_1
       rect:
@@ -70,7 +70,7 @@ TextureImporter:
         width: 502
         height: 412
       alignment: 9
-      pivot: {x: .579999983, y: .779999971}
+      pivot: {x: .400000006, y: .769999981}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: F_melee_attack1_L_hand_2
       rect:
@@ -80,7 +80,7 @@ TextureImporter:
         width: 502
         height: 412
       alignment: 9
-      pivot: {x: .579999983, y: .779999971}
+      pivot: {x: .400000006, y: .769999981}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
