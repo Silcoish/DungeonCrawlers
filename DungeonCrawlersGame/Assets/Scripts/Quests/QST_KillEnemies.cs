@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class QST_KillEnemies : Quest 
@@ -6,6 +6,10 @@ public class QST_KillEnemies : Quest
 	public string enemyName;
 	public int kills;
 
+	void Awake()
+	{
+		DontDestroyOnLoad(gameObject);
+	}
 
 	override public bool CheckProgress()
 	{
@@ -33,5 +37,10 @@ public class QST_KillEnemies : Quest
 			default:
 				return "My Brother was killed by " + enemyName + "'s.\nCould you kill " + kills + " of them for me.";
 		}
+	}
+
+	public override string GetQuestCounterText()
+	{
+		return (kills - GameManager.inst.gameDataManager.GetEnemiesKilled(enemyName)).ToString() + " enemies left";
 	}
 }

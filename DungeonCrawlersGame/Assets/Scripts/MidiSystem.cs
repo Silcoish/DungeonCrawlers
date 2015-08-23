@@ -9,7 +9,8 @@ using System.IO;
  * Thankyou internet
 **************************************************/
 
-public class MidiSystem : MonoBehaviour {
+public class MidiSystem : MonoBehaviour
+{
 
 	[System.Serializable]
 	public class MidiNote
@@ -20,11 +21,16 @@ public class MidiSystem : MonoBehaviour {
 			OFF
 		};
 
-		[SerializeField] public int millisecond;
-		[SerializeField] public State state;
-		[SerializeField] public int channel;
-		[SerializeField] public int note;
-		[SerializeField] public int velocity;
+		[SerializeField]
+		public int millisecond;
+		[SerializeField]
+		public State state;
+		[SerializeField]
+		public int channel;
+		[SerializeField]
+		public int note;
+		[SerializeField]
+		public int velocity;
 
 		public MidiNote(string[] pram)
 		{
@@ -37,8 +43,10 @@ public class MidiSystem : MonoBehaviour {
 		}
 	};
 
-	[SerializeField] string filePath;
-	[SerializeField] List<MidiNote> midiNotes;
+	[SerializeField]
+	string filePath;
+	[SerializeField]
+	List<MidiNote> midiNotes;
 	List<NoteSubscribe> subscribers;
 
 	private float counter = 0.0f;
@@ -50,33 +58,32 @@ public class MidiSystem : MonoBehaviour {
 		subscribers = new List<NoteSubscribe>();
 	}
 
-	void Start () {
+	void Start()
+	{
 		ReadFile();
 	}
 
 	void Update()
-	{	
+	{
 		counter += Time.deltaTime * 1000;
 
-		while(counter >= midiNotes[index].millisecond)
+		while (counter >= midiNotes[index].millisecond)
 		{
 			for (int i = 0; i < subscribers.Count; i++)
 			{
-				if(midiNotes[index].note == subscribers[i].note)
+				if (midiNotes[index].note == subscribers[i].note)
 				{
-					if(midiNotes[index].velocity >= subscribers[i].note)
+					if (midiNotes[index].velocity >= subscribers[i].note)
 					{
-						//if (midiNotes[index].state == MidiNote.State.ON)
+						if (midiNotes[index].state == MidiNote.State.ON)
 							subscribers[i].Activate();
-					}
-					else
-					{
+						else
 							subscribers[i].Deactivate();
 					}
 				}
 			}
 			index++;
-			if(index >= midiNotes.Count)
+			if (index >= midiNotes.Count)
 			{
 				counter = counter - midiNotes[index - 1].millisecond;
 				index = 0;
@@ -92,7 +99,7 @@ public class MidiSystem : MonoBehaviour {
 		sr.Close();
 
 		var lines = fileContents.Split("\n"[0]);
-		foreach(string line in lines)
+		foreach (string line in lines)
 		{
 			//milliseconds
 			//on/off
@@ -114,5 +121,11 @@ public class MidiSystem : MonoBehaviour {
 	public void Subscribe(NoteSubscribe sub)
 	{
 		subscribers.Add(sub);
+	}
+
+	public void ResetMidi()
+	{
+		counter = 0;
+		index = 0;
 	}
 }

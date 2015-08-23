@@ -20,11 +20,12 @@ public class GameManager : MonoBehaviour {
 	void Awake()
 	{
 		if (GameManager.inst == null)
+		{
 			GameManager.inst = this;
+			DontDestroyOnLoad(gameObject);
+		}
 		else
 			Destroy(gameObject);
-
-		DontDestroyOnLoad(gameObject);
 	}
 
 	public void MidiSubscribe(NoteSubscribe sub)

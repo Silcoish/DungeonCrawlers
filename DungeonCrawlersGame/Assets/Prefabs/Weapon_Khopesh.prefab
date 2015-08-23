@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 129.124695, y: -35.425724, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,11 +43,10 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: -.00937826931, y: -1.36334074}
-      - {x: .997947931, y: -1.00394976}
-      - {x: .203273147, y: -.0118584633}
-      - {x: -.137624919, y: -.0118583441}
-      - {x: -.988569915, y: -1.00394964}
+    - - {x: -.0420379639, y: .0495567322}
+      - {x: .043838501, y: .0497665405}
+      - {x: .0394592285, y: -4.34057617}
+      - {x: -.0351104736, y: -4.32972336}
 --- !u!114 &11468692
 MonoBehaviour:
   m_ObjectHideFlags: 1

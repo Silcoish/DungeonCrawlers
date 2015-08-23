@@ -14,10 +14,20 @@ public class NoteSubscribe : MonoBehaviour {
 	}
 
 	public State state = State.DEACTIVE;
+	private bool isSubbed = false;
 
 	void Start()
 	{
-		GameManager.inst.MidiSubscribe(this);
+		Sub();
+	}
+
+	public void Sub()
+	{
+		if(!isSubbed)
+		{
+			GameManager.inst.MidiSubscribe(this);
+			isSubbed = true;
+		}
 	}
 
 	public void Activate()

@@ -220,7 +220,7 @@ Transform:
   m_Children:
   - {fileID: 78508121}
   m_Father: {fileID: 1401654679}
-  m_RootOrder: 6
+  m_RootOrder: 4
 --- !u!82 &49723747
 AudioSource:
   m_ObjectHideFlags: 0
@@ -384,21 +384,9 @@ Prefab:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11454176, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
-      propertyPath: midiSystem
-      value: 
-      objectReference: {fileID: 1905678089}
-    - target: {fileID: 11454176, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
       propertyPath: player
       value: 
       objectReference: {fileID: 726201109}
-    - target: {fileID: 11454176, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
-      propertyPath: gameDataManager
-      value: 
-      objectReference: {fileID: 1905678097}
-    - target: {fileID: 11454176, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
-      propertyPath: questManager
-      value: 
-      objectReference: {fileID: 1905678096}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
   m_IsPrefabParent: 0
@@ -787,11 +775,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 470858, guid: 06c36579f30ff4644b035d25ff00e642, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.97919941
+      value: -2.58999991
       objectReference: {fileID: 0}
     - target: {fileID: 470858, guid: 06c36579f30ff4644b035d25ff00e642, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -59.7589226
+      value: -32.7200012
       objectReference: {fileID: 0}
     - target: {fileID: 470858, guid: 06c36579f30ff4644b035d25ff00e642, type: 2}
       propertyPath: m_LocalPosition.z
@@ -849,11 +837,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 406070, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.04999995
+      value: -2.72000003
       objectReference: {fileID: 0}
     - target: {fileID: 406070, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -58.4900017
+      value: -30.3299999
       objectReference: {fileID: 0}
     - target: {fileID: 406070, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1032,50 +1020,6 @@ BoxCollider2D:
 GameObject:
   m_PrefabParentObject: {fileID: 126678, guid: 06c36579f30ff4644b035d25ff00e642, type: 2}
   m_PrefabInternal: {fileID: 1060989681}
---- !u!1 &1905678088 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 128254, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
-  m_PrefabInternal: {fileID: 89791252}
---- !u!114 &1905678089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1905678088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 329b1e3b1fc30964280f3bbc2309962e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filePath: together
-  midiNotes: []
---- !u!114 &1905678096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1905678088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4da73b37719082148af4a0b32299006e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allQuests: []
-  currentQuest: {fileID: 0}
---- !u!114 &1905678097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1905678088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f94aa0a03500b64baba30a9225b689c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allEnemiesKilled: []
-  roomsComplete: 0
-  goldCollected: 0
 --- !u!1 &1915519788
 GameObject:
   m_ObjectHideFlags: 0

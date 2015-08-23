@@ -84,9 +84,10 @@ public class Dungeon : MonoBehaviour{
 				int amount = Random.Range(1, 7);
 				for (int i = 0; i < amount; i++)
 				{
-					enemies.Add(set.enemies[Random.Range(0, set.enemies.Count)]);
-					GameObject tempEnemy = (GameObject)Instantiate(enemies[i], new Vector2(x * xOffset, -y * yOffset), Quaternion.identity);
+					GameObject tempEnemy = (GameObject)Instantiate(set.enemies[Random.Range(0, set.enemies.Count)], new Vector2(x * xOffset, -y * yOffset), Quaternion.identity);
 					tempEnemy.transform.parent = enemiesParentNode.transform;
+					enemies.Add(tempEnemy);
+					enemies[i].GetComponent<NoteSubscribe>().Sub();
 				}
 			}
 			else
@@ -284,13 +285,14 @@ public class Dungeon : MonoBehaviour{
 	public void SwitchRooms(Door.Direction dir)
 	{
 		//Check is Quest Complete
-		//if (GameManager.inst.questManager.currentQuest.CheckProgress())
-		//{
-		//	Application.LoadLevel(1);
-		//}
-
-
-
+		if(GameManager.inst.questManager.currentQuest != null)
+		{
+			if (GameManager.inst.questManager.currentQuest.CheckProgress())
+			{
+				Application.LoadLevel(1);
+			}
+		}
+		
 		int tempX, tempY;
 		Player tempPlayer = GameManager.inst.player.GetComponent<Player>();
 		tempX = tempPlayer.roomData.x;

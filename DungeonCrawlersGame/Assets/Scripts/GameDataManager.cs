@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,12 +9,16 @@ public class GameDataManager : MonoBehaviour
 	public int roomsComplete = 0;
 	public int goldCollected = 0;
 
+	void Start()
+	{
+		allEnemiesKilled = new List<Enemy>();
+	}
 
 	public void ResetData()
 	{
-		allEnemiesKilled = new List<Enemy>();
-		roomsComplete = 0;
-		goldCollected = 0;
+		//allEnemiesKilled = new List<Enemy>();
+		//roomsComplete = 0;
+		//goldCollected = 0;
 	}
 
 	public void RoomCompleted()

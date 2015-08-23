@@ -187,8 +187,11 @@ public class Enemy : MonoBehaviour
 
 	public void OnDeath()
 	{
-		if(GameManager.inst.gameDataManager != null)
-			GameManager.inst.gameDataManager.allEnemiesKilled.Add(this);
+		//if(GameManager.inst.gameDataManager != null)
+		GameManager.inst.gameDataManager.allEnemiesKilled.Add(this);
+
+		if(GameManager.inst.questManager.currentQuest != null)
+			DisplayQuestText();
 		//Loop through Behaviours and call on death
 		for (int i = 0; i < enemyBehaviours.Count; i++)
 		{
@@ -197,6 +200,18 @@ public class Enemy : MonoBehaviour
 
 		gameObject.SetActive(false);
 
+	}
+
+	void DisplayQuestText()
+	{
+		GameObject g = new GameObject("Quest Text");
+		g.transform.position = GameManager.inst.player.transform.position;
+		g.AddComponent<QuestText>();
+		TextMesh tm = g.AddComponent<TextMesh>();
+		tm.characterSize = 0.2f;
+		tm.fontSize = 25;
+		tm.color = Color.red;
+		tm.text = GameManager.inst.questManager.currentQuest.GetQuestCounterText();
 	}
 
     void OnCollisionEnter2D(Collision2D col)

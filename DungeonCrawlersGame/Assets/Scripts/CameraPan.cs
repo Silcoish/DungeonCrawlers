@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class CameraPan : MonoBehaviour 
@@ -65,7 +65,8 @@ public class CameraPan : MonoBehaviour
 
 			if (lerp > 0.9)
 			{
-				GameManager.inst.player.GetComponent<Player>().controlsEnabled = false;
+				col.GetComponent<Player>().controlsEnabled = false;
+				//GameManager.inst.player.GetComponent<Player>().controlsEnabled = false;
 				isFade = true;
 			}
 		}
