@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
                     anim.SetInteger("Facing", (int)Facing.RIGHT);
                     armRight.SetInteger("Facing", (int)Facing.RIGHT);
                     armLeft.SetInteger("Facing", (int)Facing.RIGHT);
-                    armLeftSprite.sortingOrder = -2;
+                    armLeftSprite.sortingOrder = -2; // -2
                     wepLeft.sortingOrder = -1;
                     wepRight.sortingOrder = 2;
                     armRightSprite.sortingOrder = 3;
@@ -109,9 +109,10 @@ public class Player : MonoBehaviour
                     anim.SetInteger("Facing", (int)Facing.UP);
                     armRight.SetInteger("Facing", (int)Facing.UP);
                     armLeft.SetInteger("Facing", (int)Facing.UP);
-                    wepLeft.sortingOrder = -1;
-                    wepRight.sortingOrder = -1;
-
+                    armRightSprite.sortingOrder = 2; // -1
+                    armLeftSprite.sortingOrder = 2;
+                    wepLeft.sortingOrder = -2;
+                    wepRight.sortingOrder = -2;
                 }
                 else
                 {
@@ -119,8 +120,20 @@ public class Player : MonoBehaviour
                     anim.SetInteger("Facing", (int)Facing.DOWN);
                     armRight.SetInteger("Facing", (int)Facing.DOWN);
                     armLeft.SetInteger("Facing", (int)Facing.DOWN);
-                    wepLeft.sortingOrder = 2;
-                    wepRight.sortingOrder = 2;
+                    armRightSprite.sortingOrder = -1;
+                    armLeftSprite.sortingOrder = -1;
+                    wepLeft.sortingOrder = 3;
+                    wepRight.sortingOrder = 3;
+
+                    if (!armRight.GetCurrentAnimatorStateInfo(1).IsName("Default"))
+                        armRightSprite.sortingOrder = 2;
+                    else
+                        armRightSprite.sortingOrder = 0;
+
+                    if (!armLeft.GetCurrentAnimatorStateInfo(1).IsName("Default"))
+                        armLeftSprite.sortingOrder = 2;
+                    else
+                        armLeftSprite.sortingOrder = 0;
                 }
             }
 
@@ -190,6 +203,12 @@ public class Player : MonoBehaviour
         wepColliderLeft.points = GameManager.inst.activeItems.wepLeft.GetComponent<PolygonCollider2D>().points;
         cdRight = GameManager.inst.activeItems.wepRight.GetComponent<Weapon>().cd;
         cdLeft = GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>().cd;
+    }
+
+    void SetSpriteArmLayers(int layer)
+    {
+        armRightSprite.sortingOrder = layer;
+        armLeftSprite.sortingOrder = layer;
     }
 
 	public void SetRoomData(int xx, int yy, GameObject room)
