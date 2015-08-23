@@ -20,12 +20,14 @@ public class Dungeon : MonoBehaviour{
 		public GameObject enemiesParentNode;
 		public List<GameObject> doors;
 		List<GameObject> enemies;
+		List<GameObject> traps;
 
 		public Room(DungeonSets.DungeonPieces sett, bool startRoom)
 		{
 			set = sett;
 			doors = new List<GameObject>();
 			enemies = new List<GameObject>();
+			traps = new List<GameObject>();
 			isStartRoom = startRoom;
 		}
 
@@ -95,6 +97,15 @@ public class Dungeon : MonoBehaviour{
 			}
 
 			enemiesParentNode.SetActive(false);
+		}
+
+		public void SpawnTraps()
+		{
+			if(Random.Range(0, 2) == 0)
+			{
+				GameObject tempTrap = (GameObject)Instantiate(set.traps[0], new Vector2(x * xOffset, -y * yOffset), Quaternion.identity);
+				traps.Add(tempTrap);
+			}
 		}
 	};
 
@@ -211,6 +222,19 @@ public class Dungeon : MonoBehaviour{
 			if (grid[i] != -1)
 			{
 				rooms[grid[i]].SpawnEnemies();
+			}
+		}
+
+		SpawnTraps();
+	}
+
+	void SpawnTraps()
+	{
+		for (int i = 0; i < grid.Length; i++)
+		{
+			if (grid[i] != -1)
+			{
+				rooms[grid[i]].SpawnTraps();
 			}
 		}
 	}
