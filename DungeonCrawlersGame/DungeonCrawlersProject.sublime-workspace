@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"ma",
+				"magic"
+			],
+			[
 				"po",
 				"position"
 			],
@@ -20,43 +24,43 @@
 	"buffers":
 	[
 		{
-			"file": "Assets/Scripts/Door.cs",
+			"file": "/D/Users/Corey/Documents/Node/Bucky/app.js",
 			"settings":
 			{
-				"buffer_size": 303,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/Scripts/DungeonGen/Dungeon.cs",
-			"settings":
-			{
-				"buffer_size": 8159,
+				"buffer_size": 0,
 				"line_ending": "Windows"
 			}
 		}
 	],
-	"build_system": "",
+	"build_system": "Packages/User/Node.sublime-build",
 	"command_palette":
 	{
 		"height": 392.0,
 		"selected_items":
 		[
 			[
-				"pac",
-				"Package Control: Remove Package"
-			],
-			[
 				"inst",
 				"Package Control: Install Package"
 			],
 			[
-				"pa",
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"ins	",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
 				"Package Control: Remove Package"
 			],
 			[
-				"ins",
-				"Package Control: Install Package"
+				"pa",
+				"Package Control: Remove Package"
 			],
 			[
 				"pack",
@@ -99,7 +103,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 600.0
+		"width": 528.0
 	},
 	"console":
 	{
@@ -116,11 +120,13 @@
 	},
 	"file_history":
 	[
-		"/D/Users/Corey/Documents/dungeon crawlers/DungeonCrawlersGame/Assets/Scripts/DungeonGen/DungeonGeneration.cs",
+		"/D/Users/Corey/Documents/Node/test/test.js",
+		"/C/Users/Corey/AppData/Roaming/Sublime Text 2/Packages/User/Node.sublime-build",
+		"/D/Users/Corey/Documents/dungeon crawlers/DungeonCrawlersGame/Assets/Scripts/Door.cs",
 		"/D/Users/Corey/Documents/dungeon crawlers/DungeonCrawlersGame/Assets/Scripts/DungeonGen/Dungeon.cs",
+		"/D/Users/Corey/Documents/dungeon crawlers/DungeonCrawlersGame/Assets/Scripts/DungeonGen/DungeonGeneration.cs",
 		"/D/Users/Corey/Documents/dungeon crawlers/DungeonCrawlersGame/DungeonCrawlersProject.sublime-project",
 		"/D/Users/Corey/Documents/dungeon crawlers/DungeonCrawlersGame/Assets/Scripts/NoteSubscribe.cs",
-		"/D/Users/Corey/Documents/dungeon crawlers/DungeonCrawlersGame/Assets/Scripts/Door.cs",
 		"/C/Users/Corey/AppData/Roaming/Sublime Text 2/Packages/User/ApplySyntax.sublime-settings",
 		"/D/Users/Corey/Documents/dungeon crawlers/DungeonCrawlersGame/my_project.sublime-project",
 		"/D/Users/Corey/Documents/dungeon crawlers/DungeonCrawlersGame/Assets/Scripts/Player.cs",
@@ -195,15 +201,15 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Assets/Scripts/Door.cs",
+					"file": "/D/Users/Corey/Documents/Node/Bucky/app.js",
 					"settings":
 					{
-						"buffer_size": 303,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -217,6 +223,7 @@
 						"settings":
 						{
 							"BracketHighlighterBusy": false,
+							"auto_complete": false,
 							"bh_regions":
 							[
 								"bh_regex",
@@ -265,87 +272,10 @@
 								"bh_single_quote_close"
 							],
 							"colorcode": true,
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Assets/Scripts/DungeonGen/Dungeon.cs",
-					"settings":
-					{
-						"buffer_size": 8159,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								301,
-								301
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"colorcode": true,
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 84.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -386,7 +316,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 247.0
+		"height": 256.0
 	},
 	"replace":
 	{

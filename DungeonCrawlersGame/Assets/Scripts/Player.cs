@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     public PolygonCollider2D wepColliderRight;
     public PolygonCollider2D wepColliderLeft;
 	public RoomData roomData;
+	public WeaponCollider weaponCollider;
 
     public int baseMoveSpeed = 10;
     public bool controlsEnabled = true;
@@ -54,6 +55,8 @@ public class Player : MonoBehaviour
 
         armRightSprite = armRight.gameObject.GetComponent<SpriteRenderer>();
         armLeftSprite = armLeft.gameObject.GetComponent<SpriteRenderer>();
+
+		weaponCollider = GetComponent<WeaponCollider>();
 
 		//roomData = new RoomData();
 		//roomData.x = 10;
@@ -201,18 +204,30 @@ public class Player : MonoBehaviour
 
     void AttackLeftHand()
     {
+<<<<<<< HEAD
         armLeft.SetTrigger("Attack");
         //GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>().Attack();
         wepColliderLeft.gameObject.SetActive(true);
+=======
+		weaponCollider.CreateMesh(wepColliderLeft);
+        anim.SetTrigger("AttackLeft");
+        GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>().Attack();
+>>>>>>> 45ce2c9c55e8c873adf9a462859184e987656aee
         cdLeftCur = cdLeft;
         swingTimerLeft = swingColliderUptime;
     }
 
     void AttackRightHand()
     {
+<<<<<<< HEAD
         armRight.SetTrigger("Attack");
         //GameManager.inst.activeItems.wepRight.GetComponent<Weapon>().Attack();
         wepColliderRight.gameObject.SetActive(true);
+=======
+		weaponCollider.CreateMesh(wepColliderRight);
+        anim.SetTrigger("AttackRight");
+        GameManager.inst.activeItems.wepRight.GetComponent<Weapon>().Attack();
+>>>>>>> 45ce2c9c55e8c873adf9a462859184e987656aee
         cdRightCur = cdRight;
         swingTimerRight = swingColliderUptime;
     }

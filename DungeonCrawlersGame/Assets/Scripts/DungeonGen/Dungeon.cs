@@ -260,10 +260,10 @@ public class Dungeon : MonoBehaviour{
 	public void SwitchRooms(Door.Direction dir)
 	{
 		//Check is Quest Complete
-		if (GameManager.inst.questManager.currentQuest.CheckProgress())
-		{
-			Application.LoadLevel(1);
-		}
+		//if (GameManager.inst.questManager.currentQuest.CheckProgress())
+		//{
+		//	Application.LoadLevel(1);
+		//}
 
 
 

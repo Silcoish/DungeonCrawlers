@@ -14,8 +14,8 @@ GameObject:
   - 114: {fileID: 11432022}
   - 114: {fileID: 11475192}
   - 114: {fileID: 11493414}
-  - 114: {fileID: 11445582}
   - 114: {fileID: 11447616}
+  - 114: {fileID: 11445582}
   m_Layer: 0
   m_Name: ENY_Scarab_Melee_001
   m_TagString: Enemy
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e759df69521ea774d942d37f1e734f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  note: 42
+  note: 36
   velocity: 80
   channel: 1
   state: 0
@@ -195,6 +195,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: name
       value: Scarab
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: note
+      value: 36
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

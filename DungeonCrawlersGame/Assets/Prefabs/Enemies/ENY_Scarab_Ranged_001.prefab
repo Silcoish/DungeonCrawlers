@@ -16,7 +16,6 @@ GameObject:
   - 114: {fileID: 11466770}
   - 114: {fileID: 11418800}
   - 114: {fileID: 11414946}
-  - 114: {fileID: 11478996}
   - 114: {fileID: 11491060}
   m_Layer: 0
   m_Name: ENY_Scarab_Ranged_001
@@ -104,7 +103,7 @@ MonoBehaviour:
   numberOfBullets: 1
   shotAngle: 0
   shotSpeed: 6.19999981
-  sub: {fileID: 11478996}
+  sub: {fileID: 0}
   stateSkips: 4
 --- !u!114 &11418800
 MonoBehaviour:
@@ -150,21 +149,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   rotateToFace: 1
---- !u!114 &11478996
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e759df69521ea774d942d37f1e734f9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  note: 42
-  velocity: 80
-  channel: 1
-  state: 0
 --- !u!114 &11491060
 MonoBehaviour:
   m_ObjectHideFlags: 1
