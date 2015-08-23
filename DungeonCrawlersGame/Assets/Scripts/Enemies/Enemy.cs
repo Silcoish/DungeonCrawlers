@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -187,7 +187,8 @@ public class Enemy : MonoBehaviour
 
 	public void OnDeath()
 	{
-		GameManager.inst.gameDataManager.allEnemiesKilled.Add(this);
+		if(GameManager.inst.gameDataManager != null)
+			GameManager.inst.gameDataManager.allEnemiesKilled.Add(this);
 		//Loop through Behaviours and call on death
 		for (int i = 0; i < enemyBehaviours.Count; i++)
 		{

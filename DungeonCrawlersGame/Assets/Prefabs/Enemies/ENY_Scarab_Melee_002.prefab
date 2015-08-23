@@ -30,8 +30,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.8499999, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 261.804871, y: -80.1736679, z: 0}
+  m_LocalScale: {x: .408753157, y: .408753097, z: .408753097}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -63,7 +63,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1.60000002, y: 2.54999995}
+  m_Size: {x: 5.21000004, y: 6.61999941}
 --- !u!114 &11414790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -167,7 +167,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cbffebca0b19fde43be39d96c723a194, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb7f9dcedb6077a45bb4a81dead05ef1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

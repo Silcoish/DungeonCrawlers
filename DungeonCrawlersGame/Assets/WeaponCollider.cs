@@ -50,13 +50,14 @@ public class WeaponCollider : MonoBehaviour {
 			}
 		}
 
-		for (int j = 0; j < triangles.Length; j++)
-			print(triangles[j]);
-
 		Mesh mesh = new Mesh();
 		mesh.Clear();
 		mesh.vertices = points;
-		mesh.triangles = new int[] {0, 1, 2, 2, 3, 0, 3, 4, 0, 0, 0, 0};//triangles;
+		mesh.triangles = triangles;// new int[] { 0, 1, 2, 2, 3, 0, 3, 4, 0, 0, 0, 0 };//triangles;
 		meshFilter.mesh = mesh;
+
+		Material mat = new Material(Shader.Find("Sprites/Default"));
+		mat.color = new Color(0, 0.66f, 0, 0.9f);
+		meshRenderer.material = mat;
 	}
 }
