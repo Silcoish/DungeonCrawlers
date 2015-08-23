@@ -470,7 +470,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3497732eef824aa4faa451da51756449, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a2bf8e16d73008442bbc977ac389b9f1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -545,7 +545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 329b1e3b1fc30964280f3bbc2309962e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filePath: together
+  filePath: updated_midi
   midiNotes: []
 --- !u!1001 &2144912599
 Prefab:

@@ -66,9 +66,11 @@ public class MidiSystem : MonoBehaviour {
 				{
 					if(midiNotes[index].velocity >= subscribers[i].note)
 					{
-						if (midiNotes[index].state == MidiNote.State.ON)
+						//if (midiNotes[index].state == MidiNote.State.ON)
 							subscribers[i].Activate();
-						else
+					}
+					else
+					{
 							subscribers[i].Deactivate();
 					}
 				}
