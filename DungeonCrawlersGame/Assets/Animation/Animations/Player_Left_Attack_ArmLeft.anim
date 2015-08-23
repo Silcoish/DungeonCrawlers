@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Player_Right_Attack_ArmLeft
+  m_Name: Player_Left_Attack_ArmLeft
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -15,24 +15,24 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: 0, y: 0, z: .300705433, w: -.953717053}
-        inSlope: {x: 0, y: 0, z: -8.67988682, w: .568912268}
-        outSlope: {x: 0, y: 0, z: -8.67988682, w: .568912268}
+        value: {x: 0, y: 0, z: .537299693, w: .843391418}
+        inSlope: {x: 0, y: 0, z: -10.5518389, w: 1.15561438}
+        outSlope: {x: 0, y: 0, z: -10.5518389, w: 1.15561438}
         tangentMode: 0
       - time: .0833333358
-        value: {x: 0, y: 0, z: -.422618479, w: -.906307697}
+        value: {x: 0, y: 0, z: -.342020184, w: .939692616}
         inSlope: {x: 0, y: 0, z: 0, w: 0}
         outSlope: {x: 0, y: 0, z: 0, w: 0}
         tangentMode: 0
       - time: .166666672
-        value: {x: 0, y: 0, z: .300705433, w: -.953717053}
-        inSlope: {x: 0, y: 0, z: 7.97355652, w: 2.9021349}
-        outSlope: {x: 0, y: 0, z: 7.97355652, w: 2.9021349}
+        value: {x: 0, y: 0, z: .537299693, w: .843391418}
+        inSlope: {x: 0, y: 0, z: 7.96096802, w: -4.5962677}
+        outSlope: {x: 0, y: 0, z: 7.96096802, w: -4.5962677}
         tangentMode: 0
       - time: .25
-        value: {x: 0, y: 0, z: .906307638, w: -.422618538}
-        inSlope: {x: 0, y: 0, z: 7.2672267, w: 6.3731823}
-        outSlope: {x: 0, y: 0, z: 7.2672267, w: 6.3731823}
+        value: {x: 0, y: 0, z: .984807789, w: .173647985}
+        inSlope: {x: 0, y: 0, z: 5.37009764, w: -8.0369215}
+        outSlope: {x: 0, y: 0, z: 5.37009764, w: -8.0369215}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -43,22 +43,22 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: .167999998, y: -.312999994, z: 0}
+        value: {x: .0549999997, y: -.368999988, z: 0}
         inSlope: {x: Infinity, y: Infinity, z: Infinity}
         outSlope: {x: Infinity, y: Infinity, z: Infinity}
         tangentMode: 0
       - time: .0833333358
-        value: {x: .324000001, y: -.00200000009, z: 0}
+        value: {x: -.108000003, y: .0489999987, z: 0}
         inSlope: {x: Infinity, y: Infinity, z: Infinity}
         outSlope: {x: Infinity, y: Infinity, z: Infinity}
         tangentMode: 0
       - time: .166666672
-        value: {x: .303000003, y: -.370000005, z: 0}
+        value: {x: -.128999993, y: -.361999989, z: 0}
         inSlope: {x: Infinity, y: Infinity, z: Infinity}
         outSlope: {x: Infinity, y: Infinity, z: Infinity}
         tangentMode: 0
       - time: .25
-        value: {x: -.100000001, y: -.448000014, z: 0}
+        value: {x: .338, y: -.419, z: 0}
         inSlope: {x: Infinity, y: Infinity, z: Infinity}
         outSlope: {x: Infinity, y: Infinity, z: Infinity}
         tangentMode: 0
@@ -70,13 +70,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 90cdb8b7be58f4a4db446444f7a51fb2, type: 3}
+      value: {fileID: 21300000, guid: 31f4eaec93ae3e24ebb452cbccb93130, type: 3}
     - time: .0833333358
-      value: {fileID: 21300002, guid: 90cdb8b7be58f4a4db446444f7a51fb2, type: 3}
+      value: {fileID: 21300002, guid: 31f4eaec93ae3e24ebb452cbccb93130, type: 3}
     - time: .166666672
-      value: {fileID: 21300004, guid: 90cdb8b7be58f4a4db446444f7a51fb2, type: 3}
+      value: {fileID: 21300004, guid: 31f4eaec93ae3e24ebb452cbccb93130, type: 3}
     - time: .25
-      value: {fileID: 21300006, guid: 90cdb8b7be58f4a4db446444f7a51fb2, type: 3}
+      value: {fileID: 21300006, guid: 31f4eaec93ae3e24ebb452cbccb93130, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -107,10 +107,10 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 90cdb8b7be58f4a4db446444f7a51fb2, type: 3}
-    - {fileID: 21300002, guid: 90cdb8b7be58f4a4db446444f7a51fb2, type: 3}
-    - {fileID: 21300004, guid: 90cdb8b7be58f4a4db446444f7a51fb2, type: 3}
-    - {fileID: 21300006, guid: 90cdb8b7be58f4a4db446444f7a51fb2, type: 3}
+    - {fileID: 21300000, guid: 31f4eaec93ae3e24ebb452cbccb93130, type: 3}
+    - {fileID: 21300002, guid: 31f4eaec93ae3e24ebb452cbccb93130, type: 3}
+    - {fileID: 21300004, guid: 31f4eaec93ae3e24ebb452cbccb93130, type: 3}
+    - {fileID: 21300006, guid: 31f4eaec93ae3e24ebb452cbccb93130, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
@@ -133,22 +133,22 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: .167999998
+        value: .0549999997
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
       - time: .0833333358
-        value: .324000001
+        value: -.108000003
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
       - time: .166666672
-        value: .303000003
+        value: -.128999993
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
       - time: .25
-        value: -.100000001
+        value: .338
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
@@ -162,22 +162,22 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -.312999994
+        value: -.368999988
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
       - time: .0833333358
-        value: -.00200000009
+        value: .0489999987
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
       - time: .166666672
-        value: -.370000005
+        value: -.361999989
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
       - time: .25
-        value: -.448000014
+        value: -.419
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
@@ -278,24 +278,24 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: .300705433
-        inSlope: -8.67988682
-        outSlope: -8.67988682
+        value: .537299693
+        inSlope: -10.5518389
+        outSlope: -10.5518389
         tangentMode: 0
       - time: .0833333358
-        value: -.422618479
+        value: -.342020184
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       - time: .166666672
-        value: .300705433
-        inSlope: 7.97355652
-        outSlope: 7.97355652
+        value: .537299693
+        inSlope: 7.96096802
+        outSlope: 7.96096802
         tangentMode: 0
       - time: .25
-        value: .906307638
-        inSlope: 7.2672267
-        outSlope: 7.2672267
+        value: .984807789
+        inSlope: 5.37009764
+        outSlope: 5.37009764
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -307,24 +307,24 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -.953717053
-        inSlope: .568912268
-        outSlope: .568912268
+        value: .843391418
+        inSlope: 1.15561438
+        outSlope: 1.15561438
         tangentMode: 0
       - time: .0833333358
-        value: -.906307697
+        value: .939692616
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       - time: .166666672
-        value: -.953717053
-        inSlope: 2.9021349
-        outSlope: 2.9021349
+        value: .843391418
+        inSlope: -4.5962677
+        outSlope: -4.5962677
         tangentMode: 0
       - time: .25
-        value: -.422618538
-        inSlope: 6.3731823
-        outSlope: 6.3731823
+        value: .173647985
+        inSlope: -8.0369215
+        outSlope: -8.0369215
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -395,22 +395,22 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 325
+        value: 65
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
       - time: .0833333358
-        value: 410
+        value: -40
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
       - time: .166666672
-        value: 325
+        value: 65
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
       - time: .25
-        value: 230
+        value: 160
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31

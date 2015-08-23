@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
                     armLeftSprite.sortingOrder = 3;
                     wepLeft.sortingOrder = 2;
                     wepRight.sortingOrder = -1;
-                    armRightSprite.sortingOrder = -2;
+                    armRightSprite.sortingOrder = -2; //-2
                 }
             }
             else
@@ -109,8 +109,8 @@ public class Player : MonoBehaviour
                     anim.SetInteger("Facing", (int)Facing.UP);
                     armRight.SetInteger("Facing", (int)Facing.UP);
                     armLeft.SetInteger("Facing", (int)Facing.UP);
-                    armRightSprite.sortingOrder = 2; // -1
-                    armLeftSprite.sortingOrder = 2;
+                    armRightSprite.sortingOrder = -1; // -1
+                    armLeftSprite.sortingOrder = -1;
                     wepLeft.sortingOrder = -2;
                     wepRight.sortingOrder = -2;
                 }
@@ -127,13 +127,9 @@ public class Player : MonoBehaviour
 
                     if (!armRight.GetCurrentAnimatorStateInfo(1).IsName("Default"))
                         armRightSprite.sortingOrder = 2;
-                    else
-                        armRightSprite.sortingOrder = 0;
 
                     if (!armLeft.GetCurrentAnimatorStateInfo(1).IsName("Default"))
                         armLeftSprite.sortingOrder = 2;
-                    else
-                        armLeftSprite.sortingOrder = 0;
                 }
             }
 
