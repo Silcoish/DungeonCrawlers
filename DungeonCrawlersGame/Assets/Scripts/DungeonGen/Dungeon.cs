@@ -124,12 +124,13 @@ public class Dungeon : MonoBehaviour{
 		if (GameManager.inst.dungeon == null)
 		{
 			GameManager.inst.dungeon = this;
-
 		}
 		else
 		{
 			Destroy(this);
 		}
+
+		Random.seed = 31231;
 
 		grid = new int[GRID_WIDTH * GRID_HEIGHT];
 		ResetRooms();
@@ -289,6 +290,7 @@ public class Dungeon : MonoBehaviour{
 		{
 			if (GameManager.inst.questManager.currentQuest.CheckProgress())
 			{
+				GameManager.inst.stats.hpCur = GameManager.inst.stats.hpMax;
 				Application.LoadLevel(1);
 			}
 		}
@@ -335,6 +337,7 @@ public class Dungeon : MonoBehaviour{
 			{
 				GameManager.inst.player.transform.position = tempRoom.doors[i].transform.GetChild(0).transform.position;
 				tempRoom.enemiesParentNode.SetActive(true);
+				
 
 			}
 		}

@@ -1,11 +1,12 @@
 fileFormatVersion: 2
 guid: 5dac618ed266dbe449de291a961165fb
-timeCreated: 1438499285
+timeCreated: 1440336325
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Door_Dark
-    21300002: Door_Dark_2
+    21300002: Door_Closed
+    21300004: Door_Open
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -61,10 +62,20 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Door_Dark_2
+    - name: Door_Closed
       rect:
         serializedVersion: 2
         x: 46
+        y: 806
+        width: 252
+        height: 187
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Door_Open
+      rect:
+        serializedVersion: 2
+        x: 497
         y: 806
         width: 252
         height: 187

@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wepLeft: {fileID: 116298, guid: 135de17eff79c6a4fa39c87b6618c3f8, type: 2}
-  wepRight: {fileID: 116298, guid: 135de17eff79c6a4fa39c87b6618c3f8, type: 2}
+  wepRight: {fileID: 176004, guid: aacd9bef08508d14da0b697472df4225, type: 2}
   wepLeftOff: {fileID: 0}
   wepRightOff: {fileID: 0}
   pas1: {fileID: 0}

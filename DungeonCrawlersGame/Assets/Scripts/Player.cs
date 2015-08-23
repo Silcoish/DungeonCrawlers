@@ -190,8 +190,8 @@ public class Player : MonoBehaviour
 
 	void OnDeath()
 	{
+		GameManager.inst.stats.hpCur = GameManager.inst.stats.hpMax;
 		Application.LoadLevel(1);
-
 	}
 
     void OnCollisionEnter2D(Collision2D col)

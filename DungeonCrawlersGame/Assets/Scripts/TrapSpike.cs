@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TrapSpike : MonoBehaviour {
 
-	int damage;
+	[SerializeField] int damage;
 	[SerializeField] float cooldown = 0;
 	float counter = 0;
 	[SerializeField] float knockbackMultiplyer;
