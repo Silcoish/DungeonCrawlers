@@ -54,6 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edec726c2b86c72468ab1d7bd0f6773a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 20
   cooldown: 3
   knockbackMultiplyer: 10
 --- !u!212 &21201522
@@ -96,6 +97,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: cooldown
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

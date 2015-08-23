@@ -94,7 +94,7 @@ public class MidiSystem : MonoBehaviour
 
 	private void ReadFile()
 	{
-		StreamReader sr = new StreamReader(Application.dataPath + "/Audio/" + filePath + ".miditext");
+		StreamReader sr = new StreamReader(Application.streamingAssetsPath + "\\" + filePath + ".miditext");
 		string fileContents = sr.ReadToEnd();
 		sr.Close();
 

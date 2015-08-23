@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class DungeonSets : MonoBehaviour {
 
-	void Start()
+	void Awake()
 	{
 		if (GameManager.inst.dungeonSets == null)
 		{

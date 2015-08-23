@@ -16,6 +16,8 @@ GameObject:
   - 114: {fileID: 11488754}
   - 114: {fileID: 11447728}
   - 114: {fileID: 11491636}
+  - 114: {fileID: 11493372}
+  - 114: {fileID: 11445710}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -35,6 +37,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11445710
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c75fb384c13641d43973bcd82b0e92d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomAmount: 10
+  rooms: []
+  grid: 
+  shift: 0
 --- !u!114 &11447728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,6 +163,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gold: 0
   inventory: []
+--- !u!114 &11493372
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 600ec828ff484794a8bd0b9073fd4a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  set:
+  - player: {fileID: 133668, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
+    room: {fileID: 169632, guid: 7dcf7a0662730984c9a9b4b9e59bb443, type: 2}
+    northDoor: {fileID: 141042, guid: b53785e05b134784689e7ce52a285b41, type: 2}
+    eastDoor: {fileID: 104206, guid: 59a8df59b206a57498f94352122a0c0c, type: 2}
+    southDoor: {fileID: 150346, guid: 667e8848d16857b4a9bf9940e8550728, type: 2}
+    westDoor: {fileID: 165924, guid: 06d05d1a7bdbde141ad77c824a397e31, type: 2}
+    enemies:
+    - {fileID: 107970, guid: 94f56c4d820e4064286302a0728d82d8, type: 2}
+    - {fileID: 172340, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
+    obstacles: []
+    traps:
+    - {fileID: 183860, guid: 6cfd628416c025d468fb2ebedc9502b9, type: 2}
+  - player: {fileID: 0}
+    room: {fileID: 169632, guid: 7dcf7a0662730984c9a9b4b9e59bb443, type: 2}
+    northDoor: {fileID: 152006, guid: b53785e05b134784689e7ce52a285b41, type: 2}
+    eastDoor: {fileID: 104206, guid: 59a8df59b206a57498f94352122a0c0c, type: 2}
+    southDoor: {fileID: 150346, guid: 667e8848d16857b4a9bf9940e8550728, type: 2}
+    westDoor: {fileID: 165924, guid: 06d05d1a7bdbde141ad77c824a397e31, type: 2}
+    enemies:
+    - {fileID: 107970, guid: 94f56c4d820e4064286302a0728d82d8, type: 2}
+    - {fileID: 172340, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
+    obstacles: []
+    traps: []
+  - player: {fileID: 0}
+    room: {fileID: 169632, guid: 7dcf7a0662730984c9a9b4b9e59bb443, type: 2}
+    northDoor: {fileID: 152006, guid: b53785e05b134784689e7ce52a285b41, type: 2}
+    eastDoor: {fileID: 104206, guid: 59a8df59b206a57498f94352122a0c0c, type: 2}
+    southDoor: {fileID: 150346, guid: 667e8848d16857b4a9bf9940e8550728, type: 2}
+    westDoor: {fileID: 165924, guid: 06d05d1a7bdbde141ad77c824a397e31, type: 2}
+    enemies:
+    - {fileID: 107970, guid: 94f56c4d820e4064286302a0728d82d8, type: 2}
+    - {fileID: 172340, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
+    obstacles: []
+    traps: []
 --- !u!114 &11497982
 MonoBehaviour:
   m_ObjectHideFlags: 1
