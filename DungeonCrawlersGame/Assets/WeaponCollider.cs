@@ -3,7 +3,7 @@ using System.Collections;
 
 public class WeaponCollider : MonoBehaviour {
 
-	public PolygonCollider2D right;
+	//public PolygonCollider2D right;
 
 	void Start()
 	{

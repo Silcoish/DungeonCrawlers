@@ -103,7 +103,7 @@ MonoBehaviour:
   numberOfBullets: 1
   shotAngle: 0
   shotSpeed: 6.19999981
-  sub: {fileID: 0}
+  sub: {fileID: 11418800}
   stateSkips: 4
 --- !u!114 &11418800
 MonoBehaviour:
@@ -215,6 +215,10 @@ Prefab:
       propertyPath: name
       value: Scarab
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sub
+      value: 
+      objectReference: {fileID: 11418800}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 172340}

@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     public PolygonCollider2D wepColliderRight;
     public PolygonCollider2D wepColliderLeft;
 	public RoomData roomData;
+	public WeaponCollider weaponCollider;
 
     public int baseMoveSpeed = 10;
     public bool controlsEnabled = true;
@@ -54,6 +55,8 @@ public class Player : MonoBehaviour
 
         armRightSprite = armRight.gameObject.GetComponent<SpriteRenderer>();
         armLeftSprite = armLeft.gameObject.GetComponent<SpriteRenderer>();
+
+		weaponCollider = GetComponent<WeaponCollider>();
 
 		//roomData = new RoomData();
 		//roomData.x = 10;
@@ -201,6 +204,7 @@ public class Player : MonoBehaviour
 
     void AttackLeftHand()
     {
+		weaponCollider.CreateMesh(wepColliderLeft);
         armLeft.SetTrigger("Attack");
         //GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>().Attack();
         wepColliderLeft.gameObject.SetActive(true);
@@ -210,6 +214,7 @@ public class Player : MonoBehaviour
 
     void AttackRightHand()
     {
+		weaponCollider.CreateMesh(wepColliderRight);
         armRight.SetTrigger("Attack");
         //GameManager.inst.activeItems.wepRight.GetComponent<Weapon>().Attack();
         wepColliderRight.gameObject.SetActive(true);

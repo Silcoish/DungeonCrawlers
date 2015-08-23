@@ -46,6 +46,7 @@ GameObject:
   - 61: {fileID: 6106080}
   - 114: {fileID: 11427898}
   - 95: {fileID: 9522078}
+  - 114: {fileID: 11480818}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -401,10 +402,22 @@ MonoBehaviour:
     x: 0
     y: 0
     currentRoom: {fileID: 0}
+  weaponCollider: {fileID: 0}
   baseMoveSpeed: 15
   controlsEnabled: 1
   swingColliderUptime: .5
   dir: 0
+--- !u!114 &11480818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd324f13ce00ebd42a81db467bd3e67e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21222298
 SpriteRenderer:
   m_ObjectHideFlags: 1
