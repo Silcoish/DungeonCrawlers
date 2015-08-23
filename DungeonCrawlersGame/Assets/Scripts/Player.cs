@@ -36,6 +36,9 @@ public class Player : MonoBehaviour
 
     public int baseMoveSpeed = 10;
     public bool controlsEnabled = true;
+    public float swingColliderUptime = 0.5F;
+    private float swingTimerRight = 0;
+    private float swingTimerLeft = 0;
     private float cdRight;
     private float cdRightCur;
     private float cdLeft;
@@ -87,6 +90,9 @@ public class Player : MonoBehaviour
                     wepLeft.sortingOrder = -1;
                     wepRight.sortingOrder = 2;
                     armRightSprite.sortingOrder = 3;
+
+                    wepColliderRight.transform.eulerAngles = new Vector3(0,0,90);
+                    wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 90);
                 }
 
                 else
@@ -99,6 +105,9 @@ public class Player : MonoBehaviour
                     wepLeft.sortingOrder = 2;
                     wepRight.sortingOrder = -1;
                     armRightSprite.sortingOrder = -2; //-2
+
+                    wepColliderRight.transform.eulerAngles = new Vector3(0, 0, -90);
+                    wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, -90);
                 }
             }
             else
@@ -113,6 +122,9 @@ public class Player : MonoBehaviour
                     armLeftSprite.sortingOrder = -1;
                     wepLeft.sortingOrder = -2;
                     wepRight.sortingOrder = -2;
+
+                    wepColliderRight.transform.eulerAngles = new Vector3(0, 0, 180);
+                    wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 180);
                 }
                 else
                 {
@@ -124,6 +136,9 @@ public class Player : MonoBehaviour
                     armLeftSprite.sortingOrder = -1;
                     wepLeft.sortingOrder = 3;
                     wepRight.sortingOrder = 3;
+
+                    wepColliderRight.transform.eulerAngles = new Vector3(0, 0, 0);
+                    wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 0);
 
                     if (!armRight.GetCurrentAnimatorStateInfo(1).IsName("Default"))
                         armRightSprite.sortingOrder = 2;
@@ -146,6 +161,15 @@ public class Player : MonoBehaviour
         // Update Cooldown timers
         cdLeftCur -= Time.deltaTime;
         cdRightCur -= Time.deltaTime;
+
+        // Update Swing timers
+        if (swingTimerRight < 0)
+            wepColliderRight.gameObject.SetActive(false);
+        if (swingTimerLeft < 0)
+            wepColliderLeft.gameObject.SetActive(false);
+
+        swingTimerRight -= Time.deltaTime;
+        swingTimerLeft -= Time.deltaTime;
     }
 
     public void OnTakeDamage(int dmg, Vector2 kb)
@@ -178,15 +202,19 @@ public class Player : MonoBehaviour
     void AttackLeftHand()
     {
         armLeft.SetTrigger("Attack");
-        GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>().Attack();
+        //GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>().Attack();
+        wepColliderLeft.gameObject.SetActive(true);
         cdLeftCur = cdLeft;
+        swingTimerLeft = swingColliderUptime;
     }
 
     void AttackRightHand()
     {
         armRight.SetTrigger("Attack");
-        GameManager.inst.activeItems.wepRight.GetComponent<Weapon>().Attack();
+        //GameManager.inst.activeItems.wepRight.GetComponent<Weapon>().Attack();
+        wepColliderRight.gameObject.SetActive(true);
         cdRightCur = cdRight;
+        swingTimerRight = swingColliderUptime;
     }
 
     // Update the weapon sprites and collider volumes on the player based on the data in the equipped weapon prefabs.
