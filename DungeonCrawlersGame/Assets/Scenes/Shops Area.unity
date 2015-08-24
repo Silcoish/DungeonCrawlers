@@ -395,6 +395,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11454176, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
+      propertyPath: useMouseControls
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
   m_IsPrefabParent: 0
@@ -1146,6 +1150,10 @@ Prefab:
     - target: {fileID: 6067570, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
       value: 1.66175938
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427898, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
+      propertyPath: useMouseControls
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 471dc67efa7088445afffba3d953b58e, type: 2}

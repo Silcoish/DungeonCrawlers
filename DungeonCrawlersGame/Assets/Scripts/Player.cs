@@ -76,65 +76,43 @@ public class Player : MonoBehaviour
 
             rb2D.AddForce(new Vector2(gameObject.transform.right.x * horizontal, gameObject.transform.up.y * vertical) * (baseMoveSpeed + GameManager.inst.stats.spd));
 
-            Vector3 facing = mousePosition - transform.position;
             anim.SetFloat("MoveSpeed", (Mathf.Abs(horizontal) + Mathf.Abs(vertical))); // Get ANY movement on either axis.
             armRight.SetFloat("MoveSpeed", (Mathf.Abs(horizontal) + Mathf.Abs(vertical))); // Get ANY movement on either axis.
             armLeft.SetFloat("MoveSpeed", (Mathf.Abs(horizontal) + Mathf.Abs(vertical))); // Get ANY movement on either axis.
 
-            if (Mathf.Abs(facing.x) > Mathf.Abs(facing.y))
+            int direction;
+
+            if(GameManager.inst.useMouseControls)
             {
-                if (facing.x > 0)
+                Vector3 facing = mousePosition - transform.position;
+
+                if (Mathf.Abs(facing.x) > Mathf.Abs(facing.y))
                 {
-                    dir = Facing.RIGHT;
-                    anim.SetInteger("Facing", (int)Facing.RIGHT);
-                    armRight.SetInteger("Facing", (int)Facing.RIGHT);
-                    armLeft.SetInteger("Facing", (int)Facing.RIGHT);
-                    armLeftSprite.sortingOrder = -2; // -2
-                    wepLeft.sortingOrder = -1;
-                    wepRight.sortingOrder = 2;
-                    armRightSprite.sortingOrder = 3;
-
-                    wepColliderRight.transform.eulerAngles = new Vector3(0,0,90);
-                    wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 90);
+                    if (facing.x > 0)
+                        direction = (int)Facing.RIGHT;
+                    else
+                        direction = (int)Facing.LEFT;
                 }
-
                 else
                 {
-                    dir = Facing.LEFT;
-                    anim.SetInteger("Facing", (int)Facing.LEFT);
-                    armRight.SetInteger("Facing", (int)Facing.LEFT);
-                    armLeft.SetInteger("Facing", (int)Facing.LEFT);
-                    armLeftSprite.sortingOrder = 3;
-                    wepLeft.sortingOrder = 2;
-                    wepRight.sortingOrder = -1;
-                    armRightSprite.sortingOrder = -2; //-2
-
-                    wepColliderRight.transform.eulerAngles = new Vector3(0, 0, -90);
-                    wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, -90);
+                    if (facing.y > 0)
+                        direction = (int)Facing.UP;
+                    else
+                        direction = (int)Facing.DOWN;
                 }
             }
             else
             {
-                if (facing.y > 0)
-                {
-                    dir = Facing.UP;
-                    anim.SetInteger("Facing", (int)Facing.UP);
-                    armRight.SetInteger("Facing", (int)Facing.UP);
-                    armLeft.SetInteger("Facing", (int)Facing.UP);
-                    armRightSprite.sortingOrder = -1; // -1
-                    armLeftSprite.sortingOrder = -1;
-                    wepLeft.sortingOrder = -2;
-                    wepRight.sortingOrder = -2;
+                direction = GetDirection();
+            }
 
-                    wepColliderRight.transform.eulerAngles = new Vector3(0, 0, 180);
-                    wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 180);
-                }
-                else
-                {
-                    dir = Facing.DOWN;
-                    anim.SetInteger("Facing", (int)Facing.DOWN);
-                    armRight.SetInteger("Facing", (int)Facing.DOWN);
-                    armLeft.SetInteger("Facing", (int)Facing.DOWN);
+            anim.SetInteger("Facing", direction);
+            armRight.SetInteger("Facing", direction);
+            armLeft.SetInteger("Facing", direction);
+
+            switch(direction)
+            {
+                case 0:
                     armRightSprite.sortingOrder = -1;
                     armLeftSprite.sortingOrder = -1;
                     wepLeft.sortingOrder = 3;
@@ -148,14 +126,113 @@ public class Player : MonoBehaviour
 
                     if (!armLeft.GetCurrentAnimatorStateInfo(1).IsName("Default"))
                         armLeftSprite.sortingOrder = 2;
-                }
+                    break;
+                case 1:
+                    armRightSprite.sortingOrder = -1; // -1
+                    armLeftSprite.sortingOrder = -1;
+                    wepLeft.sortingOrder = -2;
+                    wepRight.sortingOrder = -2;
+
+                    wepColliderRight.transform.eulerAngles = new Vector3(0, 0, 180);
+                    wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 180);
+                    break;
+                case 2:
+                    armLeftSprite.sortingOrder = -2; // -2
+                    wepLeft.sortingOrder = -1;
+                    wepRight.sortingOrder = 2;
+                    armRightSprite.sortingOrder = 3;
+
+                    wepColliderRight.transform.eulerAngles = new Vector3(0,0,90);
+                    wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 90);
+                    break;
+                case 3:
+                    armLeftSprite.sortingOrder = 3;
+                    wepLeft.sortingOrder = 2;
+                    wepRight.sortingOrder = -1;
+                    armRightSprite.sortingOrder = -2; //-2
+
+                    wepColliderRight.transform.eulerAngles = new Vector3(0, 0, -90);
+                    wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, -90);
+                    break;
             }
 
-            if (Input.GetButton("Fire2") && cdRightCur < 0)
+            //if (Mathf.Abs(facing.x) > Mathf.Abs(facing.y))
+            //{
+            //    if (facing.x > 0)
+            //    {
+            //        dir = Facing.RIGHT;
+            //        anim.SetInteger("Facing", (int)Facing.RIGHT);
+            //        armRight.SetInteger("Facing", (int)Facing.RIGHT);
+            //        armLeft.SetInteger("Facing", (int)Facing.RIGHT);
+            //        armLeftSprite.sortingOrder = -2; // -2
+            //        wepLeft.sortingOrder = -1;
+            //        wepRight.sortingOrder = 2;
+            //        armRightSprite.sortingOrder = 3;
+
+            //        wepColliderRight.transform.eulerAngles = new Vector3(0,0,90);
+            //        wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 90);
+            //    }
+
+            //    else
+            //    {
+            //        dir = Facing.LEFT;
+            //        anim.SetInteger("Facing", (int)Facing.LEFT);
+            //        armRight.SetInteger("Facing", (int)Facing.LEFT);
+            //        armLeft.SetInteger("Facing", (int)Facing.LEFT);
+            //        armLeftSprite.sortingOrder = 3;
+            //        wepLeft.sortingOrder = 2;
+            //        wepRight.sortingOrder = -1;
+            //        armRightSprite.sortingOrder = -2; //-2
+
+            //        wepColliderRight.transform.eulerAngles = new Vector3(0, 0, -90);
+            //        wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, -90);
+            //    }
+            //}
+            //else
+            //{
+            //    if (facing.y > 0)
+            //    {
+            //        dir = Facing.UP;
+            //        anim.SetInteger("Facing", (int)Facing.UP);
+            //        armRight.SetInteger("Facing", (int)Facing.UP);
+            //        armLeft.SetInteger("Facing", (int)Facing.UP);
+            //        armRightSprite.sortingOrder = -1; // -1
+            //        armLeftSprite.sortingOrder = -1;
+            //        wepLeft.sortingOrder = -2;
+            //        wepRight.sortingOrder = -2;
+
+            //        wepColliderRight.transform.eulerAngles = new Vector3(0, 0, 180);
+            //        wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 180);
+            //    }
+            //    else
+            //    {
+            //        dir = Facing.DOWN;
+            //        anim.SetInteger("Facing", (int)Facing.DOWN);
+            //        armRight.SetInteger("Facing", (int)Facing.DOWN);
+            //        armLeft.SetInteger("Facing", (int)Facing.DOWN);
+            //        armRightSprite.sortingOrder = -1;
+            //        armLeftSprite.sortingOrder = -1;
+            //        wepLeft.sortingOrder = 3;
+            //        wepRight.sortingOrder = 3;
+
+            //        wepColliderRight.transform.eulerAngles = new Vector3(0, 0, 0);
+            //        wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 0);
+
+            //        if (!armRight.GetCurrentAnimatorStateInfo(1).IsName("Default"))
+            //            armRightSprite.sortingOrder = 2;
+
+            //        if (!armLeft.GetCurrentAnimatorStateInfo(1).IsName("Default"))
+            //            armLeftSprite.sortingOrder = 2;
+            //    }
+            //}
+
+            float xbTriggers = Input.GetAxisRaw("Fire");
+
+            if ((Input.GetButton("Fire2") || xbTriggers <= -1) && cdRightCur < 0)
             {
                 AttackRightHand();
             }
-            if (Input.GetButton("Fire1") && cdLeftCur < 0)
+            if ((Input.GetButton("Fire1") || xbTriggers >= 1) && cdLeftCur < 0)
             {
                 AttackLeftHand();
             }
@@ -238,6 +315,27 @@ public class Player : MonoBehaviour
     {
         armRightSprite.sortingOrder = layer;
         armLeftSprite.sortingOrder = layer;
+    }
+
+    int GetDirection()
+    {
+        float horizontal = Input.GetAxis("Horizontal2");
+        float vertical = Input.GetAxis("Vertical2");
+
+        if(Mathf.Abs(vertical) >= Mathf.Abs(horizontal))
+        {
+            if (vertical >= 0)
+                return 0;
+            else
+                return 1;
+        }
+        else
+        {
+            if (horizontal > 0)
+                return 2;
+            else
+                return 3;
+        }
     }
 
 	public void SetRoomData(int xx, int yy, GameObject room)

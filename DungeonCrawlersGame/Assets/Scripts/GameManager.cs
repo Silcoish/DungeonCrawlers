@@ -5,7 +5,8 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager inst;
-	public MidiSystem midiSystem;
+    public bool useMouseControls = true;
+    public MidiSystem midiSystem;
 	public Dungeon dungeon;
 	public DungeonSets dungeonSets;
     public Stats stats;
