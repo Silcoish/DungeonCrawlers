@@ -10,6 +10,7 @@ public class DungeonLayoutWindow : EditorWindow
 	public int lastIndex = 0;
 	public string selectedFileName;
 	public string newFileName;
+	public bool showFileNameError = false;
 
 	[MenuItem("Window/DungeonLayoutWindow")]
 	static void Init()
@@ -20,9 +21,13 @@ public class DungeonLayoutWindow : EditorWindow
 
 	void OnGUI()
 	{
+		EditorGUILayout.Space();
 		EditorGUILayout.LabelField("Layout Editor");
+		EditorGUILayout.Space();
 
 		ShowFileNames();
+
+		EditorGUILayout.Space();
 
 		if(index != 0 && lastIndex != index)
 		{
@@ -45,9 +50,27 @@ public class DungeonLayoutWindow : EditorWindow
 			EditorGUILayout.EndHorizontal();
 		}
 
+		EditorGUILayout.Space();
+		EditorGUILayout.BeginHorizontal();
 		if(GUILayout.Button("Save"))
 		{
 			SaveLayout();	
+		}
+		if(GUILayout.Button("Clear"))
+		{
+			if(EditorUtility.DisplayDialog("Clear Layout", "Are you sure you want to clear the current layout? Remember: You will need to save to keep changes", "Yes", "No"))
+			{
+				for(int i = 0; i < layout.Length; i++)
+				{
+					layout[i] = false;
+				}
+			}
+		}
+		EditorGUILayout.EndHorizontal();
+
+		if(showFileNameError)
+		{
+			EditorGUILayout.HelpBox("File name is invalid or already taken", MessageType.Error);
 		}
 	}
 
@@ -114,14 +137,15 @@ public class DungeonLayoutWindow : EditorWindow
 		string path = Application.dataPath + "/Layouts/";
 		if(index == 0)
 		{
-			if(newFileName != "")
+			if(newFileName != "" && !File.Exists(path + "" + newFileName + ".csv"))
 			{
 				string output = CreateSaveString();
 				File.WriteAllText(path + "" + newFileName + ".csv", output);
+				showFileNameError = false;
 			}
 			else
 			{
-				//WARNING
+				showFileNameError = true;
 			}
 		}
 		else
@@ -129,7 +153,7 @@ public class DungeonLayoutWindow : EditorWindow
 			string output = CreateSaveString();
 			File.WriteAllText(path + "" + selectedFileName, output);
 		}
-		Debug.Log(path);
+		Debug.Log(newFileName);
 	}
 
 	string CreateSaveString()
