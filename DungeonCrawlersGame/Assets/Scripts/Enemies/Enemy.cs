@@ -232,12 +232,12 @@ public class Enemy : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.gameObject.tag == "WepLeft")
-		{
-			Weapon wep = GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>();
-			Vector2 kbForce = -(col.gameObject.transform.position - gameObject.transform.position).normalized;
-			OnTakeDamage(wep.dmg, kbForce);// * wep.kb);
-		}
+        //if (col.gameObject.tag == "WepLeft")
+        //{
+        //    Weapon wep = GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>();
+        //    Vector2 kbForce = -(col.gameObject.transform.position - gameObject.transform.position).normalized;
+        //    OnTakeDamage(wep.dmg, kbForce);// * wep.kb);
+        //}
 		if (col.gameObject.tag == "WepRight")
 		{
 			Weapon wep = GameManager.inst.activeItems.wepRight.GetComponent<Weapon>();

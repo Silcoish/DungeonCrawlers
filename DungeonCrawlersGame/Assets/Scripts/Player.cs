@@ -9,8 +9,6 @@ public enum Facing
     LEFT
 }
 
-
-
 public class Player : MonoBehaviour 
 {
 	[System.Serializable]
@@ -29,26 +27,28 @@ public class Player : MonoBehaviour
     private SpriteRenderer armRightSprite;
     private SpriteRenderer armLeftSprite;
     public SpriteRenderer wepRight;
-    public SpriteRenderer wepLeft;
     public PolygonCollider2D wepColliderRight;
-    public PolygonCollider2D wepColliderLeft;
+    
 	public RoomData roomData;
 	public WeaponCollider weaponCollider;
-
     public int baseMoveSpeed = 10;
     public bool controlsEnabled = true;
     public float swingColliderUptime = 0.5F;
     private float swingTimerRight = 0;
-    private float swingTimerLeft = 0;
     private float cdRight;
     private float cdRightCur;
-    private float cdLeft;
-    private float cdLeftCur;
     public Facing dir;
 
-	void Start () 
-    {
+    // The Left Arm
+    
+    //public SpriteRenderer wepLeft;
+    //public PolygonCollider2D wepColliderLeft;
+    //private float swingTimerLeft = 0;
+    //private float cdLeft;
+    //private float cdLeftCur;
 
+    void Start () 
+    {
         boxCol2D = GetComponent<BoxCollider2D>();
         rb2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
 
             anim.SetFloat("MoveSpeed", (Mathf.Abs(horizontal) + Mathf.Abs(vertical))); // Get ANY movement on either axis.
             armRight.SetFloat("MoveSpeed", (Mathf.Abs(horizontal) + Mathf.Abs(vertical))); // Get ANY movement on either axis.
-            armLeft.SetFloat("MoveSpeed", (Mathf.Abs(horizontal) + Mathf.Abs(vertical))); // Get ANY movement on either axis.
+            armLeft.SetFloat("MoveSpeed", (Mathf.Abs(horizontal) + Mathf.Abs(vertical))); // NOTE: This needs to stay despite the removal of Left Weapons (this controls ALL left arm animations).
 
             int direction;
 
@@ -115,11 +115,11 @@ public class Player : MonoBehaviour
                 case 0:
                     armRightSprite.sortingOrder = -1;
                     armLeftSprite.sortingOrder = -1;
-                    wepLeft.sortingOrder = 3;
+                    //wepLeft.sortingOrder = 3;
                     wepRight.sortingOrder = 3;
 
                     wepColliderRight.transform.eulerAngles = new Vector3(0, 0, 0);
-                    wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 0);
+                    //wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 0);
 
                     if (!armRight.GetCurrentAnimatorStateInfo(1).IsName("Default"))
                         armRightSprite.sortingOrder = 2;
@@ -130,29 +130,29 @@ public class Player : MonoBehaviour
                 case 1:
                     armRightSprite.sortingOrder = -1; // -1
                     armLeftSprite.sortingOrder = -1;
-                    wepLeft.sortingOrder = -2;
+                    //wepLeft.sortingOrder = -2;
                     wepRight.sortingOrder = -2;
 
                     wepColliderRight.transform.eulerAngles = new Vector3(0, 0, 180);
-                    wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 180);
+                    //wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 180);
                     break;
                 case 2:
                     armLeftSprite.sortingOrder = -2; // -2
-                    wepLeft.sortingOrder = -1;
+                    //wepLeft.sortingOrder = -1;
                     wepRight.sortingOrder = 2;
                     armRightSprite.sortingOrder = 3;
 
                     wepColliderRight.transform.eulerAngles = new Vector3(0,0,90);
-                    wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 90);
+                    //wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 90);
                     break;
                 case 3:
                     armLeftSprite.sortingOrder = 3;
-                    wepLeft.sortingOrder = 2;
+                    //wepLeft.sortingOrder = 2;
                     wepRight.sortingOrder = -1;
                     armRightSprite.sortingOrder = -2; //-2
 
                     wepColliderRight.transform.eulerAngles = new Vector3(0, 0, -90);
-                    wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, -90);
+                    //wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, -90);
                     break;
             }
 
@@ -244,17 +244,17 @@ public class Player : MonoBehaviour
         }
         
         // Update Cooldown timers
-        cdLeftCur -= Time.deltaTime;
+        //cdLeftCur -= Time.deltaTime;
         cdRightCur -= Time.deltaTime;
 
         // Update Swing timers
         if (swingTimerRight < 0)
             wepColliderRight.gameObject.SetActive(false);
-        if (swingTimerLeft < 0)
-            wepColliderLeft.gameObject.SetActive(false);
+        //if (swingTimerLeft < 0)
+            //wepColliderLeft.gameObject.SetActive(false);
 
         swingTimerRight -= Time.deltaTime;
-        swingTimerLeft -= Time.deltaTime;
+        //swingTimerLeft -= Time.deltaTime;
     }
 
     public void OnTakeDamage(int dmg, Vector2 kb)
@@ -284,15 +284,15 @@ public class Player : MonoBehaviour
     {
     }
 
-    void AttackLeftHand()
-    {
-		weaponCollider.CreateMesh(wepColliderLeft);
-        armLeft.SetTrigger("Attack");
-        //GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>().Attack();
-        wepColliderLeft.gameObject.SetActive(true);
-        cdLeftCur = cdLeft;
-        swingTimerLeft = swingColliderUptime;
-    }
+    //void AttackLeftHand()
+    //{
+    //    weaponCollider.CreateMesh(wepColliderLeft);
+    //    armLeft.SetTrigger("Attack");
+    //    //GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>().Attack();
+    //    wepColliderLeft.gameObject.SetActive(true);
+    //    cdLeftCur = cdLeft;
+    //    swingTimerLeft = swingColliderUptime;
+    //}
 
     void AttackRightHand()
     {
@@ -309,11 +309,11 @@ public class Player : MonoBehaviour
     {
         // Not sure how much of a performance hit this is. Alternatively we could reference these components in the weapon script. (1 GetComponent per weapon)
         wepRight.sprite = GameManager.inst.activeItems.wepRight.GetComponent<SpriteRenderer>().sprite;
-        wepLeft.sprite = GameManager.inst.activeItems.wepLeft.GetComponent<SpriteRenderer>().sprite;
+        //wepLeft.sprite = GameManager.inst.activeItems.wepLeft.GetComponent<SpriteRenderer>().sprite;
         wepColliderRight.points = GameManager.inst.activeItems.wepRight.GetComponent<PolygonCollider2D>().points;
-        wepColliderLeft.points = GameManager.inst.activeItems.wepLeft.GetComponent<PolygonCollider2D>().points;
+        //wepColliderLeft.points = GameManager.inst.activeItems.wepLeft.GetComponent<PolygonCollider2D>().points;
         cdRight = GameManager.inst.activeItems.wepRight.GetComponent<Weapon>().cd;
-        cdLeft = GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>().cd;
+        //cdLeft = GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>().cd;
     }
 
     void SetSpriteArmLayers(int layer)

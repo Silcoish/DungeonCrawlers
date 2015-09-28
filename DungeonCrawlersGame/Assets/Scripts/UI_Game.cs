@@ -56,7 +56,7 @@ public class UI_Game : MonoBehaviour
         healthText.text = GameManager.inst.stats.hpCur + "/" + GameManager.inst.stats.hpMax;
 
         // Will need to move these into a function call when required, rather than every update.
-        wepLeft.sprite = GameManager.inst.activeItems.wepLeft.GetComponent<SpriteRenderer>().sprite;
+        //wepLeft.sprite = GameManager.inst.activeItems.wepLeft.GetComponent<SpriteRenderer>().sprite;
         wepRight.sprite = GameManager.inst.activeItems.wepRight.GetComponent<SpriteRenderer>().sprite;
     }
 
