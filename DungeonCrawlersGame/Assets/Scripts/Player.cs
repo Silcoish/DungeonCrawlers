@@ -228,13 +228,18 @@ public class Player : MonoBehaviour
 
             float xbTriggers = Input.GetAxisRaw("Fire");
 
-            if ((Input.GetButton("Fire2") || xbTriggers <= -1) && cdRightCur < 0)
+            //if ((Input.GetButton("Fire2") || xbTriggers <= -1) && cdRightCur < 0)
+            //{
+            //    AttackRightHand();
+            //}
+            //if ((Input.GetButton("Fire1") || xbTriggers >= 1) && cdLeftCur < 0)
+            //{
+            //    AttackLeftHand();
+            //}
+
+            if ((Input.GetButton("Fire1") || xbTriggers >= 1) && cdRightCur < 0)
             {
                 AttackRightHand();
-            }
-            if ((Input.GetButton("Fire1") || xbTriggers >= 1) && cdLeftCur < 0)
-            {
-                AttackLeftHand();
             }
         }
         
