@@ -237,9 +237,17 @@ public class Player : MonoBehaviour
             //    AttackLeftHand();
             //}
 
-            if ((Input.GetButton("Fire1") || xbTriggers >= 1) && cdRightCur < 0)
+            // Attack
+            if ((Input.GetButton("Fire1") || xbTriggers <= -1) && cdRightCur < 0)
             {
                 AttackRightHand();
+            }
+
+            // Weapon Swap
+            if(Input.GetButtonDown("Fire2"))
+            {
+                GameManager.inst.activeItems.SwapRightHand();
+                UpdateEquippedItems();
             }
         }
         

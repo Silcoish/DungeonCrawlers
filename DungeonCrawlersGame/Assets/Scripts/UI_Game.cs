@@ -58,6 +58,7 @@ public class UI_Game : MonoBehaviour
         // Will need to move these into a function call when required, rather than every update.
         //wepLeft.sprite = GameManager.inst.activeItems.wepLeft.GetComponent<SpriteRenderer>().sprite;
         wepRight.sprite = GameManager.inst.activeItems.wepRight.GetComponent<SpriteRenderer>().sprite;
+        wepRightOff.sprite = GameManager.inst.activeItems.wepRightOff.GetComponent<SpriteRenderer>().sprite;
     }
 
     void UpdateUIState()

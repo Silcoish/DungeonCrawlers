@@ -18,7 +18,7 @@ public class ActiveItems : MonoBehaviour
     //    wepLeftOff = temp;
     //}
 
-    void SwapRightHand()
+    public void SwapRightHand()
     {
         GameObject temp = wepRight;
         wepRight = wepRightOff;
