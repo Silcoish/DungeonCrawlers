@@ -16,7 +16,7 @@ public class DungeonLayoutWindow : EditorWindow
         }
         public States state = States.EMPTY;
 
-        public Color color = Color.white;
+        [SerializeField] public Color color = Color.white;
 
         public void NextState()
         {
@@ -60,7 +60,7 @@ public class DungeonLayoutWindow : EditorWindow
     };
 
 	private static int SIZE = 15;
-	[SerializeField] RoomElement[] layout = new RoomElement[SIZE * SIZE];
+	[SerializeField] public RoomElement[] layout = new RoomElement[SIZE * SIZE];
 	public int index = 0;
 	public int lastIndex = 0;
 	public string selectedFileName;
@@ -71,12 +71,15 @@ public class DungeonLayoutWindow : EditorWindow
 	static void Init()
 	{
 		DungeonLayoutWindow window = (DungeonLayoutWindow)EditorWindow.GetWindow(typeof(DungeonLayoutWindow));
+        for (int i = 0; i < SIZE * SIZE; i++)
+        {
+            window.layout[i] = new RoomElement();
+        }
 		window.Show();
 	}
 
 	void OnGUI()
 	{
-        
 		EditorGUILayout.Space();
 		EditorGUILayout.LabelField("Layout Editor");
 		EditorGUILayout.Space();
@@ -107,6 +110,7 @@ public class DungeonLayoutWindow : EditorWindow
 			for (int j = 0; j < SIZE; j++)
 			{
 				//layout[i * SIZE + j] = EditorGUILayout.Toggle(layout[i * SIZE + j]);
+                //if (layout[i * SIZE + j].color != null)
                 GUI.color = layout[i * SIZE + j].color;
                 if(GUILayout.Button(""))
                 {
