@@ -4,8 +4,63 @@ using System.IO;
 
 public class DungeonLayoutWindow : EditorWindow
 {
+    [System.Serializable]
+    public class RoomElement
+    {
+        public enum States
+        {
+            EMPTY,
+            ROOM,
+            STARTROOM,
+            BOSSROOM
+        }
+        public States state = States.EMPTY;
+
+        public Color color = Color.white;
+
+        public void NextState()
+        {
+            if (state == States.EMPTY)
+                SwitchState(States.ROOM);
+            else if (state == States.ROOM)
+                SwitchState(States.STARTROOM);
+            else if (state == States.STARTROOM)
+                SwitchState(States.BOSSROOM);
+            else
+                SwitchState(States.EMPTY);
+        }
+
+        public void SwitchState(States newState)
+        {
+            switch (newState)
+            {
+                case States.EMPTY:
+                    state = States.EMPTY;
+                    color = Color.white;
+                    break;
+                case States.ROOM:
+                    state = States.ROOM;
+                    color = Color.blue;
+                    break;
+                case States.STARTROOM:
+                    state = States.STARTROOM;
+                    color = Color.green;
+                    break;
+                case States.BOSSROOM:
+                    state = States.BOSSROOM;
+                    color = Color.red;
+                    break;
+                default:
+                    state = States.EMPTY;
+                    color = Color.white;
+                    break;
+            }
+        }
+
+    };
+
 	private static int SIZE = 15;
-	bool[] layout = new bool[SIZE * SIZE];
+	[SerializeField] RoomElement[] layout = new RoomElement[SIZE * SIZE];
 	public int index = 0;
 	public int lastIndex = 0;
 	public string selectedFileName;
@@ -21,6 +76,7 @@ public class DungeonLayoutWindow : EditorWindow
 
 	void OnGUI()
 	{
+        
 		EditorGUILayout.Space();
 		EditorGUILayout.LabelField("Layout Editor");
 		EditorGUILayout.Space();
@@ -40,18 +96,30 @@ public class DungeonLayoutWindow : EditorWindow
 			newFileName = EditorGUILayout.TextField(newFileName);
 		}
 
+        EditorGUILayout.Space();
+        EditorGUILayout.LabelField("White = Empty");
+        EditorGUILayout.LabelField("Blue = Room");
+        EditorGUILayout.LabelField("Green = Start Room");
+        EditorGUILayout.LabelField("Red = Boss Room");
 		for (int i = 0; i < SIZE; i++)
 		{
 			Rect r = EditorGUILayout.BeginHorizontal("Button");
 			for (int j = 0; j < SIZE; j++)
 			{
-				layout[i * SIZE + j] = EditorGUILayout.Toggle(layout[i * SIZE + j]);
+				//layout[i * SIZE + j] = EditorGUILayout.Toggle(layout[i * SIZE + j]);
+                GUI.color = layout[i * SIZE + j].color;
+                if(GUILayout.Button(""))
+                {
+                    layout[i * SIZE + j].NextState();
+                }
+                GUI.color = Color.white;
 			}
 			EditorGUILayout.EndHorizontal();
 		}
 
 		EditorGUILayout.Space();
 		EditorGUILayout.BeginHorizontal();
+
 		if(GUILayout.Button("Save"))
 		{
 			SaveLayout();	
@@ -62,10 +130,20 @@ public class DungeonLayoutWindow : EditorWindow
 			{
 				for(int i = 0; i < layout.Length; i++)
 				{
-					layout[i] = false;
+                    layout[i].SwitchState(RoomElement.States.EMPTY);
 				}
 			}
 		}
+        if(GUILayout.Button("Randomise"))
+        {
+            if(EditorUtility.DisplayDialog("Randomise Rooms", "Are you sure you wish to clear all rooms and place random ones?", "Yes", "No"))
+            {
+                for(int i = 0; i < layout.Length; i++)
+                {
+                    layout[i].SwitchState((RoomElement.States)Random.Range(0, 2));
+                }
+            }
+        }
 		EditorGUILayout.EndHorizontal();
 
 		if(showFileNameError)
@@ -113,12 +191,16 @@ public class DungeonLayoutWindow : EditorWindow
 					string[] entries = line.Split(',');
 					if (entries.Length > 0)
 					{
-						for (int i = 0; i < entries.Length; i++)
+						for (int i = 0; i < entries.Length-1; i++)
 						{
-							if (entries[i] == "1" || entries[i] == " 1")
-								layout[lineNum * SIZE + i] = true;
-							else
-								layout[lineNum * SIZE + i] = false;
+                            if (entries[i] == "3" || entries[i] == " 3")
+                                layout[lineNum * SIZE + i].SwitchState((RoomElement.States)3);
+                            else if (entries[i] == "2" || entries[i] == " 2")
+                                layout[lineNum * SIZE + i].SwitchState((RoomElement.States)2);
+                            else if (entries[i] == "1" || entries[i] == " 1")
+                                layout[lineNum * SIZE + i].SwitchState((RoomElement.States)1);
+                            else
+                                layout[lineNum * SIZE + i].SwitchState((RoomElement.States)0);
 						}
 					}
 				}
@@ -163,10 +245,7 @@ public class DungeonLayoutWindow : EditorWindow
 		{
 			for(int j = 0; j < SIZE; j++)
 			{
-				if (layout[i * SIZE + j])
-					retval += 1;
-				else
-					retval += 0;
+				retval += ((int)layout[i * SIZE + j].state).ToString();
 
 				if (i == SIZE - 1 && j == SIZE - 1)
 				{ }
