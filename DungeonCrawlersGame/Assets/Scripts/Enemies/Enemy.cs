@@ -17,7 +17,6 @@ public class Enemy : MonoBehaviour
 
 	private Rigidbody2D rb;
 
-
 	float timerPoison = 0;
 	float timerFire = 0;
 	float timerIce = 0;
@@ -25,6 +24,10 @@ public class Enemy : MonoBehaviour
 	float damageTimer = 0;
 
 	public float effectFlashRate = 0.2f;
+
+    public DamageType effect;
+    public float effectDuration;
+    public float effectStrength;
 
 	// Use this for initialization
 	void Awake()
@@ -85,6 +88,20 @@ public class Enemy : MonoBehaviour
 
 		}
 	}
+
+    public Damage GetDamage()
+    {
+        Damage temp;
+
+        temp.type = effect;
+        temp.amount = collisionDamage;
+        temp.knockback = knockbackForce;
+        temp.fromGO = gameObject.transform;
+        temp.effectTime = effectDuration;
+        temp.effectStrength = effectStrength;
+
+        return temp;
+    }
 
 	/// <summary>
 	/// Called When the Enemy Takes any damage/hit

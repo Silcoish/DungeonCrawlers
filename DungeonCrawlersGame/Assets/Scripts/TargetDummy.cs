@@ -5,7 +5,10 @@ public class TargetDummy : MonoBehaviour
 {
     public int damage = 0;
     public int knockback = 5;
-    
+    public DamageType effect;
+    public float effectDuration;
+    public float effectStrength;
+
     private Rigidbody2D rb2D;
 
     void Start()
@@ -25,12 +28,12 @@ public class TargetDummy : MonoBehaviour
         if(col.gameObject.tag == "Player")
         {
 			Vector2 kbForce = -gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
-			col.gameObject.GetComponent<Player>().OnTakeDamage(damage, kbForce * knockback);
+			col.gameObject.GetComponent<Player>().OnTakeDamage(GetDamage());
         }
         if(col.gameObject.tag == "Enemy")
         {
 			Vector2 kbForce = -gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
-			col.gameObject.GetComponent<Enemy>().OnTakeDamage(damage, kbForce * knockback);
+			col.gameObject.GetComponent<Enemy>().OnTakeDamage(GetDamage());
         }
 
         // If we standardize the damage call
@@ -66,4 +69,18 @@ public class TargetDummy : MonoBehaviour
     //        TakeDamage(wep.dmg /* * stat.str*/, col.transform.position, wep.kb/* * stat.str?*/);
     //    }
     //}
+
+    public Damage GetDamage()
+    {
+        Damage temp;
+
+        temp.type = effect;
+        temp.amount = damage;
+        temp.knockback = knockback;
+        temp.fromGO = gameObject.transform;
+        temp.effectTime = effectDuration;
+        temp.effectStrength = effectStrength;
+
+        return temp;
+    }
 }
