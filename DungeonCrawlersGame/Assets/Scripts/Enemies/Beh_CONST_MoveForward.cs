@@ -16,5 +16,6 @@ public class Beh_CONST_MoveForward : Behaviour
 		{
 			en.SetLookDirection( en.GetMoveDirection());
 		}
+	
 	}
 }
