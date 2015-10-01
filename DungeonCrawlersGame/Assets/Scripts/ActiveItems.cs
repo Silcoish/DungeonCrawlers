@@ -11,6 +11,31 @@ public class ActiveItems : MonoBehaviour
     public GameObject pas2;            // Passive Item 2
     public GameObject pas3;            // Passive Item 3
 
+    private float WRcd;
+    private float WRcdCur;
+    private float WROcd;
+    private float WROcdCur;
+
+    void Update()
+    {
+        // Update Cooldown Timers
+        WRcdCur -= Time.deltaTime;
+        WROcdCur -= Time.deltaTime;
+    }
+
+    public bool IsReady()
+    {
+        if (WRcdCur < 0)
+            return true;
+        else
+            return false;
+    }
+
+    public void ResetTimer()
+    {
+        WRcdCur = WRcd;
+    }
+
     //void SwapLeftHand()
     //{
     //    GameObject temp = wepLeft;
@@ -23,6 +48,14 @@ public class ActiveItems : MonoBehaviour
         GameObject temp = wepRight;
         wepRight = wepRightOff;
         wepRightOff = temp;
+
+        // Swap cooldown timers
+        float cdTemp = WRcd;
+        float cdCurTemp = WRcdCur;
+        WRcd = WROcd;
+        WRcdCur = WROcdCur;
+        WROcd = cdTemp;
+        WROcdCur = cdCurTemp;
     }
 
     void UsePassive(int i)

@@ -35,8 +35,8 @@ public class Player : MonoBehaviour
     public bool controlsEnabled = true;
     public float swingColliderUptime = 0.5F;
     private float swingTimerRight = 0;
-    private float cdRight;
-    private float cdRightCur;
+    public float cdSwap = 0.5F;
+    private float cdSwapCur;
     public int direction;
 
     // The Left Arm
@@ -236,7 +236,7 @@ public class Player : MonoBehaviour
             //}
 
             // Attack
-            if ((Input.GetButton("Fire1") || xbTriggers <= -1) && cdRightCur < 0)
+            if ((Input.GetButton("Fire1") || xbTriggers <= -1) && cdSwapCur < 0 && GameManager.inst.activeItems.IsReady())
             {
                 AttackRightHand();
             }
@@ -251,7 +251,8 @@ public class Player : MonoBehaviour
         
         // Update Cooldown timers
         //cdLeftCur -= Time.deltaTime;
-        cdRightCur -= Time.deltaTime;
+        //cdRightCur -= Time.deltaTime;
+        cdSwapCur -= Time.deltaTime;
 
         // Update Swing timers
         if (swingTimerRight < 0)
@@ -307,7 +308,8 @@ public class Player : MonoBehaviour
         armRight.SetTrigger("Attack");
         //GameManager.inst.activeItems.wepRight.GetComponent<Weapon>().Attack();
         wepColliderRight.gameObject.SetActive(true);
-        cdRightCur = cdRight;
+        //cdRightCur = cdRight;
+        GameManager.inst.activeItems.ResetTimer();
         swingTimerRight = swingColliderUptime;
 
         GameManager.inst.activeItems.wepRight.GetComponent<Weapon>().Attack();
@@ -321,7 +323,7 @@ public class Player : MonoBehaviour
         //wepLeft.sprite = GameManager.inst.activeItems.wepLeft.GetComponent<SpriteRenderer>().sprite;
         wepColliderRight.points = GameManager.inst.activeItems.wepRight.GetComponent<PolygonCollider2D>().points;
         //wepColliderLeft.points = GameManager.inst.activeItems.wepLeft.GetComponent<PolygonCollider2D>().points;
-        cdRight = GameManager.inst.activeItems.wepRight.GetComponent<Weapon>().cd;
+        //cdRight = GameManager.inst.activeItems.wepRight.GetComponent<Weapon>().cd;
         //cdLeft = GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>().cd;
     }
 

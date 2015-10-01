@@ -26,7 +26,6 @@ public class Enemy : MonoBehaviour
 
 	public float effectFlashRate = 0.2f;
 
-
 	// Use this for initialization
 	void Awake()
 	{
@@ -133,7 +132,7 @@ public class Enemy : MonoBehaviour
 		if (col.gameObject.tag == "Player")
 		{
 			Vector2 kbForce = (col.gameObject.transform.position - gameObject.transform.position).normalized;
-			col.gameObject.GetComponent<Player>().OnTakeDamage(collisionDamage, kbForce * knockbackForce);
+			col.gameObject.GetComponent<Player>().OnTakeDamage(GetDamage());
 		}
 		if (col.gameObject.tag == "Enemy")
 		{
