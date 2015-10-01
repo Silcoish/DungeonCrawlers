@@ -109,8 +109,6 @@ public class DungeonLayoutWindow : EditorWindow
 			Rect r = EditorGUILayout.BeginHorizontal("Button");
 			for (int j = 0; j < SIZE; j++)
 			{
-				//layout[i * SIZE + j] = EditorGUILayout.Toggle(layout[i * SIZE + j]);
-                //if (layout[i * SIZE + j].color != null)
                 GUI.color = layout[i * SIZE + j].color;
                 if(GUILayout.Button(""))
                 {
@@ -221,6 +219,7 @@ public class DungeonLayoutWindow : EditorWindow
 	void SaveLayout()
 	{
 		string path = Application.dataPath + "/Layouts/";
+        
 		if(index == 0)
 		{
 			if(newFileName != "" && !File.Exists(path + "" + newFileName + ".csv"))
@@ -262,4 +261,22 @@ public class DungeonLayoutWindow : EditorWindow
 
 		return retval;
 	}
+
+    bool LayoutContainsStart(RoomElement.States roomToCheck)
+    {
+        int roomCount = 0;
+        for (int i = 0; i < layout.Length; i++)
+        {
+            if (layout[i].state == roomToCheck)
+            {
+                roomCount++;
+            }
+        }
+
+        if (roomCount == 1)
+            return true;
+
+        return false;
+    }
+
 }
