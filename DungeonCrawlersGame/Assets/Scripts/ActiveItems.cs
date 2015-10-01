@@ -18,6 +18,9 @@ public class ActiveItems : MonoBehaviour
 
     void Update()
     {
+        WRcd = wepRight.GetComponent<Weapon>().cd;
+        WROcd = wepRightOff.GetComponent<Weapon>().cd;
+
         // Update Cooldown Timers
         WRcdCur -= Time.deltaTime;
         WROcdCur -= Time.deltaTime;
