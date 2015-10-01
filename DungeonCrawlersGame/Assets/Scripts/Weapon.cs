@@ -4,12 +4,11 @@ using System.Collections;
 public class Weapon : ItemBase 
 {
     public int dmg;         // Damage
-    public int minDmg;      // Rarity Damage Range (Minimum)
-    public int maxDmg;      // Rarity Damage Range (Maximum)
-    public int cd;          // Cooldown
+    public float cd;          // Cooldown
     public int kb;          // Knockback Distance
     public int ammCur;      // Current Ammo
     public int ammMax;      // Maximum Ammo
+    public bool isRanged = false;
     public GameObject projectile;
 
     private PolygonCollider2D col;
@@ -23,23 +22,34 @@ public class Weapon : ItemBase
     public void Attack()
     {
         Vector2 tempDir;
+        Vector3 tempRot;
 
-        switch((int)GameManager.inst.player.GetComponent<Player>().dir)
+        switch((int)GameManager.inst.player.GetComponent<Player>().direction)
         {
             case 0:
                 tempDir = Vector2.down;
+                tempRot = new Vector3(0, 0, 180);
                 break;
             case 1:
                 tempDir = Vector2.up;
+                tempRot = new Vector3(0, 0, 0);
                 break;
             case 2:
                 tempDir = Vector2.right;
+                tempRot = new Vector3(0, 0, -90);
                 break;
             default:
                 tempDir = Vector2.left;
+                tempRot = new Vector3(0, 0, 90);
                 break;
         }
 
-        //GameObject tempProj = Instantiate((GameObject)projectile, gameObject.transform.position, gameObject.transform.rotation);
+        if(isRanged)
+        {
+            GameObject player = GameManager.inst.player;
+            GameObject tempProj;
+            tempProj = Instantiate(projectile, player.transform.position, transform.rotation) as GameObject;
+            tempProj.GetComponent<Projectile>().SetDirection(tempDir, tempRot);
+        }    
     }
 }
