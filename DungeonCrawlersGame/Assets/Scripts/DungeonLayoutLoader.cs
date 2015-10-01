@@ -19,6 +19,7 @@ public class DungeonLayoutLoader : MonoBehaviour
 	public string fileName = "";
 	public List<GameObject> templateRooms;
 	GameObject[] rooms;
+	public GameObject player;
 	public GameObject doorNorth;
 	public GameObject doorSouth;
 	public GameObject doorEast;
@@ -107,6 +108,11 @@ public class DungeonLayoutLoader : MonoBehaviour
 							if(entries[i] != "0" && entries[i] != " 0")
 							{
 								rooms[lineNum * SIZE + i] = (GameObject)Instantiate(templateRooms[Random.Range(0, templateRooms.Count)], new Vector2(i * roomOffset.x, -lineNum * roomOffset.y), Quaternion.identity);
+							}
+
+							if(entries[i] == "2" || entries[i] == " 2")
+							{
+								Instantiate(player, rooms[lineNum * SIZE + i].transform.position, Quaternion.identity);
 							}
 						}
 					}
