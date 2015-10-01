@@ -1,18 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum DamgeType
+public enum DamageType
 {
-	None,
-	Fire,
-	Poison,
-	Mud,
-	Ice
+	NONE,
+	BURN,
+	POISON,
+	MUD,
+	FREEZE,
+    BLEED,
+    BLIND
 };
 
 public struct Damage
 {
-	public DamgeType type;
+	public DamageType type;
 	public int amount;
-	public GameObject fromGO;
+    public int knockback;
+	public Transform fromGO;
 };

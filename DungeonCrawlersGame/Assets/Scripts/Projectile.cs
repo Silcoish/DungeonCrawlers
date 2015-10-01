@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour {
     public float speed;
     public int kb;
     public float lifetime;
-    public StatusEffect effect;
+    public DamageType effect;
 
     public Vector2 direction;
 
@@ -25,5 +25,17 @@ public class Projectile : MonoBehaviour {
     {
         direction = dir;
         transform.eulerAngles = rot;
+    }
+
+    public Damage GetDamage()
+    {
+        Damage temp;
+
+        temp.type = effect;
+        temp.amount = dmg;
+        temp.knockback = kb;
+        temp.fromGO = gameObject.transform;
+
+        return temp;
     }
 }

@@ -263,16 +263,17 @@ public class Player : MonoBehaviour
         //swingTimerLeft -= Time.deltaTime;
     }
 
-    public void OnTakeDamage(int dmg, Vector2 kb)
+    public void OnTakeDamage(Damage dmg)
     {
-        GameManager.inst.stats.hpCur -= dmg;
+        GameManager.inst.stats.hpCur -= dmg.amount;
 
-        rb2D.AddForce(kb, ForceMode2D.Impulse);
+        Vector2 kbForce = (gameObject.transform.position - dmg.fromGO.position).normalized;
+
+        rb2D.AddForce(kbForce, ForceMode2D.Impulse);
 
 		if (GameManager.inst.stats.hpCur <= 0)
 		{
 			OnDeath();
-
 		}
     }
 

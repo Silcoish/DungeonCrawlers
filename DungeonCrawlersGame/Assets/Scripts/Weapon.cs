@@ -52,4 +52,16 @@ public class Weapon : ItemBase
             tempProj.GetComponent<Projectile>().SetDirection(tempDir, tempRot);
         }    
     }
+
+    public Damage GetDamage()
+    {
+        Damage temp;
+
+        temp.type = effect;
+        temp.amount = dmg;
+        temp.knockback = kb;
+        temp.fromGO = gameObject.transform;
+
+        return temp;
+    }
 }
