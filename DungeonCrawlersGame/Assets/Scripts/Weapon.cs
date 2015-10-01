@@ -61,6 +61,8 @@ public class Weapon : ItemBase
         temp.amount = dmg;
         temp.knockback = kb;
         temp.fromGO = gameObject.transform;
+        temp.effectTime = effectDuration;
+        temp.effectStrength = effectStrength;
 
         return temp;
     }
