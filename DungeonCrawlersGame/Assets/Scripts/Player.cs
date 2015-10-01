@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
     private float swingTimerRight = 0;
     private float cdRight;
     private float cdRightCur;
-    public Facing dir;
+    public int direction;
 
     // The Left Arm
     
@@ -79,8 +79,6 @@ public class Player : MonoBehaviour
             anim.SetFloat("MoveSpeed", (Mathf.Abs(horizontal) + Mathf.Abs(vertical))); // Get ANY movement on either axis.
             armRight.SetFloat("MoveSpeed", (Mathf.Abs(horizontal) + Mathf.Abs(vertical))); // Get ANY movement on either axis.
             armLeft.SetFloat("MoveSpeed", (Mathf.Abs(horizontal) + Mathf.Abs(vertical))); // NOTE: This needs to stay despite the removal of Left Weapons (this controls ALL left arm animations).
-
-            int direction;
 
             if(GameManager.inst.useMouseControls)
             {
@@ -265,16 +263,17 @@ public class Player : MonoBehaviour
         //swingTimerLeft -= Time.deltaTime;
     }
 
-    public void OnTakeDamage(int dmg, Vector2 kb)
+    public void OnTakeDamage(Damage dmg)
     {
-        GameManager.inst.stats.hpCur -= dmg;
+        GameManager.inst.stats.hpCur -= dmg.amount;
 
-        rb2D.AddForce(kb, ForceMode2D.Impulse);
+        Vector2 kbForce = (gameObject.transform.position - dmg.fromGO.position).normalized;
+
+        rb2D.AddForce(kbForce, ForceMode2D.Impulse);
 
 		if (GameManager.inst.stats.hpCur <= 0)
 		{
 			OnDeath();
-
 		}
     }
 
@@ -310,6 +309,8 @@ public class Player : MonoBehaviour
         wepColliderRight.gameObject.SetActive(true);
         cdRightCur = cdRight;
         swingTimerRight = swingColliderUptime;
+
+        GameManager.inst.activeItems.wepRight.GetComponent<Weapon>().Attack();
     }
 
     // Update the weapon sprites and collider volumes on the player based on the data in the equipped weapon prefabs.

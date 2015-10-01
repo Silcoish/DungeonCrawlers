@@ -1,16 +1,16 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &176004
+--- !u!1 &175244
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 476836}
-  - 212: {fileID: 21211376}
-  - 60: {fileID: 6094456}
-  - 114: {fileID: 11468692}
+  - 4: {fileID: 408666}
+  - 212: {fileID: 21209494}
+  - 60: {fileID: 6029502}
+  - 114: {fileID: 11487990}
   m_Layer: 0
   m_Name: Weapon_Khopesh
   m_TagString: Untagged
@@ -18,24 +18,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &476836
+--- !u!4 &408666
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 176004}
+  m_GameObject: {fileID: 175244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 129.124695, y: -35.425724, z: 0}
+  m_LocalPosition: {x: 20.4234486, y: -40.9414101, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!60 &6094456
+--- !u!60 &6029502
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 176004}
+  m_GameObject: {fileID: 175244}
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -43,16 +43,17 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: -.0420379639, y: .0495567322}
-      - {x: .043838501, y: .0497665405}
-      - {x: .0394592285, y: -4.34057617}
-      - {x: -.0351104736, y: -4.32972336}
---- !u!114 &11468692
+    - - {x: -.00937826931, y: -1.36334074}
+      - {x: .997947931, y: -1.00394976}
+      - {x: .203273147, y: -.0118584633}
+      - {x: -.137624919, y: -.0118583441}
+      - {x: -.988569915, y: -1.00394964}
+--- !u!114 &11487990
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 176004}
+  m_GameObject: {fileID: 175244}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 311708490eee84547b98bf188fc799fe, type: 3}
@@ -60,22 +61,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: PH Sword
   type: 0
-  rarity: 0
+  effect: 0
   price: 10
-  dmg: 20
-  minDmg: 0
-  maxDmg: 0
-  cd: 1
-  kb: 5
+  dmg: 5
+  cd: .5
+  kb: 1
   ammCur: 0
   ammMax: 0
-  projectile: {fileID: 0}
---- !u!212 &21211376
+  isRanged: 1
+  projectile: {fileID: 126976, guid: bb77f443040a42c40bda36a7f52652b5, type: 2}
+--- !u!212 &21209494
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 176004}
+  m_GameObject: {fileID: 175244}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -105,9 +105,30 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: dmg
-      value: 20
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 12b34c7c37be47649ad57d30a7d08cd5,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: cd
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: kb
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 126976, guid: bb77f443040a42c40bda36a7f52652b5, type: 2}
+    - target: {fileID: 0}
+      propertyPath: isRanged
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 176004}
+  m_RootGameObject: {fileID: 175244}
   m_IsPrefabParent: 1

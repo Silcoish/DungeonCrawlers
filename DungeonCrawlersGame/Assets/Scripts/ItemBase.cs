@@ -4,11 +4,12 @@ using System.Collections;
 public class ItemBase : MonoBehaviour 
 {
     public enum ItemType { WEAPON, PASSIVE };
-    public enum ItemRarity { UNCOMMON, COMMON, RARE, EPIC, LEGENDARY };
-
+    
     public string name;         // Item name for lookup
     public ItemType type;
-    public ItemRarity rarity;
+    public DamageType effect;
+    public float effectDuration;
+    public float effectStrength;
     public int price;           // Vendor price
     Sprite sprite;
     BoxCollider2D pickupCol;    // Collider for picking up when dropped as loot

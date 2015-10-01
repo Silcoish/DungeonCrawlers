@@ -9,6 +9,8 @@ TagManager:
   - WepLeft
   - WepRight
   - Vendor
+  - Vendor_Weapons
+  - Projectile
   layers:
   - Default
   - TransparentFX

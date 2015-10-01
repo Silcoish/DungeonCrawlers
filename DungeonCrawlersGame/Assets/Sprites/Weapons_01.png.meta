@@ -1,11 +1,13 @@
 fileFormatVersion: 2
 guid: 12b34c7c37be47649ad57d30a7d08cd5
-timeCreated: 1439713009
+timeCreated: 1443653264
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Weapons_01_0
     21300002: Weapons_01_1
+    21300004: Weapons_01_2
+    21300006: Weapons_01_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,22 +56,42 @@ TextureImporter:
     - name: Weapons_01_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 591
-        width: 85
-        height: 426
+        x: 22
+        y: 596
+        width: 83
+        height: 417
       alignment: 9
-      pivot: {x: .71633327, y: .111514241}
+      pivot: {x: .705538392, y: .106236592}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Weapons_01_1
       rect:
         serializedVersion: 2
-        x: 121
-        y: 641
-        width: 46
-        height: 371
+        x: 122
+        y: 591
+        width: 30
+        height: 235
       alignment: 9
-      pivot: {x: .5, y: .190223545}
+      pivot: {x: .500001013, y: .182399794}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Weapons_01_2
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 472
+        width: 53
+        height: 546
+      alignment: 9
+      pivot: {x: .5, y: .144590154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Weapons_01_3
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 580
+        width: 201
+        height: 424
+      alignment: 9
+      pivot: {x: .500000179, y: .163031235}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
