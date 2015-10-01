@@ -244,6 +244,13 @@ public class Enemy : MonoBehaviour
 			Vector2 kbForce = -(col.gameObject.transform.position - gameObject.transform.position).normalized;
 			OnTakeDamage(wep.dmg, kbForce);// * wep.kb);
 		}
+
+        if(col.gameObject.tag == "Projectile")
+        {
+            Vector2 kbForce = -(col.gameObject.transform.position - gameObject.transform.position).normalized;
+            OnTakeDamage(col.gameObject.GetComponent<Projectile>().dmg, kbForce);
+            Destroy(col.gameObject);
+        }
 	}
 
 	//void OnTriggerEnter2D(Collider2D col)
