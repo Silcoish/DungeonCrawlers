@@ -10,12 +10,29 @@ public class Damageable : MonoBehaviour
 	public float effectStrength = 1;
 	public int collisionDamage = 1;
 	public float knockbackForce = 1;
+	public float globalMoveSpeed = 1;
+	public float globalBlindSpeed = 1;
 
-	float timerPoison = 0;
-	float timerFire = 0;
-	float timerIce = 0;
-	float timerMud = 0;
-	float damageTimer = 0;
+	float poisonTime = 1f;//Time inbetween poison hits.
+	float timerPoisonHits = 0;
+
+	public float timerPoison = 0;
+	public float timerBurn = 0;
+	public float timerFreeze = 0;
+	public float timerMud = 0;
+	public float timerBleed = 0;
+	public float timerBlind = 0;
+	public float damageTimer = 0;
+
+
+	public float strengthPoison = 0;
+	public float strengthBurn = 0;
+	public float strengthBleed = 1;//damage multiplyer
+	public float strengthMud = 1;
+	public float strengthFreeze = 1;
+
+	float leftoverBurnDamage = 0;
+
 
 	public float effectFlashRate = 0.2f;
 
@@ -35,38 +52,64 @@ public class Damageable : MonoBehaviour
 		if (damageTimer > 0)
 		{
 			damageTimer -= Time.deltaTime;
-			Color spColor = Color.Lerp(Color.white, Color.red, damageTimer);
-			sp.color = spColor;
+			sp.color = Color.Lerp(Color.white, Color.red, damageTimer);
 		}
 
+		//POISON
 		if (timerPoison > 0)
 		{
 			timerPoison -= Time.deltaTime;
-			Color spColor = Color.Lerp(Color.white, Color.green, SinLerp(timerPoison));
-			sp.color = spColor;
+			sp.color = Color.Lerp(Color.white, Color.green, SinLerp(timerPoison));
+
+			timerPoisonHits += Time.deltaTime;
+
+			if (timerPoisonHits > poisonTime)
+			{
+				DamagePoison();
+				timerPoisonHits = 0;
+			}
 		}
 
-		if (timerFire > 0)
+		//BURN
+		if (timerBurn > 0)
 		{
+			timerBurn -= Time.deltaTime;
+			sp.color = Color.Lerp(Color.white, Color.red, SinLerp(timerPoison));
 
+			DamageBurn();
 
 		}
 
-		if (timerIce > 0)
+		//FREEZE
+		if (timerFreeze > 0)
 		{
+			timerFreeze -= Time.deltaTime;
+			sp.color = Color.Lerp(Color.white, Color.blue, SinLerp(timerPoison));
 
+			globalMoveSpeed = 0;
 
+			if (timerFreeze <= 0)
+			{
+				globalMoveSpeed = 1;
+			}
 		}
 
+		//MUD
 		if (timerMud > 0)
 		{
+			globalMoveSpeed = 0;
 
-
+			if (timerFreeze <= 0)
+			{
+				globalMoveSpeed = 1;
+			}
 		}
 
 
 		UpdateOverride();
 	}
+
+
 
 	public virtual void UpdateOverride()
 	{
@@ -102,6 +145,33 @@ public class Damageable : MonoBehaviour
 	{
 		hitPoints -= dam.amount;
 
+		switch (dam.type)
+		{
+			case DamageType.NONE:
+				break;
+			case DamageType.POISON:
+				timerPoison = dam.effectTime;
+				strengthPoison = dam.effectStrength;
+				break;
+			case DamageType.BURN:
+				timerBurn = dam.effectTime;
+				strengthBurn = dam.effectStrength;
+				break;
+			case DamageType.FREEZE:
+				timerFreeze = dam.effectTime;
+				strengthFreeze = dam.effectStrength;
+				break;
+			case DamageType.BLEED:
+				timerBleed = dam.effectTime;
+				strengthBleed = dam.effectStrength;
+				break;
+		}
+
+		if (timerBleed > 0)
+		{
+			DamageBleed(dam.amount);
+		}
+
 		damageTimer = 1;
 
 		if (hitPoints <= 0)
@@ -120,5 +190,31 @@ public class Damageable : MonoBehaviour
 		return name;
 	}
 
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// ######## ##       ######## ##     ## ######## ##    ## ########    ###    ##          ########     ###    ##     ##    ###     ######   ########	//
+	// ##       ##       ##       ###   ### ##       ###   ##    ##      ## ##   ##          ##     ##   ## ##   ###   ###   ## ##   ##    ##  ##		//
+	// ##       ##       ##       #### #### ##       ####  ##    ##     ##   ##  ##          ##     ##  ##   ##  #### ####  ##   ##  ##        ##		//
+	// ######   ##       ######   ## ### ## ######   ## ## ##    ##    ##     ## ##          ##     ## ##     ## ## ### ## ##     ## ##   #### ######	//
+	// ##       ##       ##       ##     ## ##       ##  ####    ##    ######### ##          ##     ## ######### ##     ## ######### ##    ##  ##		//
+	// ##       ##       ##       ##     ## ##       ##   ###    ##    ##     ## ##          ##     ## ##     ## ##     ## ##     ## ##    ##  ##		//
+	// ######## ######## ######## ##     ## ######## ##    ##    ##    ##     ## ########    ########  ##     ## ##     ## ##     ##  ######   ########	//
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	void DamagePoison()
+	{
+		hitPoints -= (int)(strengthPoison * poisonTime);
+	}
+
+	void DamageBurn()
+	{
+		leftoverBurnDamage += strengthBurn * Time.deltaTime;
+		hitPoints -= (int)leftoverBurnDamage;
+		leftoverBurnDamage -= (int)leftoverBurnDamage;
+	}
+
+	void DamageBleed(int damIn)
+	{
+		hitPoints -= (int)(damIn * strengthBlead);
+	}
 
 }
