@@ -214,7 +214,7 @@ public class Damageable : MonoBehaviour
 
 	void DamageBleed(int damIn)
 	{
-		hitPoints -= (int)(damIn * strengthBlead);
+		hitPoints -= (int)(damIn * strengthBleed);
 	}
 
 }
