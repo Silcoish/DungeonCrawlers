@@ -17,10 +17,7 @@ public class LoadDungeon : MonoBehaviour
 	{
 		if (col.tag == "Player")
 		{
-			
-			
 
-
-		}
+        }
 	}
 }

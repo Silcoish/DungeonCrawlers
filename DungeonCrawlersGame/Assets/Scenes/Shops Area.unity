@@ -197,11 +197,11 @@ Prefab:
     - target: {fileID: 11497982, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
       propertyPath: wepRightOff
       value: 
-      objectReference: {fileID: 176004, guid: aacd9bef08508d14da0b697472df4225, type: 2}
+      objectReference: {fileID: 180400, guid: 5c420b7e68d951c4db534ed847b18052, type: 2}
     - target: {fileID: 11497982, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
       propertyPath: wepRight
       value: 
-      objectReference: {fileID: 116298, guid: 135de17eff79c6a4fa39c87b6618c3f8, type: 2}
+      objectReference: {fileID: 175244, guid: aacd9bef08508d14da0b697472df4225, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
   m_IsPrefabParent: 0
