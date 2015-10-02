@@ -94,7 +94,7 @@ public class Dungeon : MonoBehaviour{
 			{
 				GameManager.inst.player = (GameObject)Instantiate(set.player, room.transform.position, Quaternion.identity);
 
-				GameManager.inst.player.GetComponent<Player>().SetRoomData(x, y, room);
+				//GameManager.inst.player.GetComponent<Player>().SetRoomData(x, y, room);
 			}
 
 			enemiesParentNode.SetActive(false);
@@ -283,6 +283,7 @@ public class Dungeon : MonoBehaviour{
 		}
 	}
 
+    /*
 	public void SwitchRooms(Door.Direction dir)
 	{
 		//Check is Quest Complete
@@ -343,6 +344,8 @@ public class Dungeon : MonoBehaviour{
 		}
 
 	}
+     
+    */
 
 	Room GetRoom(int x, int y)
 	{
