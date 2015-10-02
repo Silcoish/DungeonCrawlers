@@ -36,9 +36,9 @@ public class Damageable : MonoBehaviour
 
 	public float effectFlashRate = 0.2f;
 
-	SpriteRenderer sp;
+	protected SpriteRenderer sp;
 
-	private Rigidbody2D rb;
+	protected Rigidbody2D rb;
 
 	void Awake () 
 	{

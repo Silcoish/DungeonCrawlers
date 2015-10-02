@@ -347,11 +347,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 404400, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -6.50284243
+      value: -4.59000015
       objectReference: {fileID: 0}
     - target: {fileID: 404400, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.70487344
+      value: 1.38999999
       objectReference: {fileID: 0}
     - target: {fileID: 404400, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
       propertyPath: m_LocalPosition.z
@@ -376,34 +376,6 @@ Prefab:
     - target: {fileID: 404400, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 404400, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
-      propertyPath: m_LocalScale.x
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 404400, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
-      propertyPath: m_LocalScale.y
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11478996, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
-      propertyPath: note
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: note
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: wallDistanceCheck
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: stateSkips
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: stateSkips
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
@@ -523,7 +495,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 406070, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 116430, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
       propertyPath: m_IsActive

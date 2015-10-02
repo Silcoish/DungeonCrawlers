@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21256892}
   - 61: {fileID: 6183030}
   - 50: {fileID: 5002954}
-  - 114: {fileID: 11409632}
+  - 114: {fileID: 11481780}
   m_Layer: 0
   m_Name: ENY_Scarab_Ranged_001
   m_TagString: Enemy
@@ -26,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 267.634766, y: -79.9726334, z: 0}
-  m_LocalScale: {x: .193936646, y: .193936646, z: .387873292}
+  m_LocalPosition: {x: -4.59000015, y: 1.38999999, z: 0}
+  m_LocalScale: {x: .150000006, y: .150000006, z: .387873292}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -60,25 +60,42 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 5.21000004, y: 6.61999989}
---- !u!114 &11409632
+--- !u!114 &11481780
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172340}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 424c7c9d6099ffe438bfd659fb757f3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 667f8f9d99547044c9159c822952c087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Scarab
+  name: 
   hitPoints: 10
   effectType: 0
-  effectDuration: 0
-  effectStrength: 0
-  collisionDamage: 20
-  knockbackForce: 10
+  effectDuration: 1
+  effectStrength: 1
+  collisionDamage: 1
+  knockbackForce: 1
+  globalMoveSpeed: 1
+  globalBlindSpeed: 1
+  timerPoison: 0
+  timerBurn: 0
+  timerFreeze: 0
+  timerMud: 0
+  timerBleed: 0
+  timerBlind: 0
+  damageTimer: 0
+  strengthPoison: 0
+  strengthBurn: 0
+  strengthBleed: 1
+  strengthMud: 1
+  strengthFreeze: 1
   effectFlashRate: .200000003
+  speed: 1
+  numberOfDirections: 4
+  turnTime: 1
 --- !u!212 &21256892
 SpriteRenderer:
   m_ObjectHideFlags: 1
