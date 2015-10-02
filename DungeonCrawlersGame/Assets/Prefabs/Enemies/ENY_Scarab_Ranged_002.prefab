@@ -12,10 +12,6 @@ GameObject:
   - 61: {fileID: 6160192}
   - 50: {fileID: 5057694}
   - 114: {fileID: 11497542}
-  - 114: {fileID: 11433650}
-  - 114: {fileID: 11432982}
-  - 114: {fileID: 11495262}
-  - 114: {fileID: 11470380}
   m_Layer: 0
   m_Name: ENY_Scarab_Ranged_002
   m_TagString: Enemy
@@ -64,63 +60,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 5.21000004, y: 6.61999989}
---- !u!114 &11432982
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 773585f9527265347bf7551addeb9d5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 195904, guid: 954636ab49c36d94fa6926628119becb, type: 2}
-  numberOfBullets: 1
-  shotAngle: 0
-  shotSpeed: 6.19999981
-  sub: {fileID: 11495262}
-  stateSkips: 1
---- !u!114 &11433650
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddfc55c8813072c43b2e7aa72621b626, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotateSpeed: 100
---- !u!114 &11470380
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de1b43574850de440b41cab97ed1aad9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knockbackForce: 5.80000019
-  knockbackTime: .5
---- !u!114 &11495262
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181618}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e759df69521ea774d942d37f1e734f9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  note: 42
-  velocity: 80
-  channel: 1
-  state: 1
 --- !u!114 &11497542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,16 +72,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Scarab
-  enemyBehaviours:
-  - {fileID: 11433650}
-  - {fileID: 11432982}
-  - {fileID: 11470380}
-  health: 100
+  hitPoints: 10
+  effectType: 0
+  effectDuration: 1
+  effectStrength: 1
   collisionDamage: 20
   knockbackForce: 10
-  moveSpeed: 0
-  lookDir: {x: 0, y: 0}
-  moveDir: {x: 0, y: 0}
+  effectFlashRate: .200000003
 --- !u!212 &21294706
 SpriteRenderer:
   m_ObjectHideFlags: 1

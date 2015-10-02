@@ -12,10 +12,6 @@ GameObject:
   - 61: {fileID: 6184496}
   - 50: {fileID: 5083960}
   - 114: {fileID: 11432022}
-  - 114: {fileID: 11475192}
-  - 114: {fileID: 11493414}
-  - 114: {fileID: 11447616}
-  - 114: {fileID: 11445582}
   m_Layer: 0
   m_Name: ENY_Scarab_Melee_001
   m_TagString: Enemy
@@ -76,73 +72,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Scarab
-  enemyBehaviours:
-  - {fileID: 11475192}
-  - {fileID: 11493414}
-  - {fileID: 11447616}
-  health: 100
+  hitPoints: 10
+  effectType: 0
+  effectDuration: 0
+  effectStrength: 0
   collisionDamage: 20
   knockbackForce: 10
-  moveSpeed: 0
-  lookDir: {x: 0, y: 0}
-  moveDir: {x: 0, y: 0}
---- !u!114 &11445582
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 107970}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e759df69521ea774d942d37f1e734f9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  note: 42
-  velocity: 80
-  channel: 1
-  state: 1
---- !u!114 &11447616
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 107970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de1b43574850de440b41cab97ed1aad9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knockbackForce: 7.80000019
-  knockbackTime: .5
---- !u!114 &11475192
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 107970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 811483e2626a1a64881cc6fb7412df0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 2
-  rotateToFace: 1
---- !u!114 &11493414
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 107970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35374a909049d074d826bb5e417cf746, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sub: {fileID: 11445582}
-  movespeed: 20
-  directions: 4
-  wallDistanceCheck: 5
-  stateSkips: 2
+  effectFlashRate: .200000003
 --- !u!212 &21284978
 SpriteRenderer:
   m_ObjectHideFlags: 1
