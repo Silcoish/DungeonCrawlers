@@ -224,9 +224,17 @@ public class DungeonLayoutWindow : EditorWindow
 		{
 			if(newFileName != "" && !File.Exists(path + "" + newFileName + ".csv"))
 			{
-				string output = CreateSaveString();
-				File.WriteAllText(path + "" + newFileName + ".csv", output);
-				showFileNameError = false;
+                if(LayoutContainsStart(RoomElement.States.STARTROOM) && LayoutContainsStart(RoomElement.States.BOSSROOM))
+                {
+                    string output = CreateSaveString();
+                    File.WriteAllText(path + "" + newFileName + ".csv", output);
+                    showFileNameError = false;
+                    EditorUtility.DisplayDialog("Saved", "File " + newFileName + ".csv Saved", "Ok");
+                }
+                else
+                {
+                    EditorUtility.DisplayDialog("Error", "You need exactly 1 start and 1 end", "Ok");
+                }
 			}
 			else
 			{
@@ -235,10 +243,17 @@ public class DungeonLayoutWindow : EditorWindow
 		}
 		else
 		{
-			string output = CreateSaveString();
-			File.WriteAllText(path + "" + selectedFileName, output);
+            if (LayoutContainsStart(RoomElement.States.STARTROOM) && LayoutContainsStart(RoomElement.States.BOSSROOM))
+            {
+                string output = CreateSaveString();
+                File.WriteAllText(path + "" + selectedFileName, output);
+                EditorUtility.DisplayDialog("Saved", "File " + selectedFileName + ".csv Saved", "Ok");
+            }
+            else
+            {
+                EditorUtility.DisplayDialog("Error", "You need exactly 1 start and 1 end", "Ok");
+            }
 		}
-		Debug.Log(newFileName);
 	}
 
 	string CreateSaveString()
