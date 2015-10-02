@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94bfa5672af0d6644b4dc4c3b544eb81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: layout3.csv
+  fileName: 
   templateRooms:
   - {fileID: 181712, guid: 56ed38774daa43e4a983736da700ccae, type: 2}
   - {fileID: 124002, guid: b708effb8208d8546a119fa1e1d86bdf, type: 2}
