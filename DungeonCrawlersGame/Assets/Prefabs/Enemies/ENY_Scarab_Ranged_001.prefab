@@ -12,11 +12,6 @@ GameObject:
   - 61: {fileID: 6183030}
   - 50: {fileID: 5002954}
   - 114: {fileID: 11409632}
-  - 114: {fileID: 11474606}
-  - 114: {fileID: 11466770}
-  - 114: {fileID: 11418800}
-  - 114: {fileID: 11414946}
-  - 114: {fileID: 11491060}
   m_Layer: 0
   m_Name: ENY_Scarab_Ranged_001
   m_TagString: Enemy
@@ -77,91 +72,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Scarab
-  enemyBehaviours:
-  - {fileID: 11474606}
-  - {fileID: 11466770}
-  - {fileID: 11414946}
-  - {fileID: 11491060}
-  health: 100
+  hitPoints: 10
+  effectType: 0
+  effectDuration: 0
+  effectStrength: 0
   collisionDamage: 20
   knockbackForce: 10
-  moveSpeed: 0
-  lookDir: {x: 0, y: 0}
-  moveDir: {x: 0, y: 0}
---- !u!114 &11414946
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 773585f9527265347bf7551addeb9d5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 195904, guid: 954636ab49c36d94fa6926628119becb, type: 2}
-  numberOfBullets: 1
-  shotAngle: 0
-  shotSpeed: 6.19999981
-  sub: {fileID: 11418800}
-  stateSkips: 4
---- !u!114 &11418800
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172340}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e759df69521ea774d942d37f1e734f9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  note: 42
-  velocity: 80
-  channel: 1
-  state: 1
---- !u!114 &11466770
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35374a909049d074d826bb5e417cf746, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sub: {fileID: 11418800}
-  movespeed: 5
-  directions: 4
-  wallDistanceCheck: 3
-  stateSkips: 2
---- !u!114 &11474606
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 811483e2626a1a64881cc6fb7412df0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
-  rotateToFace: 1
---- !u!114 &11491060
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 172340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de1b43574850de440b41cab97ed1aad9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knockbackForce: 6.5999999
-  knockbackTime: .5
+  effectFlashRate: .200000003
 --- !u!212 &21256892
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -218,7 +135,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: sub
       value: 
-      objectReference: {fileID: 11418800}
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: note
       value: 42

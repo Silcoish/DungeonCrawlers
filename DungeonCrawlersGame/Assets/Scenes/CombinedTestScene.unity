@@ -285,6 +285,10 @@ Prefab:
       propertyPath: midiSystem
       value: 
       objectReference: {fileID: 1905678089}
+    - target: {fileID: 11497982, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
+      propertyPath: wepRight
+      value: 
+      objectReference: {fileID: 116298, guid: 135de17eff79c6a4fa39c87b6618c3f8, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
   m_IsPrefabParent: 0
@@ -371,7 +375,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404400, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 404400, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
       propertyPath: m_LocalScale.x
@@ -385,19 +389,19 @@ Prefab:
       propertyPath: note
       value: 42
       objectReference: {fileID: 0}
-    - target: {fileID: 11418800, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
+    - target: {fileID: 0}
       propertyPath: note
       value: 42
       objectReference: {fileID: 0}
-    - target: {fileID: 11466770, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
+    - target: {fileID: 0}
       propertyPath: wallDistanceCheck
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 11466770, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
+    - target: {fileID: 0}
       propertyPath: stateSkips
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11414946, guid: bf4f2e480c955954d9b24e7ccfd73e22, type: 2}
+    - target: {fileID: 0}
       propertyPath: stateSkips
       value: 4
       objectReference: {fileID: 0}
@@ -445,7 +449,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 457556, guid: 94f56c4d820e4064286302a0728d82d8, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11432022, guid: 94f56c4d820e4064286302a0728d82d8, type: 2}
       propertyPath: enemyBehaviours.Array.data[2]
@@ -637,8 +641,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1b43574850de440b41cab97ed1aad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isKnockBack: 0
+  firstHit: 0
+  Dir: {x: 0, y: 0}
   knockbackForce: 29.8999996
   knockbackTime: 1
+  timer: 0
 --- !u!1 &1905678088 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 128254, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}

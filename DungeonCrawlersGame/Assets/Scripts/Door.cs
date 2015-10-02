@@ -11,13 +11,18 @@ public class Door : MonoBehaviour {
 		WEST
 	}
 
+    public Transform partnerDoor;
+    public Transform parentRoom;
+
 	public Direction dir;
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
 		if(col.tag == "Player")
 		{
-			GameManager.inst.dungeon.SwitchRooms(dir);
+            col.transform.position = partnerDoor.GetChild(0).position;
+            print(partnerDoor.gameObject.GetComponent<Door>());
+            col.GetComponent<Player>().currentRoom = partnerDoor.gameObject.GetComponent<Door>().parentRoom;
 		}
 	}
 }

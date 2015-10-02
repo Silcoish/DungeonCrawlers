@@ -11,13 +11,6 @@ public enum Facing
 
 public class Player : MonoBehaviour 
 {
-	[System.Serializable]
-	public struct RoomData
-	{
-		public int x;
-		public int y;
-		public GameObject currentRoom;
-	};
 
     private BoxCollider2D boxCol2D;
     private Rigidbody2D rb2D;
@@ -29,8 +22,9 @@ public class Player : MonoBehaviour
     public SpriteRenderer wepRight;
     public PolygonCollider2D wepColliderRight;
     
-	public RoomData roomData;
-	public WeaponCollider weaponCollider;
+    public Transform currentRoom;
+	
+    public WeaponCollider weaponCollider;
     public int baseMoveSpeed = 10;
     public bool controlsEnabled = true;
     public float swingColliderUptime = 0.5F;
@@ -354,10 +348,12 @@ public class Player : MonoBehaviour
         }
     }
 
+    /*
 	public void SetRoomData(int xx, int yy, GameObject room)
 	{
 		roomData.x = xx;
 		roomData.y = yy;
 		roomData.currentRoom = room;
 	}
+    */
 }

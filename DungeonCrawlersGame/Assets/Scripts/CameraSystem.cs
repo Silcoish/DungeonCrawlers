@@ -3,18 +3,19 @@ using System.Collections;
 
 public class CameraSystem : MonoBehaviour {
 
+    public bool isEnabled = true;
 	Transform t;
 	Player p;
 	float camSpeed = 10f;
 
 	void Start()
 	{
-		t = transform;
+		t = Camera.main.transform;
 		p = GameManager.inst.player.GetComponent<Player>();
 	}
 
 	void Update () {
-		t.position = Vector3.Lerp(t.position, new Vector3(0, 0, t.position.z) + p.roomData.currentRoom.transform.position, 1/camSpeed);
-			//new Vector3(0, 0, transform.position.z) + (Vector3)GameManager.inst.player.GetComponent<Player>().roomData.currentRoom.transform.position;
+        if(p.currentRoom != null)
+            t.position = Vector3.Lerp(t.position, new Vector3(p.currentRoom.position.x, p.currentRoom.position.y, t.position.z), 1 / camSpeed);
 	}
 }
