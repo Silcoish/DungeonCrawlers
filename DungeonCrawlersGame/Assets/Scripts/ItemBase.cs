@@ -20,7 +20,7 @@ public class ItemBase : MonoBehaviour
         if(col.gameObject.tag == "Player")
         {
             // Instantiate current equipped and drop
-            Instantiate(GameManager.inst.activeItems.wepRight, transform.position, transform.rotation);
+            Instantiate(GameManager.inst.activeItems.wepSlot1, transform.position, transform.rotation);
 
         }
     }

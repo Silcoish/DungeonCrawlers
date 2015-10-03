@@ -50,7 +50,7 @@ public class TargetDummy : MonoBehaviour
         //}
         if (col.gameObject.tag == "WepRight")
         {
-            Weapon wep = GameManager.inst.activeItems.wepRight.GetComponent<Weapon>();
+            Weapon wep = GameManager.inst.activeItems.wepSlot1.GetComponent<Weapon>();
             Vector2 kbForce = col.gameObject.GetComponentInParent<Rigidbody2D>().velocity.normalized;
             OnTakeDamage(wep.dmg, kbForce * wep.kb);
         }

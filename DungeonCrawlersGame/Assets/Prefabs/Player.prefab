@@ -84,7 +84,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &171814
 GameObject:
   m_ObjectHideFlags: 1
@@ -356,6 +356,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -573,13 +574,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   armRight: {fileID: 9528740}
   armLeft: {fileID: 9544634}
-  wepRight: {fileID: 21283182}
-  wepColliderRight: {fileID: 6067570}
+  wepSprite: {fileID: 21283182}
+  wepCollider: {fileID: 6067570}
   currentRoom: {fileID: 0}
   weaponCollider: {fileID: 0}
-  baseMoveSpeed: 15
   controlsEnabled: 1
   swingColliderUptime: .5
+  baseMoveSpeed: 15
   cdSwap: .5
   direction: 0
 --- !u!114 &11470586

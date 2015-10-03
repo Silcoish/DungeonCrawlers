@@ -37,7 +37,7 @@ public class Enemy : Damageable
 	{
 		if (col.gameObject.tag == "WepRight")
 		{
-			Weapon wep = GameManager.inst.activeItems.wepRight.GetComponent<Weapon>();
+			Weapon wep = GameManager.inst.activeItems.wepSlot1.GetComponent<Weapon>();
 
 			OnTakeDamage(wep.GetDamage());
 		}

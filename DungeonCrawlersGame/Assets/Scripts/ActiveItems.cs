@@ -3,32 +3,48 @@ using System.Collections;
 
 public class ActiveItems : MonoBehaviour 
 {
-    //public GameObject wepLeft;         // Left Equipped Weapon
-    public GameObject wepRight;        // Right Equipped Weapon
-    //public GameObject wepLeftOff;      // Left Secondary Weapon
-    public GameObject wepRightOff;     // Right Secondary Weapon
-    public GameObject pas1;            // Passive Item 1
-    public GameObject pas2;            // Passive Item 2
-    public GameObject pas3;            // Passive Item 3
+    public GameObject wepSlot1;         // Right Equipped Weapon
+    public GameObject wepSlot2;         // Right Secondary Weapon
+    public GameObject pasSlot1;         // Passive Item 1
+    public GameObject pasSlot2;         // Passive Item 2
+    public GameObject pasSlot3;         // Passive Item 3
+    public GameObject wepDefault;       // Default Weapon if none are equipped
+    private float WS1cd;
+    private float WS1cdCur;
+    private float WS2cd;
+    private float WS2cdCur;
 
-    private float WRcd;
-    private float WRcdCur;
-    private float WROcd;
-    private float WROcdCur;
-
+    void Awake()
+    {
+        // Check if there is a Weapon assigned to Slot1
+        if(!wepSlot1)
+        {
+            // If not check if there is a weapon in slot 2
+            if(wepSlot2)
+            {
+                wepSlot1 = wepSlot2; // And swap it to slot1
+                wepSlot2 = null;
+            }
+            else
+                wepSlot1 = wepDefault; // or generate a default weapon in slot1
+        }
+    }
+    
     void Update()
     {
-        WRcd = wepRight.GetComponent<Weapon>().cd;
-        WROcd = wepRightOff.GetComponent<Weapon>().cd;
-
-        // Update Cooldown Timers
-        WRcdCur -= Time.deltaTime;
-        WROcdCur -= Time.deltaTime;
+        WS1cd = wepSlot1.GetComponent<Weapon>().cd;
+        WS1cdCur -= Time.deltaTime;
+        
+        if(wepSlot2)
+        {
+            WS2cd = wepSlot2.GetComponent<Weapon>().cd;
+            WS2cdCur -= Time.deltaTime;
+        }
     }
 
     public bool IsReady()
     {
-        if (WRcdCur < 0)
+        if (WS1cdCur < 0)
             return true;
         else
             return false;
@@ -36,29 +52,30 @@ public class ActiveItems : MonoBehaviour
 
     public void ResetTimer()
     {
-        WRcdCur = WRcd;
+        WS1cdCur = WS1cd;
     }
 
-    //void SwapLeftHand()
-    //{
-    //    GameObject temp = wepLeft;
-    //    wepLeft = wepLeftOff;
-    //    wepLeftOff = temp;
-    //}
-
-    public void SwapRightHand()
+    public bool SwapWeapon()
     {
-        GameObject temp = wepRight;
-        wepRight = wepRightOff;
-        wepRightOff = temp;
+        // Check if a weapon is available to swap
+        if (!wepSlot2)
+            return false;
+        else
+        {
+            // Swap Weapons
+            GameObject temp = wepSlot1;
+            wepSlot1 = wepSlot2;
+            wepSlot2 = temp;
 
-        // Swap cooldown timers
-        float cdTemp = WRcd;
-        float cdCurTemp = WRcdCur;
-        WRcd = WROcd;
-        WRcdCur = WROcdCur;
-        WROcd = cdTemp;
-        WROcdCur = cdCurTemp;
+            // Swap cooldown timers
+            float cdTemp = WS1cd;
+            float cdCurTemp = WS1cdCur;
+            WS1cd = WS2cd;
+            WS1cdCur = WS2cdCur;
+            WS2cd = cdTemp;
+            WS2cdCur = cdCurTemp;
+        }
+        return true;
     }
 
     void UsePassive(int i)

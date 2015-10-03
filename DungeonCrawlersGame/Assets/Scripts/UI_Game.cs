@@ -23,13 +23,11 @@ public class UI_Game : MonoBehaviour
 
     public UIState state = UIState.GAME;
     public Text goldText;
-    public Image wepLeft;
-    public Image wepRight;
-    public Image wepLeftOff;
-    public Image wepRightOff;
-    public Image pass1;
-    public Image pass2;
-    public Image pass3;
+    public Image imgWep1;
+    public Image imgWep2;
+    public Image imgPass1;
+    public Image imgPass2;
+    public Image imgPass3;
     public Text healthText;
 
     void Update()
@@ -56,9 +54,10 @@ public class UI_Game : MonoBehaviour
         healthText.text = GameManager.inst.stats.hpCur + "/" + GameManager.inst.stats.hpMax;
 
         // Will need to move these into a function call when required, rather than every update.
-        //wepLeft.sprite = GameManager.inst.activeItems.wepLeft.GetComponent<SpriteRenderer>().sprite;
-        wepRight.sprite = GameManager.inst.activeItems.wepRight.GetComponent<SpriteRenderer>().sprite;
-        wepRightOff.sprite = GameManager.inst.activeItems.wepRightOff.GetComponent<SpriteRenderer>().sprite;
+        imgWep1.sprite = GameManager.inst.activeItems.wepSlot1.GetComponent<SpriteRenderer>().sprite;
+
+        if(GameManager.inst.activeItems.wepSlot2)
+            imgWep2.sprite = GameManager.inst.activeItems.wepSlot2.GetComponent<SpriteRenderer>().sprite;
     }
 
     void UpdateUIState()
