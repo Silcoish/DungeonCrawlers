@@ -145,6 +145,9 @@ public class Damageable : MonoBehaviour
 	{
 		hitPoints -= dam.amount;
 
+        Vector2 kbForce = (transform.position - dam.fromGO.position).normalized;
+        rb.AddForce(kbForce, ForceMode2D.Impulse);
+
 		switch (dam.type)
 		{
 			case DamageType.NONE:

@@ -10,4 +10,9 @@ public class Stats : MonoBehaviour
     public int crit;    // Critical Damage
     public int spd;     // Movement Speed
     public int luck;    // Luck
+
+    void Update()
+    {
+        hpCur = GameManager.inst.player.GetComponent<Damageable>().hitPoints;
+    }
 }

@@ -9,9 +9,8 @@ public enum Facing
     LEFT
 }
 
-public class Player : MonoBehaviour 
+public class Player : Damageable 
 {
-
     private BoxCollider2D boxCol2D;
     private Rigidbody2D rb2D;
     private Animator anim;
@@ -47,9 +46,10 @@ public class Player : MonoBehaviour
 		weaponCollider = GetComponent<WeaponCollider>();
 
         UpdateEquippedItems();
+        hitPoints = GameManager.inst.stats.hpCur;
 	}
 	
-	void Update () 
+	public override void UpdateOverride() 
     {
         if(controlsEnabled)
         {
@@ -163,23 +163,9 @@ public class Player : MonoBehaviour
         swingTimerRight -= Time.deltaTime;
     }
 
-    public void OnTakeDamage(Damage dmg)
-    {
-        GameManager.inst.stats.hpCur -= dmg.amount;
-
-        Vector2 kbForce = (gameObject.transform.position - dmg.fromGO.position).normalized;
-
-        rb2D.AddForce(kbForce, ForceMode2D.Impulse);
-
-		if (GameManager.inst.stats.hpCur <= 0)
-		{
-			OnDeath();
-		}
-    }
-
-	void OnDeath()
+	public override void OnDeath()
 	{
-        GameManager.inst.stats.hpCur = GameManager.inst.stats.hpMax; // Reset Health
+        GameManager.inst.stats.hpCur = hitPoints = GameManager.inst.stats.hpMax; // Reset Health
 
         GameManager.inst.inventory.gold = 0; // How do we handle this when passives can affect gold loss?
 

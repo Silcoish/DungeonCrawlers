@@ -35,7 +35,7 @@ public class Enemy : Damageable
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.gameObject.tag == "WepRight")
+		if (col.gameObject.tag == "Weapon")
 		{
 			Weapon wep = GameManager.inst.activeItems.wepSlot1.GetComponent<Weapon>();
 

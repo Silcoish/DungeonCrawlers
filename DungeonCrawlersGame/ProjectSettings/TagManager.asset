@@ -6,8 +6,7 @@ TagManager:
   tags:
   - Wall
   - Enemy
-  - WepLeft
-  - WepRight
+  - Weapon
   - Vendor
   - Vendor_Weapons
   - Projectile

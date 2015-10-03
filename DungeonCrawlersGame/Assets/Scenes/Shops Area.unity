@@ -878,6 +878,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 193952, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
   m_IsPrefabParent: 0
