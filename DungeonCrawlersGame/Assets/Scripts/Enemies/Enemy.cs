@@ -29,7 +29,7 @@ public class Enemy : Damageable
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			col.gameObject.GetComponent<Player>().OnTakeDamage(GetDamage());
+			col.gameObject.GetComponent<Damageable>().OnTakeDamage(GetDamage());
 		}
 	}
 
@@ -37,14 +37,12 @@ public class Enemy : Damageable
 	{
 		if (col.gameObject.tag == "Weapon")
 		{
-			Weapon wep = GameManager.inst.activeItems.wepSlot1.GetComponent<Weapon>();
-
-			OnTakeDamage(wep.GetDamage());
+			OnTakeDamage(GameManager.inst.activeItems.wepSlot1.GetComponent<ItemBase>().GetDamage());
 		}
 
 		if (col.gameObject.tag == "Projectile")
 		{
-			OnTakeDamage(col.gameObject.GetComponent<Projectile>().GetDamage());
+			OnTakeDamage(col.gameObject.GetComponent<Damageable>().GetDamage());
 			Destroy(col.gameObject);
 		}
 	}

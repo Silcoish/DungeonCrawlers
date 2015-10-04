@@ -18,7 +18,7 @@ public class ENY_Scarab_001 : Enemy
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	public override void UpdateOverride() 
 	{
 		rb.velocity = (direction * speed * globalMoveSpeed);
 

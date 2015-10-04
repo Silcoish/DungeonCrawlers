@@ -9,7 +9,7 @@ public class Damageable : MonoBehaviour
 	public float effectDuration = 1;
 	public float effectStrength = 1;
 	public int collisionDamage = 1;
-	public float knockbackForce = 1;
+	public float knockbackForce = 5;
 	public float globalMoveSpeed = 1;
 	public float globalBlindSpeed = 1;
 
@@ -46,7 +46,7 @@ public class Damageable : MonoBehaviour
 		sp = gameObject.GetComponent<SpriteRenderer>();
 	}
 	
-	void Update () 
+	public virtual void Update () 
 	{
 		//Colour Change for taking damage.
 		if (damageTimer > 0)
@@ -105,6 +105,10 @@ public class Damageable : MonoBehaviour
 			}
 		}
 
+        if (hitPoints <= 0)
+        {
+            OnDeath();
+        }
 
 		UpdateOverride();
 	}
@@ -145,7 +149,7 @@ public class Damageable : MonoBehaviour
 	{
 		hitPoints -= dam.amount;
 
-        Vector2 kbForce = (transform.position - dam.fromGO.position).normalized;
+        Vector2 kbForce = (transform.position - dam.fromGO.position).normalized * knockbackForce;
         rb.AddForce(kbForce, ForceMode2D.Impulse);
 
 		switch (dam.type)

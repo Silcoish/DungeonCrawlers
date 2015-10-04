@@ -221,8 +221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631e7f20f777e9a4595fe15ee2d60ba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wepSlot1: {fileID: 176004, guid: aacd9bef08508d14da0b697472df4225, type: 2}
-  wepSlot2: {fileID: 180400, guid: 5c420b7e68d951c4db534ed847b18052, type: 2}
+  wepSlot1: {fileID: 175244, guid: dcc24c22d2fcd0e49aee941c19298ec8, type: 2}
+  wepSlot2: {fileID: 176004, guid: aacd9bef08508d14da0b697472df4225, type: 2}
   pasSlot1: {fileID: 0}
   pasSlot2: {fileID: 0}
   pasSlot3: {fileID: 0}

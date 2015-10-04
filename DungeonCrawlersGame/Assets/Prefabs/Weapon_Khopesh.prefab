@@ -59,13 +59,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311708490eee84547b98bf188fc799fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: PH Sword
+  itemName: 
   type: 0
-  effect: 0
-  price: 10
   dmg: 5
   cd: .5
   kb: 1
+  effect: 0
+  effectDuration: 0
+  effectStrength: 0
+  price: 10
   ammCur: 0
   ammMax: 0
   isRanged: 1
@@ -127,6 +129,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: isRanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

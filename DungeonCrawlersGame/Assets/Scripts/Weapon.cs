@@ -3,9 +3,6 @@ using System.Collections;
 
 public class Weapon : ItemBase 
 {
-    public int dmg;         // Damage
-    public float cd;          // Cooldown
-    public int kb;          // Knockback Distance
     public int ammCur;      // Current Ammo
     public int ammMax;      // Maximum Ammo
     public bool isRanged = false;
@@ -50,17 +47,5 @@ public class Weapon : ItemBase
         }    
     }
 
-    public Damage GetDamage()
-    {
-        Damage temp;
-
-        temp.type = effect;
-        temp.amount = dmg;
-        temp.knockback = kb;
-        temp.fromGO = gameObject.transform;
-        temp.effectTime = effectDuration;
-        temp.effectStrength = effectStrength;
-
-        return temp;
-    }
+    
 }
