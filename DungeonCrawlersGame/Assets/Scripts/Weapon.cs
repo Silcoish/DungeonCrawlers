@@ -11,11 +11,8 @@ public class Weapon : ItemBase
     public bool isRanged = false;
     public GameObject projectile;
 
-    private PolygonCollider2D col;
-
     void Start()
     {
-        col = GetComponent<PolygonCollider2D>();
         type = ItemType.WEAPON;
     }
 

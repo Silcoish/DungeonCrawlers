@@ -20,13 +20,11 @@ public class BulletScript : MonoBehaviour
 		else if (col.collider.tag == "Player")
 		{
 			//TODO Link up damage from prefab input
-			Vector2 kbForce = gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
 			col.gameObject.GetComponent<Player>().OnTakeDamage(GetDamage());
 			Destroy(gameObject);
 		}
 		else if (col.collider.tag == "Player" || col.collider.tag == "Enemy")
 		{
-			Vector2 kbForce = gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
 			col.gameObject.GetComponent<Enemy>().OnTakeDamage(GetDamage());
 			Destroy(gameObject);
 		}

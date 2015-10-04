@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Damageable : MonoBehaviour 
 {
-	public string name;
+	public string unitName;
 	public int hitPoints = 10;
 	public DamageType effectType = DamageType.NONE;
 	public float effectDuration = 1;
@@ -190,7 +190,7 @@ public class Damageable : MonoBehaviour
 
 	public string GetName()
 	{
-		return name;
+		return unitName;
 	}
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

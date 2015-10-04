@@ -11,7 +11,6 @@ public enum Facing
 
 public class Player : Damageable 
 {
-    private BoxCollider2D boxCol2D;
     private Rigidbody2D rb2D;
     private Animator anim;
     public Animator armRight;
@@ -36,7 +35,6 @@ public class Player : Damageable
 
     void Start() 
     {
-        boxCol2D = GetComponent<BoxCollider2D>();
         rb2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 

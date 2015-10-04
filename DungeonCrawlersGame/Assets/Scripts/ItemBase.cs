@@ -5,7 +5,7 @@ public class ItemBase : MonoBehaviour
 {
     public enum ItemType { WEAPON, PASSIVE };
     
-    public string name;         // Item name for lookup
+    public string itemName;         // Item name for lookup
     public ItemType type;
     public DamageType effect;
     public float effectDuration;
