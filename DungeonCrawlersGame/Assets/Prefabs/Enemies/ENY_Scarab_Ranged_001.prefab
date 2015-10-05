@@ -71,8 +71,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 667f8f9d99547044c9159c822952c087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
-  hitPoints: 10
+  unitName: 
+  hitPoints: 100
   effectType: 0
   effectDuration: 1
   effectStrength: 1
@@ -87,8 +87,8 @@ MonoBehaviour:
   timerBleed: 0
   timerBlind: 0
   damageTimer: 0
-  strengthPoison: 0
-  strengthBurn: 0
+  strengthPoison: 10
+  strengthBurn: 10
   strengthBleed: 1
   strengthMud: 1
   strengthFreeze: 1
@@ -120,7 +120,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a541fa76662460246b0f4e7c0f8cba10, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 15c8f96a65a67d94a9611df650d0fd0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

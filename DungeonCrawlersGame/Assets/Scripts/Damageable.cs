@@ -32,6 +32,7 @@ public class Damageable : MonoBehaviour
 	public float strengthFreeze = 1;
 
 	float leftoverBurnDamage = 0;
+	float leftoverPoisonDamage = 0;
 
 
 	public float effectFlashRate = 0.2f;
@@ -48,6 +49,8 @@ public class Damageable : MonoBehaviour
 	
 	public virtual void Update () 
 	{
+		sp.color = Color.white;
+
 		//Colour Change for taking damage.
 		if (damageTimer > 0)
 		{
@@ -59,7 +62,7 @@ public class Damageable : MonoBehaviour
 		if (timerPoison > 0)
 		{
 			timerPoison -= Time.deltaTime;
-			sp.color = Color.Lerp(Color.white, Color.green, SinLerp(timerPoison));
+			sp.color = Color.Lerp(sp.color, Color.green, SinLerp(timerPoison));
 
 			timerPoisonHits += Time.deltaTime;
 
@@ -74,7 +77,7 @@ public class Damageable : MonoBehaviour
 		if (timerBurn > 0)
 		{
 			timerBurn -= Time.deltaTime;
-			sp.color = Color.Lerp(Color.white, Color.red, SinLerp(timerPoison));
+			sp.color = Color.Lerp(sp.color, Color.red, SinLerp(timerPoison));
 
 			DamageBurn();
 
@@ -84,7 +87,7 @@ public class Damageable : MonoBehaviour
 		if (timerFreeze > 0)
 		{
 			timerFreeze -= Time.deltaTime;
-			sp.color = Color.Lerp(Color.white, Color.blue, SinLerp(timerPoison));
+			sp.color = Color.Lerp(sp.color, Color.blue, SinLerp(timerPoison));
 
 			globalMoveSpeed = 0;
 
@@ -209,19 +212,36 @@ public class Damageable : MonoBehaviour
 
 	void DamagePoison()
 	{
-		hitPoints -= (int)(strengthPoison * poisonTime);
+		leftoverPoisonDamage += strengthPoison * poisonTime;
+		hitPoints -= (int)leftoverPoisonDamage;
+		if ((int)leftoverPoisonDamage > 0)
+			SpawnText(Color.green, ((int)leftoverPoisonDamage).ToString());
+		leftoverPoisonDamage -= (int)leftoverPoisonDamage;
 	}
 
 	void DamageBurn()
 	{
 		leftoverBurnDamage += strengthBurn * Time.deltaTime;
 		hitPoints -= (int)leftoverBurnDamage;
+		if ((int)leftoverBurnDamage > 0)
+			SpawnText(Color.red, ((int)leftoverBurnDamage).ToString());
 		leftoverBurnDamage -= (int)leftoverBurnDamage;
 	}
 
 	void DamageBleed(int damIn)
 	{
 		hitPoints -= (int)(damIn * strengthBleed);
+	}
+
+	void SpawnText(Color col, string amt)
+	{
+		GameObject temp = Instantiate(GameDrops.Inst.textObject, transform.position, GameDrops.Inst.textObject.transform.rotation) as GameObject;
+
+		TextObject tempText = temp.GetComponent<TextObject>();
+
+		tempText.SetParams(col, amt);
+
+
 	}
 
 }
