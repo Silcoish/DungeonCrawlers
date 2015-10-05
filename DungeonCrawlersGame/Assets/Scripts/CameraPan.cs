@@ -46,7 +46,7 @@ public class CameraPan : MonoBehaviour
 
 			if (timer >= fadeTime)
 			{
-				Application.LoadLevel(2);
+				Application.LoadLevel(3);
 			}
 
 		}

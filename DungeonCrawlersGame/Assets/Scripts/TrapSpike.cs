@@ -8,6 +8,10 @@ public class TrapSpike : MonoBehaviour {
 	float counter = 0;
 	[SerializeField] float knockbackMultiplyer;
 
+    public DamageType effect;
+    public float effectDuration;
+    public float effectStrength;
+
 	void Update()
 	{
 		counter += Time.deltaTime;
@@ -37,15 +41,29 @@ public class TrapSpike : MonoBehaviour {
 		if (go.tag == "Player")
 		{
 			print(go.name);
-			go.gameObject.GetComponent<Player>().OnTakeDamage(damage, kbForce);
+			go.gameObject.GetComponent<Player>().OnTakeDamage(GetDamage());
 			return true;
 		}
 		else if (go.tag == "Enemy")
 		{
-			go.GetComponent<Enemy>().OnTakeDamage(damage, kbForce);
+			go.GetComponent<Enemy>().OnTakeDamage(GetDamage());
 			return true;
 		}
 
 		return false;
 	}
+
+    public Damage GetDamage()
+    {
+        Damage temp;
+
+        temp.type = effect;
+        temp.amount = damage;
+        temp.knockback = knockbackMultiplyer;
+        temp.fromGO = gameObject.transform;
+        temp.effectTime = effectDuration;
+        temp.effectStrength = effectStrength;
+
+        return temp;
+    }
 }

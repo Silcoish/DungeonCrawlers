@@ -9,47 +9,32 @@ public enum Facing
     LEFT
 }
 
-public class Player : MonoBehaviour 
+public class Player : Damageable 
 {
-	[System.Serializable]
-	public struct RoomData
-	{
-		public int x;
-		public int y;
-		public GameObject currentRoom;
-	};
-
-    private BoxCollider2D boxCol2D;
     private Rigidbody2D rb2D;
     private Animator anim;
     public Animator armRight;
     public Animator armLeft;
     private SpriteRenderer armRightSprite;
     private SpriteRenderer armLeftSprite;
-    public SpriteRenderer wepRight;
-    public PolygonCollider2D wepColliderRight;
+    public SpriteRenderer wepSprite;
+    public PolygonCollider2D wepCollider;
     
-	public RoomData roomData;
-	public WeaponCollider weaponCollider;
-    public int baseMoveSpeed = 10;
+    public Transform currentRoom;
+	
+    public WeaponCollider weaponCollider;
+
     public bool controlsEnabled = true;
     public float swingColliderUptime = 0.5F;
     private float swingTimerRight = 0;
-    private float cdRight;
-    private float cdRightCur;
+
+    public int baseMoveSpeed = 10;
+    public float cdSwap = 0.5F;
+    private float cdSwapCur;
     public int direction;
 
-    // The Left Arm
-    
-    //public SpriteRenderer wepLeft;
-    //public PolygonCollider2D wepColliderLeft;
-    //private float swingTimerLeft = 0;
-    //private float cdLeft;
-    //private float cdLeftCur;
-
-    void Start () 
+    void Start() 
     {
-        boxCol2D = GetComponent<BoxCollider2D>();
         rb2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
@@ -58,14 +43,11 @@ public class Player : MonoBehaviour
 
 		weaponCollider = GetComponent<WeaponCollider>();
 
-		//roomData = new RoomData();
-		//roomData.x = 10;
-
-        //For testing
         UpdateEquippedItems();
+        hitPoints = GameManager.inst.stats.hpCur;
 	}
 	
-	void Update () 
+	public override void UpdateOverride() 
     {
         if(controlsEnabled)
         {
@@ -113,11 +95,9 @@ public class Player : MonoBehaviour
                 case 0:
                     armRightSprite.sortingOrder = -1;
                     armLeftSprite.sortingOrder = -1;
-                    //wepLeft.sortingOrder = 3;
-                    wepRight.sortingOrder = 3;
+                    wepSprite.sortingOrder = 3;
 
-                    wepColliderRight.transform.eulerAngles = new Vector3(0, 0, 0);
-                    //wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 0);
+                    wepCollider.transform.eulerAngles = new Vector3(0, 0, 0);
 
                     if (!armRight.GetCurrentAnimatorStateInfo(1).IsName("Default"))
                         armRightSprite.sortingOrder = 2;
@@ -126,203 +106,93 @@ public class Player : MonoBehaviour
                         armLeftSprite.sortingOrder = 2;
                     break;
                 case 1:
-                    armRightSprite.sortingOrder = -1; // -1
+                    armRightSprite.sortingOrder = -1;
                     armLeftSprite.sortingOrder = -1;
-                    //wepLeft.sortingOrder = -2;
-                    wepRight.sortingOrder = -2;
+                    wepSprite.sortingOrder = -2;
 
-                    wepColliderRight.transform.eulerAngles = new Vector3(0, 0, 180);
-                    //wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 180);
+                    wepCollider.transform.eulerAngles = new Vector3(0, 0, 180);
                     break;
                 case 2:
-                    armLeftSprite.sortingOrder = -2; // -2
-                    //wepLeft.sortingOrder = -1;
-                    wepRight.sortingOrder = 2;
+                    armLeftSprite.sortingOrder = -2;
+                    wepSprite.sortingOrder = 2;
                     armRightSprite.sortingOrder = 3;
 
-                    wepColliderRight.transform.eulerAngles = new Vector3(0,0,90);
-                    //wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 90);
+                    wepCollider.transform.eulerAngles = new Vector3(0,0,90);
                     break;
                 case 3:
                     armLeftSprite.sortingOrder = 3;
-                    //wepLeft.sortingOrder = 2;
-                    wepRight.sortingOrder = -1;
-                    armRightSprite.sortingOrder = -2; //-2
+                    wepSprite.sortingOrder = -1;
+                    armRightSprite.sortingOrder = -2;
 
-                    wepColliderRight.transform.eulerAngles = new Vector3(0, 0, -90);
-                    //wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, -90);
+                    wepCollider.transform.eulerAngles = new Vector3(0, 0, -90);
                     break;
             }
 
-            //if (Mathf.Abs(facing.x) > Mathf.Abs(facing.y))
-            //{
-            //    if (facing.x > 0)
-            //    {
-            //        dir = Facing.RIGHT;
-            //        anim.SetInteger("Facing", (int)Facing.RIGHT);
-            //        armRight.SetInteger("Facing", (int)Facing.RIGHT);
-            //        armLeft.SetInteger("Facing", (int)Facing.RIGHT);
-            //        armLeftSprite.sortingOrder = -2; // -2
-            //        wepLeft.sortingOrder = -1;
-            //        wepRight.sortingOrder = 2;
-            //        armRightSprite.sortingOrder = 3;
-
-            //        wepColliderRight.transform.eulerAngles = new Vector3(0,0,90);
-            //        wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 90);
-            //    }
-
-            //    else
-            //    {
-            //        dir = Facing.LEFT;
-            //        anim.SetInteger("Facing", (int)Facing.LEFT);
-            //        armRight.SetInteger("Facing", (int)Facing.LEFT);
-            //        armLeft.SetInteger("Facing", (int)Facing.LEFT);
-            //        armLeftSprite.sortingOrder = 3;
-            //        wepLeft.sortingOrder = 2;
-            //        wepRight.sortingOrder = -1;
-            //        armRightSprite.sortingOrder = -2; //-2
-
-            //        wepColliderRight.transform.eulerAngles = new Vector3(0, 0, -90);
-            //        wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, -90);
-            //    }
-            //}
-            //else
-            //{
-            //    if (facing.y > 0)
-            //    {
-            //        dir = Facing.UP;
-            //        anim.SetInteger("Facing", (int)Facing.UP);
-            //        armRight.SetInteger("Facing", (int)Facing.UP);
-            //        armLeft.SetInteger("Facing", (int)Facing.UP);
-            //        armRightSprite.sortingOrder = -1; // -1
-            //        armLeftSprite.sortingOrder = -1;
-            //        wepLeft.sortingOrder = -2;
-            //        wepRight.sortingOrder = -2;
-
-            //        wepColliderRight.transform.eulerAngles = new Vector3(0, 0, 180);
-            //        wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 180);
-            //    }
-            //    else
-            //    {
-            //        dir = Facing.DOWN;
-            //        anim.SetInteger("Facing", (int)Facing.DOWN);
-            //        armRight.SetInteger("Facing", (int)Facing.DOWN);
-            //        armLeft.SetInteger("Facing", (int)Facing.DOWN);
-            //        armRightSprite.sortingOrder = -1;
-            //        armLeftSprite.sortingOrder = -1;
-            //        wepLeft.sortingOrder = 3;
-            //        wepRight.sortingOrder = 3;
-
-            //        wepColliderRight.transform.eulerAngles = new Vector3(0, 0, 0);
-            //        wepColliderLeft.transform.eulerAngles = new Vector3(0, 0, 0);
-
-            //        if (!armRight.GetCurrentAnimatorStateInfo(1).IsName("Default"))
-            //            armRightSprite.sortingOrder = 2;
-
-            //        if (!armLeft.GetCurrentAnimatorStateInfo(1).IsName("Default"))
-            //            armLeftSprite.sortingOrder = 2;
-            //    }
-            //}
-
             float xbTriggers = Input.GetAxisRaw("Fire");
 
-            //if ((Input.GetButton("Fire2") || xbTriggers <= -1) && cdRightCur < 0)
-            //{
-            //    AttackRightHand();
-            //}
-            //if ((Input.GetButton("Fire1") || xbTriggers >= 1) && cdLeftCur < 0)
-            //{
-            //    AttackLeftHand();
-            //}
-
             // Attack
-            if ((Input.GetButton("Fire1") || xbTriggers <= -1) && cdRightCur < 0)
+            if ((Input.GetButton("Fire1") || xbTriggers <= -1) && cdSwapCur < 0 && GameManager.inst.activeItems.IsReady())
             {
-                AttackRightHand();
+                Attack();
             }
 
             // Weapon Swap
             if(Input.GetButtonDown("Fire2"))
             {
-                GameManager.inst.activeItems.SwapRightHand();
+                if (GameManager.inst.activeItems.SwapWeapon())
+                    cdSwapCur = cdSwap;
+
                 UpdateEquippedItems();
+            }
+
+            // Kill Switch ---REMOVE AFTER TESTING---
+            if(Input.GetKeyDown(KeyCode.K))
+            {
+                OnDeath();
             }
         }
         
-        // Update Cooldown timers
-        //cdLeftCur -= Time.deltaTime;
-        cdRightCur -= Time.deltaTime;
-
-        // Update Swing timers
+        // Disable wepCollider at end of swing
         if (swingTimerRight < 0)
-            wepColliderRight.gameObject.SetActive(false);
-        //if (swingTimerLeft < 0)
-            //wepColliderLeft.gameObject.SetActive(false);
+            wepCollider.gameObject.SetActive(false);
 
+        // Update timers
+        cdSwapCur -= Time.deltaTime;
         swingTimerRight -= Time.deltaTime;
-        //swingTimerLeft -= Time.deltaTime;
     }
 
-    public void OnTakeDamage(Damage dmg)
-    {
-        GameManager.inst.stats.hpCur -= dmg.amount;
-
-        Vector2 kbForce = (gameObject.transform.position - dmg.fromGO.position).normalized;
-
-        rb2D.AddForce(kbForce, ForceMode2D.Impulse);
-
-		if (GameManager.inst.stats.hpCur <= 0)
-		{
-			OnDeath();
-		}
-    }
-
-	void OnDeath()
+	public override void OnDeath()
 	{
-		GameManager.inst.stats.hpCur = GameManager.inst.stats.hpMax;
+        GameManager.inst.stats.hpCur = hitPoints = GameManager.inst.stats.hpMax; // Reset Health
+
+        GameManager.inst.inventory.gold = 0; // How do we handle this when passives can affect gold loss?
+
+        // Destroy non permament items
+        GameManager.inst.activeItems.wepSlot2 = null;
+        GameManager.inst.activeItems.pasSlot2 = null;
+        GameManager.inst.activeItems.pasSlot3 = null;
+
 		Application.LoadLevel(1);
 	}
 
-    void OnCollisionEnter2D(Collision2D col)
+    void Attack()
     {
-    }
-
-    void OnTriggerStay2D(Collider2D col)
-    {
-    }
-
-    //void AttackLeftHand()
-    //{
-    //    weaponCollider.CreateMesh(wepColliderLeft);
-    //    armLeft.SetTrigger("Attack");
-    //    //GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>().Attack();
-    //    wepColliderLeft.gameObject.SetActive(true);
-    //    cdLeftCur = cdLeft;
-    //    swingTimerLeft = swingColliderUptime;
-    //}
-
-    void AttackRightHand()
-    {
-		weaponCollider.CreateMesh(wepColliderRight);
+		weaponCollider.CreateMesh(wepCollider);
         armRight.SetTrigger("Attack");
-        //GameManager.inst.activeItems.wepRight.GetComponent<Weapon>().Attack();
-        wepColliderRight.gameObject.SetActive(true);
-        cdRightCur = cdRight;
+        wepCollider.gameObject.SetActive(true);
+        GameManager.inst.activeItems.ResetTimer();
         swingTimerRight = swingColliderUptime;
 
-        GameManager.inst.activeItems.wepRight.GetComponent<Weapon>().Attack();
+        GameManager.inst.activeItems.wepSlot1.GetComponent<Weapon>().Attack();
     }
 
     // Update the weapon sprites and collider volumes on the player based on the data in the equipped weapon prefabs.
-    void UpdateEquippedItems()
+    public void UpdateEquippedItems()
     {
         // Not sure how much of a performance hit this is. Alternatively we could reference these components in the weapon script. (1 GetComponent per weapon)
-        wepRight.sprite = GameManager.inst.activeItems.wepRight.GetComponent<SpriteRenderer>().sprite;
-        //wepLeft.sprite = GameManager.inst.activeItems.wepLeft.GetComponent<SpriteRenderer>().sprite;
-        wepColliderRight.points = GameManager.inst.activeItems.wepRight.GetComponent<PolygonCollider2D>().points;
-        //wepColliderLeft.points = GameManager.inst.activeItems.wepLeft.GetComponent<PolygonCollider2D>().points;
-        cdRight = GameManager.inst.activeItems.wepRight.GetComponent<Weapon>().cd;
-        //cdLeft = GameManager.inst.activeItems.wepLeft.GetComponent<Weapon>().cd;
+        
+        wepSprite.sprite = GameManager.inst.activeItems.wepSlot1.GetComponent<SpriteRenderer>().sprite;
+        wepCollider.points = GameManager.inst.activeItems.wepSlot1.GetComponent<PolygonCollider2D>().points;
     }
 
     void SetSpriteArmLayers(int layer)
@@ -351,11 +221,4 @@ public class Player : MonoBehaviour
                 return 3;
         }
     }
-
-	public void SetRoomData(int xx, int yy, GameObject room)
-	{
-		roomData.x = xx;
-		roomData.y = yy;
-		roomData.currentRoom = room;
-	}
 }
