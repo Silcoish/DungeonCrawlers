@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Damageable : MonoBehaviour 
 {
+	[Header("Damageable")]
 	public string unitName;
 	public int hitPoints = 10;
 	public DamageType effectType = DamageType.NONE;
@@ -40,6 +41,8 @@ public class Damageable : MonoBehaviour
 	protected SpriteRenderer sp;
 
 	protected Rigidbody2D rb;
+	
+	
 
 	void Awake () 
 	{
