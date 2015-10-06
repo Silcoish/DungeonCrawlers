@@ -11,6 +11,7 @@ public enum Facing
 
 public class Player : Damageable 
 {
+
     private Rigidbody2D rb2D;
     private Animator anim;
     public Animator armRight;
@@ -33,6 +34,7 @@ public class Player : Damageable
     private float cdSwapCur;
     public int direction;
 
+
     void Start() 
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -45,6 +47,8 @@ public class Player : Damageable
 
         UpdateEquippedItems();
         hitPoints = GameManager.inst.stats.hpCur;
+
+
 	}
 	
 	public override void UpdateOverride() 

@@ -119,6 +119,23 @@ public class Damageable : MonoBehaviour
 		UpdateOverride();
 	}
 
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		print("Trig");
+		if (col.gameObject.tag == "WepRight")
+		{
+			print("WepRight");
+			OnTakeDamage(GameManager.inst.activeItems.wepSlot1.GetComponent<Weapon>().GetDamage());
+		}
+
+	}
+
+	void OnCollisionEnter2D(Collision2D col)
+	{
+		print("Col");
+
+	}
+
 
 
 	public virtual void UpdateOverride()

@@ -82,7 +82,7 @@ MonoBehaviour:
   globalBlindSpeed: 1
   timerPoison: 0
   timerBurn: 0
-  timerFreeze: 0
+  timerFreeze: 1.5
   timerMud: 0
   timerBleed: 0
   timerBlind: 0
@@ -95,6 +95,7 @@ MonoBehaviour:
   effectFlashRate: .200000003
   speed: 1
   numberOfDirections: 4
+  wallDistanceCheck: 2
   turnTime: 1
 --- !u!212 &21256892
 SpriteRenderer:

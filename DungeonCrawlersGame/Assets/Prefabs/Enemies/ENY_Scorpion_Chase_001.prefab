@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.59000015, y: 1.38999999, z: 0}
+  m_LocalPosition: {x: 1.55999994, y: 1.29999995, z: 0}
   m_LocalScale: {x: .150000006, y: .150000006, z: .387873292}
   m_Children: []
   m_Father: {fileID: 0}
@@ -68,10 +68,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 170246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 667f8f9d99547044c9159c822952c087, type: 3}
+  m_Script: {fileID: 11500000, guid: bbefd55ab8610f14385b7bf1159019cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: 
+  unitName: Scorpion
   hitPoints: 100
   effectType: 0
   effectDuration: 1
@@ -93,10 +93,7 @@ MonoBehaviour:
   strengthMud: 1
   strengthFreeze: 1
   effectFlashRate: .200000003
-  speed: 1
-  numberOfDirections: 4
-  wallDistanceCheck: 2
-  turnTime: 1
+  speed: 2
 --- !u!212 &21214964
 SpriteRenderer:
   m_ObjectHideFlags: 1
