@@ -25,7 +25,7 @@ public class ItemBase : MonoBehaviour
         temp.type = effect;
         temp.amount = dmg;
         temp.knockback = kb;
-        temp.fromGO = gameObject.transform;
+        temp.fromGO = GameManager.inst.player.transform;
         temp.effectTime = effectDuration;
         temp.effectStrength = effectStrength;
 

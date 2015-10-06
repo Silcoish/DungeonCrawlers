@@ -554,7 +554,7 @@ MonoBehaviour:
   currentRoom: {fileID: 0}
   weaponCollider: {fileID: 0}
   controlsEnabled: 1
-  swingColliderUptime: .5
+  swingColliderUptime: .200000003
   baseMoveSpeed: 15
   cdSwap: .5
   direction: 0

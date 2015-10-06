@@ -57,7 +57,7 @@ public class WeaponCollider : MonoBehaviour {
 		meshFilter.mesh = mesh;
 
 		Material mat = new Material(Shader.Find("Sprites/Default"));
-		mat.color = new Color(0, 0.66f, 0, 0.9f);
+		mat.color = new Color(0, 0.66f, 0, 0.4f);
 		meshRenderer.material = mat;
 	}
 }
