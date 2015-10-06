@@ -165,23 +165,7 @@ GameObject:
   - 60: {fileID: 6067570}
   m_Layer: 0
   m_Name: WepColliderRight
-  m_TagString: WepRight
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!1 &197970
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 440770}
-  - 60: {fileID: 6005298}
-  m_Layer: 0
-  m_Name: WepColliderLeft
-  m_TagString: WepLeft
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,13 +190,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.72000003, y: -60.2000008, z: 0}
+  m_LocalPosition: {x: -.466332674, y: -1.90640819, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 416996}
   - {fileID: 404714}
   - {fileID: 455288}
-  - {fileID: 440770}
   - {fileID: 471366}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -267,18 +250,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 471366}
   m_RootOrder: 0
---- !u!4 &440770
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 197970}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 406070}
-  m_RootOrder: 3
 --- !u!4 &452280
 Transform:
   m_ObjectHideFlags: 1
@@ -315,7 +286,7 @@ Transform:
   m_Children:
   - {fileID: 431464}
   m_Father: {fileID: 406070}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &499988
 Transform:
   m_ObjectHideFlags: 1
@@ -378,24 +349,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!60 &6005298
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 197970}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-    m_Paths:
-    - - {x: .903327346, y: 1.66175938}
-      - {x: 1.82140636, y: 1.33958626}
-      - {x: .15638116, y: .00689820945}
-      - {x: -.193895221, y: .00689834356}
-      - {x: .0506374538, y: 1.51319361}
 --- !u!60 &6067570
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -572,6 +525,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df03d25cc5b363c48a22a06ce323567b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitName: 
+  hitPoints: 10
+  effectType: 0
+  effectDuration: 1
+  effectStrength: 1
+  collisionDamage: 1
+  knockbackForce: 5
+  globalMoveSpeed: 1
+  globalBlindSpeed: 1
+  timerPoison: 0
+  timerBurn: 0
+  timerFreeze: 0
+  timerMud: 0
+  timerBleed: 0
+  timerBlind: 0
+  damageTimer: 0
+  strengthPoison: 0
+  strengthBurn: 0
+  strengthBleed: 1
+  strengthMud: 1
+  strengthFreeze: 1
+  effectFlashRate: .200000003
   armRight: {fileID: 9528740}
   armLeft: {fileID: 9544634}
   wepSprite: {fileID: 21283182}

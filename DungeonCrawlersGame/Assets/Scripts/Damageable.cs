@@ -119,22 +119,22 @@ public class Damageable : MonoBehaviour
 		UpdateOverride();
 	}
 
-	void OnTriggerEnter2D(Collider2D col)
-	{
-		print("Trig");
-		if (col.gameObject.tag == "WepRight")
-		{
-			print("WepRight");
-			OnTakeDamage(GameManager.inst.activeItems.wepSlot1.GetComponent<Weapon>().GetDamage());
-		}
+    //void OnTriggerEnter2D(Collider2D col)
+    //{
+    //    print("Trig");
+    //    if (col.gameObject.tag == "WepRight")
+    //    {
+    //        print("WepRight");
+    //        OnTakeDamage(GameManager.inst.activeItems.wepSlot1.GetComponent<Weapon>().GetDamage());
+    //    }
 
-	}
+    //}
 
-	void OnCollisionEnter2D(Collision2D col)
-	{
-		print("Col");
+    //void OnCollisionEnter2D(Collision2D col)
+    //{
+    //    print("Col");
 
-	}
+    //}
 
 
 
@@ -172,7 +172,7 @@ public class Damageable : MonoBehaviour
 	{
 		hitPoints -= dam.amount;
 
-        Vector2 kbForce = (transform.position - dam.fromGO.position).normalized * knockbackForce;
+        Vector2 kbForce = (transform.position - dam.fromGO.position).normalized * dam.knockback;
         rb.AddForce(kbForce, ForceMode2D.Impulse);
 
 		switch (dam.type)

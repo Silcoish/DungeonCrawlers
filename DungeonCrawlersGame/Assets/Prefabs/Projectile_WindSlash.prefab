@@ -71,11 +71,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c5e8bef2bca9d2479e7dab0e00d4a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 10
+  unitName: 
+  hitPoints: 10
+  effectType: 0
+  effectDuration: 1
+  effectStrength: 1
+  collisionDamage: 1
+  knockbackForce: 0
+  globalMoveSpeed: 1
+  globalBlindSpeed: 1
+  timerPoison: 0
+  timerBurn: 0
+  timerFreeze: 0
+  timerMud: 0
+  timerBleed: 0
+  timerBlind: 0
+  damageTimer: 0
+  strengthPoison: 0
+  strengthBurn: 0
+  strengthBleed: 1
+  strengthMud: 1
+  strengthFreeze: 1
+  effectFlashRate: .200000003
   speed: 10
-  kb: 0
   lifetime: 1
-  effect: 0
   direction: {x: 0, y: 0}
 --- !u!212 &21227100
 SpriteRenderer:
@@ -117,6 +136,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: lifetime
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: knockbackForce
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

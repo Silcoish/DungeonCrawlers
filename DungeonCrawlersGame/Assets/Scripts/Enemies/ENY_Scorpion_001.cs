@@ -18,7 +18,7 @@ public class ENY_Scorpion_001 : Enemy
 	{
 		if (timerFreeze <= 0)
 		{
-			rb.velocity = ((playerTrans.position - transform.position).normalized * speed * globalMoveSpeed);
+			rb.AddForce((playerTrans.position - transform.position).normalized * speed * globalMoveSpeed);
 
 			transform.rotation = Quaternion.FromToRotation(Vector2.up, (playerTrans.position - transform.position));
 		}
