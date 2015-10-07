@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour {
 	public static GameManager inst;
     public bool useMouseControls = true;
     public MidiSystem midiSystem;
-	public Dungeon dungeon;
-	public DungeonSets dungeonSets;
+	//public Dungeon dungeon;
+	//public DungeonSets dungeonSets;
     public Stats stats;
     public Inventory inventory;
     public ActiveItems activeItems;

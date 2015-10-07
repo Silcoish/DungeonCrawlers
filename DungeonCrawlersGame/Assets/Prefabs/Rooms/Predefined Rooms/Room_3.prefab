@@ -138,21 +138,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &187984
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 427566}
-  m_Layer: 0
-  m_Name: Enemies
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &189868
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,18 +216,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 498352}
   m_RootOrder: 3
---- !u!4 &427566
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 187984}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 498352}
-  m_RootOrder: 8
 --- !u!4 &443678
 Transform:
   m_ObjectHideFlags: 1
@@ -286,7 +259,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.8755569, y: -20.9650955, z: 0}
+  m_LocalPosition: {x: 94.0702667, y: -.128469706, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 416430}
@@ -297,7 +270,6 @@ Transform:
   - {fileID: 443678}
   - {fileID: 454204}
   - {fileID: 419344}
-  - {fileID: 427566}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!61 &6116602
@@ -418,6 +390,9 @@ MonoBehaviour:
   damage: 20
   cooldown: 3
   knockbackMultiplyer: 10
+  effect: 0
+  effectDuration: 0
+  effectStrength: 0
 --- !u!114 &11409064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -432,6 +407,9 @@ MonoBehaviour:
   damage: 20
   cooldown: 3
   knockbackMultiplyer: 10
+  effect: 0
+  effectDuration: 0
+  effectStrength: 0
 --- !u!114 &11412312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -446,6 +424,9 @@ MonoBehaviour:
   damage: 20
   cooldown: 3
   knockbackMultiplyer: 10
+  effect: 0
+  effectDuration: 0
+  effectStrength: 0
 --- !u!114 &11457226
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -460,6 +441,9 @@ MonoBehaviour:
   damage: 20
   cooldown: 3
   knockbackMultiplyer: 10
+  effect: 0
+  effectDuration: 0
+  effectStrength: 0
 --- !u!212 &21206734
 SpriteRenderer:
   m_ObjectHideFlags: 1

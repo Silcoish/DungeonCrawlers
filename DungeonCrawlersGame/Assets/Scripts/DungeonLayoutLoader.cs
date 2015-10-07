@@ -5,20 +5,11 @@ using System.IO;
 
 public class DungeonLayoutLoader : MonoBehaviour
 {
-
-	public class RoomObject
-	{
-		GameObject room;
-		GameObject doorNorth;
-		GameObject doorSouth;
-		GameObject doorEast;
-		GameObject doorWest;
-	}
-
+	
 	[Tooltip("If you set this value, it will use the specified layout instead of randomly choosing one")]
 	public string fileName = "";
 	public List<GameObject> templateRooms;
-	GameObject[] rooms;
+	[SerializeField] RoomObject[] rooms;
 	public GameObject player;
 	public GameObject doorNorth;
 	public GameObject doorSouth;
@@ -32,9 +23,7 @@ public class DungeonLayoutLoader : MonoBehaviour
 
 	void Start()
 	{
-		rooms = new GameObject[SIZE * SIZE];
-
-		print(rooms[0]);
+		rooms = new RoomObject[SIZE * SIZE];
 
 		if(fileName == "")
 			ChooseLayout();
@@ -51,17 +40,17 @@ public class DungeonLayoutLoader : MonoBehaviour
 			{
 				if (rooms[i] != null && rooms[i + 1] != null)
 				{
-					GameObject tempDoor1 = (GameObject)Instantiate(doorEast, (Vector2)rooms[i].transform.position + new Vector2(doorOffset[1], 0f), doorEast.transform.rotation);
-					GameObject tempDoor2 = (GameObject)Instantiate(doorWest, (Vector2)rooms[i + 1].transform.position - new Vector2(doorOffset[3], 0f), doorWest.transform.rotation);
-                    tempDoor1.transform.parent = rooms[i].transform;
-                    tempDoor2.transform.parent = rooms[i + 1].transform;
+					GameObject tempDoor1 = (GameObject)Instantiate(doorEast, (Vector2)rooms[i].gameObject.transform.position + new Vector2(doorOffset[1], 0f), doorEast.transform.rotation);
+					GameObject tempDoor2 = (GameObject)Instantiate(doorWest, (Vector2)rooms[i + 1].gameObject.transform.position - new Vector2(doorOffset[3], 0f), doorWest.transform.rotation);
+					tempDoor1.transform.parent = rooms[i].gameObject.transform;
+					tempDoor2.transform.parent = rooms[i + 1].gameObject.transform;
 
                     Door tempDoor1Door = tempDoor1.GetComponent<Door>();
                     Door tempDoor2Door = tempDoor2.GetComponent<Door>();
                     tempDoor1Door.partnerDoor = tempDoor2.transform;
                     tempDoor2Door.partnerDoor = tempDoor1.transform;
-                    tempDoor1Door.parentRoom = rooms[i].transform;
-                    tempDoor2Door.parentRoom = rooms[i + 1].transform;
+					tempDoor1Door.parentRoom = rooms[i].gameObject.transform;
+					tempDoor2Door.parentRoom = rooms[i + 1].gameObject.transform;
 				}
 			}
 
@@ -70,17 +59,17 @@ public class DungeonLayoutLoader : MonoBehaviour
 			{
 				if(rooms[i] != null && rooms[i + SIZE] != null)
 				{
-					GameObject tempDoor1 = (GameObject)Instantiate(doorSouth, (Vector2)rooms[i].transform.position - new Vector2(0f, doorOffset[2]), doorSouth.transform.rotation);
-					GameObject tempDoor2 = (GameObject)Instantiate(doorNorth, (Vector2)rooms[i + SIZE].transform.position + new Vector2(0f, doorOffset[0]), doorNorth.transform.rotation);
-                    tempDoor1.transform.parent = rooms[i].transform;
-                    tempDoor2.transform.parent = rooms[i + SIZE].transform;
+					GameObject tempDoor1 = (GameObject)Instantiate(doorSouth, (Vector2)rooms[i].gameObject.transform.position - new Vector2(0f, doorOffset[2]), doorSouth.transform.rotation);
+					GameObject tempDoor2 = (GameObject)Instantiate(doorNorth, (Vector2)rooms[i + SIZE].gameObject.transform.position + new Vector2(0f, doorOffset[0]), doorNorth.transform.rotation);
+					tempDoor1.transform.parent = rooms[i].gameObject.transform;
+					tempDoor2.transform.parent = rooms[i + SIZE].gameObject.transform;
 
                     Door tempDoor1Door = tempDoor1.GetComponent<Door>();
                     Door tempDoor2Door = tempDoor2.GetComponent<Door>();
                     tempDoor1Door.partnerDoor = tempDoor2.transform;
                     tempDoor2Door.partnerDoor = tempDoor1.transform;
-                    tempDoor1Door.parentRoom = rooms[i].transform;
-                    tempDoor2Door.parentRoom = rooms[i + SIZE].transform;
+					tempDoor1Door.parentRoom = rooms[i].gameObject.transform;
+					tempDoor2Door.parentRoom = rooms[i + SIZE].gameObject.transform;
                 }
 			}
 		}
@@ -125,12 +114,14 @@ public class DungeonLayoutLoader : MonoBehaviour
 						{
 							if(entries[i] != "0" && entries[i] != " 0")
 							{
-								rooms[lineNum * SIZE + i] = (GameObject)Instantiate(templateRooms[Random.Range(0, templateRooms.Count)], new Vector2(i * roomOffset.x, -lineNum * roomOffset.y), Quaternion.identity);
+								GameObject tempRoom = (GameObject)Instantiate(templateRooms[Random.Range(0, templateRooms.Count)], new Vector2(i * roomOffset.x, -lineNum * roomOffset.y), Quaternion.identity);
+								rooms[lineNum * SIZE + i] = tempRoom.GetComponent<RoomObject>();
+								rooms[lineNum * SIZE + i].enemiesCount = rooms[lineNum * SIZE + i].gameObject.transform.FindChild("Enemies").childCount;
 							}
 
 							if(entries[i] == "2" || entries[i] == " 2")
 							{
-								GameObject tempPlayer = (GameObject)Instantiate(player, rooms[lineNum * SIZE + i].transform.position, Quaternion.identity);
+								GameObject tempPlayer = (GameObject)Instantiate(player, Vector2.zero /*rooms[lineNum * SIZE + i].room.transform.position*/, Quaternion.identity);
                                 GameManager.inst.player = tempPlayer;
                                 //tempPlayer.GetComponent<Player>().currentRoom = rooms[lineNum * SIZE + 1].transform;
 							}
@@ -145,6 +136,4 @@ public class DungeonLayoutLoader : MonoBehaviour
 			reader.Close();
 		}
 	}
-
-
 }

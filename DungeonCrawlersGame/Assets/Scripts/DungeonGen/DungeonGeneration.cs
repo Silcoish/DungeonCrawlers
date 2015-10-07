@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using System.Collections;
 
 public class DungeonGeneration {
@@ -42,6 +42,7 @@ public class DungeonGeneration {
 			Debug.Log("DOWN");
 		if (options & Options.LEFT)
 			Debug.Log("LEFT");
-	}*/
+	}
 
 }
+*/
