@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 5dac618ed266dbe449de291a961165fb
-timeCreated: 1440337830
+timeCreated: 1444209241
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,7 @@ TextureImporter:
     21300002: Door_Closed
     21300004: Door_Open
     21300006: Objects_0
+    21300008: Door_White
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -90,6 +91,16 @@ TextureImporter:
         y: 715
         width: 96
         height: 98
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Door_White
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 508
+        width: 247
+        height: 108
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

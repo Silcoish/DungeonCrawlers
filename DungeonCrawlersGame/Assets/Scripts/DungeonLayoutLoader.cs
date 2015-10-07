@@ -51,6 +51,9 @@ public class DungeonLayoutLoader : MonoBehaviour
                     tempDoor2Door.partnerDoor = tempDoor1.transform;
 					tempDoor1Door.parentRoom = rooms[i].gameObject.transform;
 					tempDoor2Door.parentRoom = rooms[i + 1].gameObject.transform;
+
+					rooms[i].doorEast = tempDoor1Door;
+					rooms[i + 1].doorWest = tempDoor2Door;
 				}
 			}
 
@@ -70,6 +73,9 @@ public class DungeonLayoutLoader : MonoBehaviour
                     tempDoor2Door.partnerDoor = tempDoor1.transform;
 					tempDoor1Door.parentRoom = rooms[i].gameObject.transform;
 					tempDoor2Door.parentRoom = rooms[i + SIZE].gameObject.transform;
+
+					rooms[i].doorSouth = tempDoor1Door;
+					rooms[i + SIZE].doorNorth = tempDoor2Door;
                 }
 			}
 		}
@@ -116,12 +122,15 @@ public class DungeonLayoutLoader : MonoBehaviour
 							{
 								GameObject tempRoom = (GameObject)Instantiate(templateRooms[Random.Range(0, templateRooms.Count)], new Vector2(i * roomOffset.x, -lineNum * roomOffset.y), Quaternion.identity);
 								rooms[lineNum * SIZE + i] = tempRoom.GetComponent<RoomObject>();
-								rooms[lineNum * SIZE + i].enemiesCount = rooms[lineNum * SIZE + i].gameObject.transform.FindChild("Enemies").childCount;
+								rooms[lineNum * SIZE + i].enemiesParent = tempRoom.transform.FindChild("Enemies").gameObject;
+								rooms[lineNum * SIZE + i].enemiesCount = rooms[lineNum * SIZE + i].enemiesParent.transform.childCount;
+								rooms[lineNum * SIZE + i].SetupEnemies();
+								rooms[lineNum * SIZE + i].enemiesParent.SetActive(false);
 							}
 
 							if(entries[i] == "2" || entries[i] == " 2")
 							{
-								GameObject tempPlayer = (GameObject)Instantiate(player, Vector2.zero /*rooms[lineNum * SIZE + i].room.transform.position*/, Quaternion.identity);
+								GameObject tempPlayer = (GameObject)Instantiate(player, rooms[lineNum * SIZE + i].gameObject.transform.position, Quaternion.identity);
                                 GameManager.inst.player = tempPlayer;
                                 //tempPlayer.GetComponent<Player>().currentRoom = rooms[lineNum * SIZE + 1].transform;
 							}

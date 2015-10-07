@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Enemy : Damageable
 {
+	public RoomObject room;
 	// Update is called once per frame
 	public override void UpdateOverride()
 	{
@@ -20,6 +21,7 @@ public class Enemy : Damageable
 		//if(GameManager.inst.gameDataManager != null)
 		GameManager.inst.gameDataManager.allEnemiesKilled.Add(this);
 
+		room.EnemyDied();
 		gameObject.SetActive(false);
 
 	}

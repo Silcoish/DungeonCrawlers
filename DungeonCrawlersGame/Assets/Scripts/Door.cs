@@ -11,18 +11,41 @@ public class Door : MonoBehaviour {
 		WEST
 	}
 
+	public Sprite closedDoorSprite;
+	Sprite openedDoorSprite;
+
     public Transform partnerDoor;
     public Transform parentRoom;
 
+	BoxCollider2D doorCol;
+
 	public Direction dir;
+
+	void Start()
+	{
+		openedDoorSprite = GetComponent<SpriteRenderer>().sprite;
+		doorCol = GetComponent<BoxCollider2D>();
+	}
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
 		if(col.tag == "Player")
 		{
             col.transform.position = partnerDoor.GetChild(0).position;
-            print(partnerDoor.gameObject.GetComponent<Door>());
             col.GetComponent<Player>().currentRoom = partnerDoor.gameObject.GetComponent<Door>().parentRoom;
+			partnerDoor.GetComponent<Door>().parentRoom.GetComponent<RoomObject>().EnteredRoom();
 		}
+	}
+
+	public void Lock()
+	{
+		GetComponent<SpriteRenderer>().sprite = closedDoorSprite;
+		doorCol.isTrigger = false;
+	}
+
+	public void Unlock()
+	{
+		GetComponent<SpriteRenderer>().sprite = openedDoorSprite;
+		doorCol.isTrigger = true;
 	}
 }
