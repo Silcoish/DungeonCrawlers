@@ -5,6 +5,7 @@ public class QST_KillEnemies : Quest
 {
 	public string enemyName;
 	public int kills;
+	public int goldReward = 50;
 
 	void Awake()
 	{
@@ -13,10 +14,16 @@ public class QST_KillEnemies : Quest
 
 	override public bool CheckProgress()
 	{
+		print("checking quest: " + GameManager.inst.gameDataManager.GetEnemiesKilled(enemyName));
 		if (GameManager.inst.gameDataManager.GetEnemiesKilled(enemyName) >= kills)
+		{
+			GameManager.inst.player.GetComponent<Player>().OnDeath();
 			return true;
-		else 
+		}
+		else
+ 		{
 			return false;
+		}
 	}
 
 	public override void Randomise()

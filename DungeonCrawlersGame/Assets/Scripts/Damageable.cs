@@ -266,11 +266,11 @@ public class Damageable : MonoBehaviour
 
 	void SpawnText(Color col, string amt)
 	{
-		GameObject temp = Instantiate(GameDrops.Inst.textObject, transform.position, GameDrops.Inst.textObject.transform.rotation) as GameObject;
+		//GameObject temp = Instantiate(GameDrops.Inst.textObject, transform.position, GameDrops.Inst.textObject.transform.rotation) as GameObject;
 
-		TextObject tempText = temp.GetComponent<TextObject>();
+		//TextObject tempText = temp.GetComponent<TextObject>();
 
-		tempText.SetParams(col, amt);
+		//tempText.SetParams(col, amt);
 
 
 	}

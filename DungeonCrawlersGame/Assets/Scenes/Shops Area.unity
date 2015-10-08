@@ -320,16 +320,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 450898, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11454176, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
       propertyPath: player
       value: 
       objectReference: {fileID: 726201109}
-    - target: {fileID: 11497982, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
-      propertyPath: wepSlot1
-      value: 
-      objectReference: {fileID: 175244, guid: dcc24c22d2fcd0e49aee941c19298ec8, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
   m_IsPrefabParent: 0
@@ -1607,11 +1603,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493962, guid: 89744273d519f2d4f87d14b59473a1e8, type: 2}
       propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 11461740, guid: 89744273d519f2d4f87d14b59473a1e8, type: 2}
-      propertyPath: kills
-      value: 12
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 89744273d519f2d4f87d14b59473a1e8, type: 2}

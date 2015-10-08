@@ -50,6 +50,8 @@ public class RoomObject : MonoBehaviour
 			doorWest.Unlock();
 
 		AudioManager.Inst.FadeMusic(AudioManager.Inst.s_idle);
+
+		if(GameManager.inst.questManager != null) GameManager.inst.questManager.currentQuest.CheckProgress();
 	}
 
 	public void SetupEnemies()

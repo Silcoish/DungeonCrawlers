@@ -16,7 +16,8 @@ public class CameraSystem : MonoBehaviour {
 		p = GameManager.inst.player.GetComponent<Player>();
 	}
 
-	void Update () {
+	void Update () 
+	{
 		if (p.currentRoom != null)
 		{
 			if (!destination)

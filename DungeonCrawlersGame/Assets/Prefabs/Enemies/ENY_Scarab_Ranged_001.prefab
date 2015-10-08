@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 667f8f9d99547044c9159c822952c087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: 
+  unitName: Scarab
   hitPoints: 100
   effectType: 0
   effectDuration: 1
@@ -80,19 +80,8 @@ MonoBehaviour:
   knockbackForce: 5
   globalMoveSpeed: 1
   globalBlindSpeed: 1
-  timerPoison: 0
-  timerBurn: 0
-  timerFreeze: 1.5
-  timerMud: 0
-  timerBleed: 0
-  timerBlind: 0
-  damageTimer: 0
-  strengthPoison: 10
-  strengthBurn: 10
-  strengthBleed: 1
-  strengthMud: 1
-  strengthFreeze: 1
   effectFlashRate: .200000003
+  room: {fileID: 0}
   speed: 5
   numberOfDirections: 4
   wallDistanceCheck: 2
@@ -165,6 +154,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: unitName
+      value: Scarab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
