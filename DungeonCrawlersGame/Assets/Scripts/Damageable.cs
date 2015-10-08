@@ -246,6 +246,8 @@ public class Damageable : MonoBehaviour
 		if ((int)leftoverPoisonDamage > 0)
 			SpawnText(Color.green, ((int)leftoverPoisonDamage).ToString());
 		leftoverPoisonDamage -= (int)leftoverPoisonDamage;
+
+		AudioManager.Inst.PlaySFX(AudioManager.Inst.a_poison);
 	}
 
 	void DamageBurn()

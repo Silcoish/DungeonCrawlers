@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public enum ItemType { WEAPON, PASSIVE };
@@ -32,14 +32,13 @@ public class ItemBase : MonoBehaviour
         return temp;
     }
 
-    // THIS GOES ON THE PLAYER WHEN COREY STOPS TOUCHING IT
     void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.tag == "Player")
         {
             // Instantiate current equipped and drop
             Instantiate(GameManager.inst.activeItems.wepSlot1, transform.position, transform.rotation);
-
+			AudioManager.Inst.PlaySFX(AudioManager.Inst.a_pickupWeapon);
         }
     }
 }

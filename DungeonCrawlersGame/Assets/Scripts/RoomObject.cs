@@ -33,6 +33,8 @@ public class RoomObject : MonoBehaviour
 			doorEast.Lock();
 		if (doorWest != null)
 			doorWest.Lock();
+
+		AudioManager.Inst.FadeMusic(AudioManager.Inst.s_fight);
 	}
 
 	void UnlockDoors()
@@ -46,6 +48,7 @@ public class RoomObject : MonoBehaviour
 		if (doorWest != null)
 			doorWest.Unlock();
 
+		AudioManager.Inst.FadeMusic(AudioManager.Inst.s_idle);
 	}
 
 	public void SetupEnemies()
