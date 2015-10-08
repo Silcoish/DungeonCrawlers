@@ -82,6 +82,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a3207e126481f4bad6999b8edb3155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  closedDoorSprite: {fileID: 21300008, guid: 5dac618ed266dbe449de291a961165fb, type: 3}
+  partnerDoor: {fileID: 0}
+  parentRoom: {fileID: 0}
   dir: 1
 --- !u!212 &21210376
 SpriteRenderer:
@@ -124,6 +127,11 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: .707106709
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: closedDoorSprite
+      value: 
+      objectReference: {fileID: 21300008, guid: 5dac618ed266dbe449de291a961165fb,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 104206}

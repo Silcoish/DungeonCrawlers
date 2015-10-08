@@ -21,7 +21,7 @@ public class Enemy : Damageable
 		//if(GameManager.inst.gameDataManager != null)
 		GameManager.inst.gameDataManager.allEnemiesKilled.Add(this);
 
-		room.EnemyDied();
+		if(room != null) room.EnemyDied();
 		gameObject.SetActive(false);
 
 	}
