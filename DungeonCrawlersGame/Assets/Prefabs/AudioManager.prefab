@@ -218,6 +218,19 @@ MonoBehaviour:
   m_numberOfSources: 5
   a_coin: {fileID: 8300000, guid: 1d70d633f4cbd0d4791a3ea0bd068cf4, type: 3}
   a_poison: {fileID: 8300000, guid: dcb2390f7fe6a5249ada37ef6bbc554f, type: 3}
+  a_burnt: {fileID: 8300000, guid: 55c7d3708bd062d4aa6a6ae65bd65fa5, type: 3}
+  a_bleed: {fileID: 8300000, guid: 45703e7bf8e50de45879687f34269264, type: 3}
+  a_cut: {fileID: 8300000, guid: 1b0ff9c47eee3f64a90ba85f75179120, type: 3}
+  a_doorOpen: {fileID: 8300000, guid: b19180db5806e27498cf4af74b8f87f1, type: 3}
+  a_doorShut: {fileID: 8300000, guid: ba981b99fb0aace49948402a52a2a1be, type: 3}
+  a_frozen: {fileID: 8300000, guid: 4fb538f104d079646b02d70a50190745, type: 3}
+  a_giveDamage: {fileID: 8300000, guid: 5b63161fa9357684ea9dd57deb985526, type: 3}
+  a_takeDamage: {fileID: 8300000, guid: 20315378eb69d5341a065fcb3d3c3269, type: 3}
+  a_lowHealth: {fileID: 8300000, guid: 0753125360c073b4ca9a6bdf7ff4731b, type: 3}
+  a_purchaseItem: {fileID: 8300000, guid: 2f6b4a573a848ad448a1c75ae17ff5e8, type: 3}
+  a_stab: {fileID: 8300000, guid: f2e372cc30f7fa3429396feb50301803, type: 3}
+  a_thump: {fileID: 8300000, guid: 64e2b3971b895ce48bff654e079c3aa2, type: 3}
+  a_pickupWeapon: {fileID: 8300000, guid: 5d0c530dd4917114e8cd6ced434c2269, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -12,10 +12,11 @@ public enum Facing
 public class Player : Damageable 
 {
 
-    private Rigidbody2D rb2D;
-    private Animator anim;
+	[Header("Player")]
     public Animator armRight;
     public Animator armLeft;
+    private Animator anim;
+    private Rigidbody2D rb2D;
     private SpriteRenderer armRightSprite;
     private SpriteRenderer armLeftSprite;
     public SpriteRenderer wepSprite;

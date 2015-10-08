@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.Audio;
 
@@ -26,6 +26,19 @@ public class AudioManager : MonoBehaviour
 	[Header("Tracks")]
 	public AudioClip a_coin;
 	public AudioClip a_poison;
+	public AudioClip a_burnt;
+	public AudioClip a_bleed;
+	public AudioClip a_cut;
+	public AudioClip a_doorOpen;
+	public AudioClip a_doorShut;
+	public AudioClip a_frozen;
+	public AudioClip a_giveDamage;
+	public AudioClip a_takeDamage;
+	public AudioClip a_lowHealth;
+	public AudioClip a_purchaseItem;
+	public AudioClip a_stab;
+	public AudioClip a_thump;
+	public AudioClip a_pickupWeapon;
 
 	void Awake()
 	{

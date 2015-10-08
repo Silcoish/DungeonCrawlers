@@ -10,6 +10,7 @@ public class Gold : MonoBehaviour {
 		if(col.tag == "Player")
 		{
             GameManager.inst.inventory.gold += goldValue;
+			AudioManager.Inst.PlaySFX(AudioManager.Inst.a_coin);
 			Destroy(gameObject);
 		}
 	}

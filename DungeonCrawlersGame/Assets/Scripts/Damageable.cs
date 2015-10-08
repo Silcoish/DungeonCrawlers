@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Damageable : MonoBehaviour 
@@ -172,6 +172,8 @@ public class Damageable : MonoBehaviour
 	{
 		hitPoints -= dam.amount;
 
+		//AudioManager.Inst.PlaySFX(AudioManager.Inst.a_takeDamage);
+
         Vector2 kbForce = (transform.position - dam.fromGO.position).normalized * dam.knockback;
         rb.AddForce(kbForce, ForceMode2D.Impulse);
 
@@ -180,20 +182,27 @@ public class Damageable : MonoBehaviour
 			case DamageType.NONE:
 				break;
 			case DamageType.POISON:
+				AudioManager.Inst.PlaySFX(AudioManager.Inst.a_poison);
 				timerPoison = dam.effectTime;
 				strengthPoison = dam.effectStrength;
 				break;
 			case DamageType.BURN:
+				//needs burn sfx
 				timerBurn = dam.effectTime;
 				strengthBurn = dam.effectStrength;
 				break;
 			case DamageType.FREEZE:
+				AudioManager.Inst.PlaySFX(AudioManager.Inst.a_frozen);
 				timerFreeze = dam.effectTime;
 				strengthFreeze = dam.effectStrength;
 				break;
 			case DamageType.BLEED:
+				AudioManager.Inst.PlaySFX(AudioManager.Inst.a_bleed);
 				timerBleed = dam.effectTime;
 				strengthBleed = dam.effectStrength;
+				break;
+			default:
+				AudioManager.Inst.PlaySFX(AudioManager.Inst.a_stab);
 				break;
 		}
 
