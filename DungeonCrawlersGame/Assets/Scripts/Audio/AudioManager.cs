@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
 
 	public AudioMixerSnapshot s_fight;
 	public AudioMixerSnapshot s_idle;
+	public AudioMixerSnapshot s_shop;
 	[Range(0f,10f)]
 	public float m_standardTransitionTime = 1.0f;
 
