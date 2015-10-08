@@ -1,9 +1,37 @@
 fileFormatVersion: 2
 guid: 777a376312d2b444cb8d14e8a1406f73
-timeCreated: 1444295314
+timeCreated: 1444295954
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Pot0
+    21300002: Pot1
+    21300004: Room_objects_01_0
+    21300006: Room_objects_01_1
+    21300008: Plant0
+    21300010: Plant1
+    21300012: Room_objects_01_2
+    21300014: Room_objects_01_3
+    21300016: Room_objects_01_4
+    21300018: Room_objects_01_5
+    21300020: Room_objects_01_6
+    21300022: Room_objects_01_7
+    21300024: Room_objects_01_8
+    21300026: Room_objects_01_9
+    21300028: Room_objects_01_10
+    21300030: Room_objects_01_11
+    21300032: Room_objects_01_12
+    21300034: Room_objects_01_13
+    21300036: Room_objects_01_14
+    21300038: Room_objects_01_15
+    21300040: Room_objects_01_16
+    21300042: Room_objects_01_17
+    21300044: Room_objects_01_18
+    21300046: Room_objects_01_19
+    21300048: Room_objects_01_20
+    21300050: Room_objects_01_21
+    21300052: Room_objects_01_22
+    21300054: Room_objects_01_23
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,14 +58,14 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,7 +76,287 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Pot0
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 645
+        width: 104
+        height: 97
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pot1
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 614
+        width: 133
+        height: 133
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 786
+        width: 236
+        height: 234
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_1
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 787
+        width: 240
+        height: 232
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Plant0
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 803
+        width: 194
+        height: 205
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Plant1
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 728
+        width: 282
+        height: 288
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_2
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 376
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_3
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 342
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_4
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 306
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_5
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 269
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_6
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 267
+        width: 51
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_7
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 304
+        width: 51
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_8
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 340
+        width: 51
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_9
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 374
+        width: 51
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_10
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 374
+        width: 76
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_11
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 340
+        width: 76
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_12
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 304
+        width: 76
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_13
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 267
+        width: 76
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_14
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 374
+        width: 178
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_15
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 340
+        width: 178
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_16
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 304
+        width: 178
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_17
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 267
+        width: 178
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_18
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 410
+        width: 152
+        height: 152
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_19
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 410
+        width: 152
+        height: 152
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_20
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 264
+        width: 135
+        height: 135
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_21
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 264
+        width: 135
+        height: 135
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_22
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 264
+        width: 135
+        height: 135
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Room_objects_01_23
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 264
+        width: 135
+        height: 135
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
