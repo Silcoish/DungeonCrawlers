@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -11,20 +11,189 @@ public class Shop : MonoBehaviour
     public Image item5;
     public Image item6;
 
+	[Header("Stat Title Texts")]
+	public Text item1Title;
+	public Text item2Title;
+	public Text item3Title;
+	public Text item4Title;
+	public Text item5Title;
+	public Text item6Title;
+
+	[Header("Stat Increase Text")]
+	public Text item1StatIncreaseText;
+	public Text item2StatIncreaseText;
+	public Text item3StatIncreaseText;
+	public Text item4StatIncreaseText;
+	public Text item5StatIncreaseText;
+	public Text item6StatIncreaseText;
+
+	[Header("Price Display Texts")]
+	public Text item1PriceText;
+	public Text item2PriceText;
+	public Text item3PriceText;
+	public Text item4PriceText;
+	public Text item5PriceText;
+	public Text item6PriceText;
+
     private bool firstOpen = true;
     private GameObject[] inventory = new GameObject[6];
+
+	public Stats stats;
+
+	public bool checkForGold = true;
     
     void Update()
     {
-        if(firstOpen)
-        {
-            UpdateInventory();
-            firstOpen = false;
-        }
-
-
+        //if(firstOpen)
+        //{
+        //    UpdateInventory();
+        //    firstOpen = false;
+        //}
+		SetPrices();
     }
 
+	void SetPrices()
+	{
+		item1Title.text = "Max HP: " + stats.hpMax.ToString();
+		item2Title.text = "Strength: " + stats.str.ToString();
+		item3Title.text = "Defense: " + stats.def.ToString();
+		item4Title.text = "Crit: " + stats.crit.ToString();
+		item5Title.text = "Speed: " + stats.spd.ToString();
+		item6Title.text = "Luck: " + stats.luck.ToString();
+
+		item1PriceText.text =	HPCost()	.ToString()	+ " Gold";
+		item2PriceText.text =	StrCost()	.ToString()	+ " Gold";
+		item3PriceText.text =	DefCost()	.ToString()	+ " Gold";
+		item4PriceText.text =	CritCost()	.ToString() + " Gold";
+		item5PriceText.text =	SpdCost()	.ToString()	+ " Gold";
+		item6PriceText.text =	LuckCost()	.ToString() + " Gold";
+
+		item1StatIncreaseText.text = "+" + stats.statIncreasePerUpgradeHPCost	.ToString()	+ " HP";
+		item2StatIncreaseText.text = "+" + stats.statIncreasePerUpgradeStrCost	.ToString()	+ " Strength";
+		item3StatIncreaseText.text = "+" + stats.statIncreasePerUpgradeDefCost	.ToString()	+ " Defense";
+		item4StatIncreaseText.text = "+" + stats.statIncreasePerUpgradeCritCost	.ToString()	+ " Crit";
+		item5StatIncreaseText.text = "+" + stats.statIncreasePerUpgradeSpdCost	.ToString()	+ " Speed";
+		item6StatIncreaseText.text = "+" + stats.statIncreasePerUpgradeLuckCost	.ToString()	+ " Luck";
+	}
+
+	int HPCost()
+	{
+		return CalculatePrice(stats.baseHPCost, stats.increasePerUpgradeHPCost, stats.hpUpgrades);
+	}
+
+	int StrCost()
+	{
+		return CalculatePrice(stats.baseStrCost, stats.increasePerUpgradeStrCost, stats.strUpgrades);
+	}
+
+	int DefCost()
+	{
+		return CalculatePrice(stats.baseDefCost, stats.increasePerUpgradeDefCost, stats.defUpgrades);
+	}
+
+	int CritCost()
+	{
+		return CalculatePrice(stats.baseCritCost, stats.increasePerUpgradeCritCost, stats.critUpgrades);
+	}
+
+	int SpdCost()
+	{
+		return CalculatePrice(stats.baseSpdCost, stats.increasePerUpgradeSpdCost, stats.spdUpgrades);
+	}
+
+	int LuckCost()
+	{
+		return CalculatePrice(stats.baseLuckCost, stats.increasePerUpgradeLuckCost, stats.luckUpgrades);
+	}
+
+	int CalculatePrice(int baseCost, int increasePrice, int amountBought)
+	{
+		return baseCost + (increasePrice * amountBought);
+	}
+
+	public void PurchaseStat(int index)
+	{
+		switch(index)
+		{
+			case 0:
+				if(checkForGold)
+				{
+					if(GameManager.inst.inventory.gold >= HPCost())
+					{
+						GameManager.inst.inventory.gold -= HPCost();
+						stats.IncreaseHP();
+					}
+				}
+				else
+					stats.IncreaseHP();
+				break;
+			case 1:
+				if (checkForGold)
+				{
+					if (GameManager.inst.inventory.gold >= StrCost())
+					{
+						GameManager.inst.inventory.gold -= StrCost();
+						stats.IncreaseStr();
+					}
+				}
+				else
+					stats.IncreaseStr();
+				break;
+			case 2:
+				if (checkForGold)
+				{
+					if (GameManager.inst.inventory.gold >= DefCost())
+					{
+						GameManager.inst.inventory.gold -= DefCost();
+						stats.IncreaseDef();
+					}
+				}
+				else
+					stats.IncreaseDef();
+				break;
+			case 3:
+				if (checkForGold)
+				{
+					if (GameManager.inst.inventory.gold >= CritCost())
+					{
+						GameManager.inst.inventory.gold -= CritCost();
+						stats.IncreaseCrit();
+					}
+				}
+				else
+					stats.IncreaseCrit();
+				break;
+			case 4:
+				if (checkForGold)
+				{
+					if (GameManager.inst.inventory.gold >= SpdCost())
+					{
+						GameManager.inst.inventory.gold -= SpdCost();
+						stats.IncreaseSpd();
+					}
+				}
+				else
+					stats.IncreaseSpd();
+				break;
+			case 5:
+				if (checkForGold)
+				{
+					if (GameManager.inst.inventory.gold >= LuckCost())
+					{
+						GameManager.inst.inventory.gold -= LuckCost();
+						stats.IncreaseLuck();
+					}
+				}
+				else
+					stats.IncreaseLuck();
+				break;
+		}
+
+		SetPrices();
+	}
+
+
+	/*
     // Update the contents of the inventory.
     void UpdateInventory()
     {
@@ -62,4 +231,6 @@ public class Shop : MonoBehaviour
     {
         GameManager.inst.inventory.inventory.Add(inventory[slot]);
     }
+	*/
+	
 }
