@@ -17,20 +17,20 @@ public class Damageable : MonoBehaviour
 	float poisonTime = 1f;//Time inbetween poison hits.
 	float timerPoisonHits = 0;
 
-	public float timerPoison = 0;
-	public float timerBurn = 0;
-	public float timerFreeze = 0;
-	public float timerMud = 0;
-	public float timerBleed = 0;
-	public float timerBlind = 0;
-	public float damageTimer = 0;
+	protected float timerPoison = 0;
+	protected float timerBurn = 0;
+	protected float timerFreeze = 0;
+	protected float timerMud = 0;
+	protected float timerBleed = 0;
+	protected float timerBlind = 0;
+	protected float damageTimer = 0;
 
 
-	public float strengthPoison = 0;
-	public float strengthBurn = 0;
-	public float strengthBleed = 1;//damage multiplyer
-	public float strengthMud = 1;
-	public float strengthFreeze = 1;
+	protected float strengthPoison = 0;
+	protected float strengthBurn = 0;
+	protected float strengthBleed = 1;//damage multiplyer
+	protected float strengthMud = 1;
+	protected float strengthFreeze = 1;
 
 	float leftoverBurnDamage = 0;
 	float leftoverPoisonDamage = 0;

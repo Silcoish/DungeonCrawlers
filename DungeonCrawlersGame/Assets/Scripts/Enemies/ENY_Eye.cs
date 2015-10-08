@@ -64,7 +64,6 @@ public class ENY_Eye : Enemy
                 animDirection = (int)Facing.DOWN;
         }
         anim.SetInteger("Facing", animDirection);
-        Debug.Log("facing = " + animDirection + " Direction = " + direction);
 
         // Laser stuff
         laser.transform.rotation = Quaternion.FromToRotation(Vector2.up, -direction);
