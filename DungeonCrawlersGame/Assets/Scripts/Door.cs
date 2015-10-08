@@ -41,11 +41,13 @@ public class Door : MonoBehaviour {
 	{
 		GetComponent<SpriteRenderer>().sprite = closedDoorSprite;
 		doorCol.isTrigger = false;
+		AudioManager.Inst.PlaySFX(AudioManager.Inst.a_doorShut);
 	}
 
 	public void Unlock()
 	{
 		GetComponent<SpriteRenderer>().sprite = openedDoorSprite;
 		doorCol.isTrigger = true;
+		AudioManager.Inst.PlaySFX(AudioManager.Inst.a_doorOpen);
 	}
 }
