@@ -132,7 +132,7 @@ public class DungeonLayoutLoader : MonoBehaviour
 							{
 								GameObject tempPlayer = (GameObject)Instantiate(player, rooms[lineNum * SIZE + i].gameObject.transform.position, Quaternion.identity);
                                 GameManager.inst.player = tempPlayer;
-                                //tempPlayer.GetComponent<Player>().currentRoom = rooms[lineNum * SIZE + 1].transform;
+								Camera.main.GetComponent<CameraSystem>().MoveRoom(rooms[lineNum * SIZE + i].transform);
 							}
 						}
 					}

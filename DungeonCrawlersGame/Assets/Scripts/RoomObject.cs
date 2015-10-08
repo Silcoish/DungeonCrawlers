@@ -21,6 +21,7 @@ public class RoomObject : MonoBehaviour
 		{
 			LockDoors();
 		}
+		Camera.main.GetComponent<CameraSystem>().MoveRoom(transform);
 	}
 
 	void LockDoors()
