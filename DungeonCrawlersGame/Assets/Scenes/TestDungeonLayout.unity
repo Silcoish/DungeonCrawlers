@@ -141,7 +141,7 @@ Prefab:
     - target: {fileID: 11497982, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
       propertyPath: wepSlot2
       value: 
-      objectReference: {fileID: 176004, guid: 8a105690d3350404584407e60c934dc1, type: 2}
+      objectReference: {fileID: 176004, guid: d7bbd14a8b5680445a9d9a860914ba49, type: 2}
     - target: {fileID: 11497982, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
       propertyPath: wepSlot1
       value: 
@@ -412,6 +412,11 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 99fca9b3caf96734aa2894e549182a36, type: 3}
+    - target: {fileID: 11497936, guid: e7f1b26d39061344c9f7b03f8aaef829, type: 2}
+      propertyPath: s_shop
+      value: 
+      objectReference: {fileID: 24506974, guid: ceb3cd11db6c80a418528e18d385e50c,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7f1b26d39061344c9f7b03f8aaef829, type: 2}
   m_IsPrefabParent: 0

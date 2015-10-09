@@ -14,6 +14,8 @@ public class Damageable : MonoBehaviour
 	public float globalMoveSpeed = 1;
 	public float globalBlindSpeed = 1;
 
+	private Color startColor;
+
 	float poisonTime = 1f;//Time inbetween poison hits.
 	float timerPoisonHits = 0;
 
@@ -48,6 +50,7 @@ public class Damageable : MonoBehaviour
 	{
 		rb = gameObject.GetComponent<Rigidbody2D>();
 		sp = gameObject.GetComponent<SpriteRenderer>();
+		startColor = sp.color;
 	}
 	
 	public virtual void Update () 
@@ -58,7 +61,7 @@ public class Damageable : MonoBehaviour
 		if (damageTimer > 0)
 		{
 			damageTimer -= Time.deltaTime;
-			sp.color = Color.Lerp(Color.white, Color.red, damageTimer);
+			sp.color = Color.Lerp(startColor, Color.red, damageTimer);
 		}
 
 		//POISON
@@ -187,7 +190,7 @@ public class Damageable : MonoBehaviour
 				strengthPoison = dam.effectStrength;
 				break;
 			case DamageType.BURN:
-				//needs burn sfx
+				AudioManager.Inst.PlaySFX(AudioManager.Inst.a_burnt);
 				timerBurn = dam.effectTime;
 				strengthBurn = dam.effectStrength;
 				break;
@@ -257,11 +260,15 @@ public class Damageable : MonoBehaviour
 		if ((int)leftoverBurnDamage > 0)
 			SpawnText(Color.red, ((int)leftoverBurnDamage).ToString());
 		leftoverBurnDamage -= (int)leftoverBurnDamage;
+
+		AudioManager.Inst.PlaySFX(AudioManager.Inst.a_burnt);
 	}
 
 	void DamageBleed(int damIn)
 	{
 		hitPoints -= (int)(damIn * strengthBleed);
+
+		AudioManager.Inst.PlaySFX(AudioManager.Inst.a_bleed);
 	}
 
 	void SpawnText(Color col, string amt)
