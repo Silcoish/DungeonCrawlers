@@ -96,4 +96,24 @@ public class ActiveItems : MonoBehaviour
                 break;
         }
     }
+
+    public void Pickup(GameObject item)
+    {
+        if (item.GetComponent<ItemBase>().type == ItemType.WEAPON)
+        {
+            // Copy existing main weapon into a droppable item
+            Instantiate(wepSlot1, item.transform.position, item.transform.rotation);
+
+            // Copy pickup item into activeItems and destroy pickup
+            wepSlot1 = item;
+            wepSlot1.GetComponent<ItemBase>().ToggleColliders();
+            Destroy(item);
+        }
+        else if (item.GetComponent<ItemBase>().type == ItemType.PASSIVE)
+        {
+            // TO DO: Passive pickup/drop
+        }
+        else
+            Debug.Log("Item does not have ItemType assignment: " + item.name);
+    }
 }

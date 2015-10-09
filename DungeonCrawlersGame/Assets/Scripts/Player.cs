@@ -71,20 +71,25 @@ public class Player : Damageable
             {
                 Vector3 facing = mousePosition - transform.position;
 
-                if (Mathf.Abs(facing.x) > Mathf.Abs(facing.y))
-                {
-                    if (facing.x > 0)
-                        direction = (int)Facing.RIGHT;
-                    else
-                        direction = (int)Facing.LEFT;
-                }
+                if (facing.x > 0)
+                    direction = (int)Facing.RIGHT;
                 else
-                {
-                    if (facing.y > 0)
-                        direction = (int)Facing.UP;
-                    else
-                        direction = (int)Facing.DOWN;
-                }
+                    direction = (int)Facing.LEFT;
+
+                //if (Mathf.Abs(facing.x) > Mathf.Abs(facing.y))
+                //{
+                //    if (facing.x > 0)
+                //        direction = (int)Facing.RIGHT;
+                //    else
+                //        direction = (int)Facing.LEFT;
+                //}
+                //else
+                //{
+                //    if (facing.y > 0)
+                //        direction = (int)Facing.UP;
+                //    else
+                //        direction = (int)Facing.DOWN;
+                //}
             }
             else
             {

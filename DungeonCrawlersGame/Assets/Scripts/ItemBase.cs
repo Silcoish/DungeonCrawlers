@@ -17,6 +17,16 @@ public class ItemBase : MonoBehaviour
     public int price;               // Vendor price
     Sprite sprite;
     BoxCollider2D pickupCol;        // Collider for picking up when dropped as loot
+    PolygonCollider2D damageCol;
+
+    void Start()
+    {
+        pickupCol = GetComponent<BoxCollider2D>();
+        damageCol = GetComponent<PolygonCollider2D>();
+
+        pickupCol.enabled = true;
+        damageCol.enabled = false;
+    }
 
     public Damage GetDamage()
     {
@@ -32,7 +42,7 @@ public class ItemBase : MonoBehaviour
         return temp;
     }
 
-    void OnTriggerEnter(Collider col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.tag == "Player")
         {
@@ -40,5 +50,11 @@ public class ItemBase : MonoBehaviour
             Instantiate(GameManager.inst.activeItems.wepSlot1, transform.position, transform.rotation);
 			AudioManager.Inst.PlaySFX(AudioManager.Inst.a_pickupWeapon);
         }
+    }
+
+    public void ToggleColliders()
+    {
+        pickupCol.enabled = !pickupCol.enabled;
+        damageCol.enabled = !damageCol.enabled;
     }
 }
