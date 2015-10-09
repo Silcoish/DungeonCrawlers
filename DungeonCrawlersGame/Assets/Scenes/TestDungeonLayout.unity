@@ -141,11 +141,11 @@ Prefab:
     - target: {fileID: 11497982, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
       propertyPath: wepSlot2
       value: 
-      objectReference: {fileID: 176004, guid: d7bbd14a8b5680445a9d9a860914ba49, type: 2}
+      objectReference: {fileID: 180400, guid: 5c420b7e68d951c4db534ed847b18052, type: 2}
     - target: {fileID: 11497982, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
       propertyPath: wepSlot1
       value: 
-      objectReference: {fileID: 180400, guid: 5c420b7e68d951c4db534ed847b18052, type: 2}
+      objectReference: {fileID: 176004, guid: d7bbd14a8b5680445a9d9a860914ba49, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca7098dc688833c4eb4d8d1aa3c438a9, type: 2}
   m_IsPrefabParent: 0

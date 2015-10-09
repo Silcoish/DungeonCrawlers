@@ -61,8 +61,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   type: 0
-  dmg: 50
-  cd: 2.5
+  dmg: 35
+  cd: 1.5
   kb: 5
   effect: 0
   effectDuration: 0
@@ -107,11 +107,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: cd
-      value: 2.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: dmg
-      value: 50
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString

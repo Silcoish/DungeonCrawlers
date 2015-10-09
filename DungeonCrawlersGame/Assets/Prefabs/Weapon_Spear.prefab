@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 129.124695, y: -35.425724, z: 0}
+  m_LocalPosition: {x: -4.14150572, y: -2.49501252, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,10 +43,10 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: -.0420379639, y: .0495567322}
-      - {x: .043838501, y: .0497665405}
-      - {x: .0394592285, y: -4.34057617}
-      - {x: -.0351104736, y: -4.32972336}
+    - - {x: -.0308418274, y: .0495567322}
+      - {x: .0382404327, y: .0497665405}
+      - {x: .0390648842, y: -1.94988227}
+      - {x: -.0173788071, y: -1.91284013}
 --- !u!114 &11468692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -60,12 +60,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   type: 0
-  dmg: 0
+  dmg: 5
   cd: 1
   kb: 1
   effect: 2
   effectDuration: 10
-  effectStrength: 1
+  effectStrength: 7.5
   price: 10
   ammCur: 0
   ammMax: 0
@@ -106,7 +106,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: dmg
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: cd
@@ -126,7 +126,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: effectStrength
-      value: 1
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: effectDuration
