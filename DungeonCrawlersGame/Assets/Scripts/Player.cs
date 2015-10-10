@@ -34,7 +34,9 @@ public class Player : Damageable
     public float cdSwap = 0.5F;
     private float cdSwapCur;
     public int direction;
-
+    public float platformCheckDistance = 1;
+    public float teleportCooldown = 0.2F;
+    private float teleportCooldownCur;
 
     void Start() 
     {
@@ -61,11 +63,11 @@ public class Player : Damageable
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
 
-            rb2D.AddForce(new Vector2(gameObject.transform.right.x * horizontal, gameObject.transform.up.y * vertical) * (baseMoveSpeed + GameManager.inst.stats.spd));
+            rb2D.AddForce(new Vector2(gameObject.transform.right.x * horizontal, 0 /*gameObject.transform.up.y * vertical*/) * (baseMoveSpeed + GameManager.inst.stats.spd));
 
-            anim.SetFloat("MoveSpeed", (Mathf.Abs(horizontal) + Mathf.Abs(vertical))); // Get ANY movement on either axis.
-            armRight.SetFloat("MoveSpeed", (Mathf.Abs(horizontal) + Mathf.Abs(vertical))); // Get ANY movement on either axis.
-            armLeft.SetFloat("MoveSpeed", (Mathf.Abs(horizontal) + Mathf.Abs(vertical))); // NOTE: This needs to stay despite the removal of Left Weapons (this controls ALL left arm animations).
+            anim.SetFloat("MoveSpeed", (Mathf.Abs(horizontal)/* + Mathf.Abs(vertical)*/)); // Get ANY movement on either axis.
+            armRight.SetFloat("MoveSpeed", (Mathf.Abs(horizontal)/* + Mathf.Abs(vertical)*/)); // Get ANY movement on either axis.
+            armLeft.SetFloat("MoveSpeed", (Mathf.Abs(horizontal)/* + Mathf.Abs(vertical)*/)); // NOTE: This needs to stay despite the removal of Left Weapons (this controls ALL left arm animations).
 
             if(GameManager.inst.useMouseControls)
             {
@@ -75,6 +77,8 @@ public class Player : Damageable
                     direction = (int)Facing.RIGHT;
                 else
                     direction = (int)Facing.LEFT;
+
+                // 4 Direction facing
 
                 //if (Mathf.Abs(facing.x) > Mathf.Abs(facing.y))
                 //{
@@ -94,6 +98,50 @@ public class Player : Damageable
             else
             {
                 direction = GetDirection();
+            }
+
+            // Platform movement handling
+            // Move up
+            if(vertical > 0.1 && teleportCooldownCur < 0)
+            {
+                // Raycast above player to see if a platform exists
+                // Create layer mask to only check against Platforms layer
+                int platformMask = 1 << LayerMask.NameToLayer("Platforms");
+                // Raycast(origin of ray, direction, distance to check (only want to check within 1 platform), Layer Mask);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, platformCheckDistance, platformMask);
+                if(hit.collider != null)
+                {
+                    // Move player to platform if it is passable
+                    if(hit.collider.gameObject.tag == "Platform(PASSABLE)")
+                    {
+                        // Offset distance that the player is placed above the new platform
+                        // Correct distance should be 1/2 player collider + 1/2 platform collider (THIS ISN'T RIGHT, NEEDS TWEAKING)
+                        float yOffset = GetComponent<BoxCollider2D>().size.y / 2;
+                        transform.position = new Vector3(transform.position.x, hit.collider.transform.position.y + yOffset, 0);
+
+                        teleportCooldownCur = teleportCooldown;
+                    }
+                }
+            }
+
+            // Move down
+            if (vertical < -0.1 && teleportCooldownCur < 0)
+            {
+                // Raycast below player to see if a platform exists
+                // Create layer mask to only check against Platforms layer
+                int platformMask = 1 << LayerMask.NameToLayer("Platforms");
+                // Raycast(origin of ray, direction, distance to check (only want to check within 1 platform), Layer Mask);
+                // Need to adjust starting position slightly to be below current platform
+                RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, 1, 0), -Vector2.up, platformCheckDistance, platformMask);
+                if (hit.collider != null)
+                {
+                    // Offset distance that the player is placed above the new platform
+                    // Correct distance should be 1/2 player collider + 1/2 platform collider (THIS ISN'T RIGHT, NEEDS TWEAKING)
+                    float yOffset = GetComponent<BoxCollider2D>().size.y / 2;
+                    transform.position = new Vector3(transform.position.x, hit.collider.transform.position.y + yOffset, 0);
+
+                    teleportCooldownCur = teleportCooldown;
+                }
             }
 
             anim.SetInteger("Facing", direction);
@@ -169,6 +217,7 @@ public class Player : Damageable
         // Update timers
         cdSwapCur -= Time.deltaTime;
         swingTimerRight -= Time.deltaTime;
+        teleportCooldownCur -= Time.deltaTime;
     }
 
 	public override void OnDeath()
