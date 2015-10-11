@@ -43,6 +43,7 @@ public class Damageable : MonoBehaviour
 	protected SpriteRenderer sp;
 
 	protected Rigidbody2D rb;
+
 	
 	
 
@@ -50,6 +51,12 @@ public class Damageable : MonoBehaviour
 	{
 		rb = gameObject.GetComponent<Rigidbody2D>();
 		sp = gameObject.GetComponent<SpriteRenderer>();
+
+		if (rb == null)
+			rb = gameObject.GetComponentInChildren<Rigidbody2D>();
+		if (sp == null)
+			sp = gameObject.GetComponentInChildren<SpriteRenderer>();
+
 		startColor = sp.color;
 	}
 	
@@ -119,7 +126,9 @@ public class Damageable : MonoBehaviour
             OnDeath();
         }
 
+
 		UpdateOverride();
+
 	}
 
     //void OnTriggerEnter2D(Collider2D col)
