@@ -18,7 +18,7 @@ public class ENY_Scarab_001 : Enemy
 	}
 	
 	// Update is called once per frame
-	public override void UpdateOverride() 
+	public override void EnemyBehaviour() 
 	{
 		if (transform.position.x <= m_pathLeft.position.x && m_moveDirection.x < 0)
 		{

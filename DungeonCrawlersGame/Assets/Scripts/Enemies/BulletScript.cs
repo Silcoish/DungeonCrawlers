@@ -23,11 +23,6 @@ public class BulletScript : MonoBehaviour
 			col.gameObject.GetComponent<Player>().OnTakeDamage(GetDamage());
 			Destroy(gameObject);
 		}
-		else if (col.collider.tag == "Player" || col.collider.tag == "Enemy")
-		{
-			col.gameObject.GetComponent<Enemy>().OnTakeDamage(GetDamage());
-			Destroy(gameObject);
-		}
 
 	}
 

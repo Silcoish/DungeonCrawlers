@@ -4,11 +4,22 @@ using System.Collections.Generic;
 
 public class Enemy : Damageable
 {
+	[Header("GLobal Enemy")]
 	public RoomObject room;
+
+	public float m_timerPause = 0;
 	// Update is called once per frame
 	public override void UpdateOverride()
 	{
-		EnemyBehaviour();
+		m_timerPause -= Time.deltaTime;
+		if (m_timerPause > 0)
+		{
+			m_timerPause -= Time.deltaTime;
+		}
+		else
+		{
+			EnemyBehaviour();
+		}
 	}
 
 	public virtual void EnemyBehaviour()
@@ -24,6 +35,11 @@ public class Enemy : Damageable
 		if(room != null) room.EnemyDied();
 		gameObject.SetActive(false);
 
+	}
+
+	public void PauseEnemy(float seconds)
+	{
+		m_timerPause = seconds;
 	}
 
 
