@@ -68,6 +68,11 @@ public class Player : Damageable
             anim.SetFloat("MoveSpeed", (Mathf.Abs(horizontal)/* + Mathf.Abs(vertical)*/)); // Get ANY movement on either axis.
             armRight.SetFloat("MoveSpeed", (Mathf.Abs(horizontal)/* + Mathf.Abs(vertical)*/)); // Get ANY movement on either axis.
             armLeft.SetFloat("MoveSpeed", (Mathf.Abs(horizontal)/* + Mathf.Abs(vertical)*/)); // NOTE: This needs to stay despite the removal of Left Weapons (this controls ALL left arm animations).
+            
+            // I dont know
+            float wepSpeed = GameManager.inst.activeItems.wepSlot1.GetComponent<Weapon>().cd;
+            float inverseSpeed = 1 - (1 / wepSpeed);
+            armRight.SetFloat("SwingTimer", inverseSpeed);
 
             if(GameManager.inst.useMouseControls)
             {
@@ -132,12 +137,20 @@ public class Player : Damageable
                 int platformMask = 1 << LayerMask.NameToLayer("Platforms");
                 // Raycast(origin of ray, direction, distance to check (only want to check within 1 platform), Layer Mask);
                 // Need to adjust starting position slightly to be below current platform
-                RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, 1, 0), -Vector2.up, platformCheckDistance, platformMask);
-                if (hit.collider != null)
+                RaycastHit2D floorCheck = Physics2D.Raycast(transform.position, -Vector2.up, platformCheckDistance, platformMask);
+                if(floorCheck.collider != null)
                 {
-                    transform.position = new Vector3(transform.position.x, hit.collider.transform.position.y + platformOffsetDistance, 0);
+                    // Check if the player is standing on a passable platform before attempting to move down
+                    if(floorCheck.collider.tag == "Platform(PASSABLE)")
+                    {
+                        RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, 1, 0), -Vector2.up, platformCheckDistance, platformMask);
+                        if (hit.collider != null)
+                        {
+                            transform.position = new Vector3(transform.position.x, hit.collider.transform.position.y + platformOffsetDistance, 0);
 
-                    teleportCooldownCur = teleportCooldown;
+                            teleportCooldownCur = teleportCooldown;
+                        }
+                    }
                 }
             }
 
