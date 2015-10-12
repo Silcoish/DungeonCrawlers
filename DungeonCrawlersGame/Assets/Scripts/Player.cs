@@ -71,7 +71,15 @@ public class Player : Damageable
             
             // I dont know
             float wepSpeed = GameManager.inst.activeItems.wepSlot1.GetComponent<Weapon>().cd;
-            float inverseSpeed = 1 - (1 / wepSpeed);
+            float inverseSpeed;
+            if(wepSpeed < 1)
+            {
+                inverseSpeed = 1 / wepSpeed;
+            }
+            else
+            {
+                inverseSpeed = 1 - (1 / wepSpeed);
+            }
             armRight.SetFloat("SwingTimer", inverseSpeed);
 
             if(GameManager.inst.useMouseControls)
