@@ -13,7 +13,7 @@ public class BulletScript : MonoBehaviour
 	void OnCollisionEnter2D(Collision2D col)
 	{
 		print("Colision");
-		if (col.collider.tag == "Wall")
+		if (col.collider.tag == "Wall" || col.collider.tag == "Platform(PASSABLE)" || col.collider.tag == "Platform(IMPASSABLE)")
 		{
 			Destroy(gameObject);
 		}

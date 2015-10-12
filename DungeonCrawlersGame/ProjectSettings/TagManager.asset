@@ -12,6 +12,8 @@ TagManager:
   - Projectile
   - Platform(PASSABLE)
   - Platform(IMPASSABLE)
+  - WepRight
+  - WepLeft
   layers:
   - Default
   - TransparentFX
@@ -22,7 +24,7 @@ TagManager:
   - 
   - 
   - Platforms
-  - 
+  - Enemy
   - 
   - 
   - 

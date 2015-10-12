@@ -11,7 +11,6 @@ public class Enemy : Damageable
 	// Update is called once per frame
 	public override void UpdateOverride()
 	{
-		m_timerPause -= Time.deltaTime;
 		if (m_timerPause > 0)
 		{
 			m_timerPause -= Time.deltaTime;

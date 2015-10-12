@@ -12,7 +12,7 @@ GameObject:
   - 61: {fileID: 6132756}
   m_Layer: 8
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Platform(IMPASSABLE)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.98000002, y: 0, z: -.44921875}
+  m_LocalPosition: {x: 3.07690334, y: 2, z: -.44921875}
   m_LocalScale: {x: .100000001, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

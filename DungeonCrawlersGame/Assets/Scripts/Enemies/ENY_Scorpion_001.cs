@@ -57,7 +57,7 @@ public class ENY_Scorpion_001 : Enemy
 		Rigidbody2D bulleRB = (Instantiate(m_bullet, m_bulletSpawn.transform.position, m_bulletSpawn.transform.rotation) as GameObject).GetComponent<Rigidbody2D>();
 		bulleRB.AddForce(m_bulletSpawn.transform.right * m_bulletForce, ForceMode2D.Impulse);
 		rb.velocity = Vector2.zero;
-		PauseEnemy(0.5f);
+		PauseEnemy(1f);
 	}
 
 
