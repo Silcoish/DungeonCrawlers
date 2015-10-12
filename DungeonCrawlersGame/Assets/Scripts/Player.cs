@@ -34,7 +34,7 @@ public class Player : Damageable
     public float cdSwap = 0.5F;
     private float cdSwapCur;
     public int direction;
-    public float platformCheckDistance = 1;
+    private float platformCheckDistance = 2;
     public float teleportCooldown = 0.2F;
     private float teleportCooldownCur;
 
@@ -101,6 +101,9 @@ public class Player : Damageable
             }
 
             // Platform movement handling
+            // Offset distance that the player is placed above the new platform
+            // This is based on current player collider size, should make a better solution that can handle changes in collider
+            float platformOffsetDistance = 0.75F;
             // Move up
             if(vertical > 0.1 && teleportCooldownCur < 0)
             {
@@ -114,10 +117,7 @@ public class Player : Damageable
                     // Move player to platform if it is passable
                     if(hit.collider.gameObject.tag == "Platform(PASSABLE)")
                     {
-                        // Offset distance that the player is placed above the new platform
-                        // Correct distance should be 1/2 player collider + 1/2 platform collider (THIS ISN'T RIGHT, NEEDS TWEAKING)
-                        float yOffset = GetComponent<BoxCollider2D>().size.y / 2;
-                        transform.position = new Vector3(transform.position.x, hit.collider.transform.position.y + yOffset, 0);
+                        transform.position = new Vector3(transform.position.x, hit.collider.transform.position.y + platformOffsetDistance, 0);
 
                         teleportCooldownCur = teleportCooldown;
                     }
@@ -135,14 +135,14 @@ public class Player : Damageable
                 RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, 1, 0), -Vector2.up, platformCheckDistance, platformMask);
                 if (hit.collider != null)
                 {
-                    // Offset distance that the player is placed above the new platform
-                    // Correct distance should be 1/2 player collider + 1/2 platform collider (THIS ISN'T RIGHT, NEEDS TWEAKING)
-                    float yOffset = GetComponent<BoxCollider2D>().size.y / 2;
-                    transform.position = new Vector3(transform.position.x, hit.collider.transform.position.y + yOffset, 0);
+                    transform.position = new Vector3(transform.position.x, hit.collider.transform.position.y + platformOffsetDistance, 0);
 
                     teleportCooldownCur = teleportCooldown;
                 }
             }
+
+            Debug.DrawRay(transform.position, Vector2.up * platformCheckDistance, Color.yellow);
+            Debug.DrawRay(transform.position - new Vector3(0, 1, 0), -Vector2.up, Color.blue);
 
             anim.SetInteger("Facing", direction);
             armRight.SetInteger("Facing", direction);
