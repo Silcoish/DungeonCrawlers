@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   type: 0
-  dmg: 20
+  dmg: 10
   cd: .75
   kb: 5
   effect: 0
@@ -124,7 +124,7 @@ Prefab:
         type: 3}
     - target: {fileID: 0}
       propertyPath: dmg
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: cd

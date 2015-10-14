@@ -61,11 +61,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   type: 0
-  dmg: 9
+  dmg: 5
   cd: .5
   kb: 1
   effect: 4
-  effectDuration: 0
+  effectDuration: 5
   effectStrength: 0
   price: 10
   ammCur: 0
@@ -107,7 +107,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: dmg
-      value: 9
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Sprite
@@ -137,6 +137,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: effect
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: effectDuration
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
