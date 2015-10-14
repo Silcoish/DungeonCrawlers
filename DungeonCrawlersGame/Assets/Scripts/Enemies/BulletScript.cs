@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class BulletScript : MonoBehaviour 
@@ -13,7 +13,7 @@ public class BulletScript : MonoBehaviour
 	void OnCollisionEnter2D(Collision2D col)
 	{
 		print("Colision");
-		if (col.collider.tag == "Wall" || col.collider.tag == "Platform(PASSABLE)" || col.collider.tag == "Platform(IMPASSABLE)")
+		if (col.collider.tag == "Wall" || col.collider.tag == "Platform(PASSABLE)" || col.collider.tag == "Platform(IMPASSABLE)" || col.collider.tag == "Ground")
 		{
 			Destroy(gameObject);
 		}

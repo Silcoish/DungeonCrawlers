@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class ENY_Eye : Enemy 
@@ -26,7 +26,7 @@ public class ENY_Eye : Enemy
 
     public override void UpdateOverride()
     {
-        rb.AddForce(direction * speed * globalMoveSpeed);
+        /*rb.AddForce(direction * speed * globalMoveSpeed);
 
         if (timerFreeze <= 0)
         {
@@ -67,6 +67,10 @@ public class ENY_Eye : Enemy
 
         // Laser stuff
         laser.transform.rotation = Quaternion.FromToRotation(Vector2.up, -direction);
+		 */
+		
+		if(Vector2.Distance(transform.position, GameManager.inst.player.transform.position) < 10.0f)
+			transform.position = Vector2.MoveTowards((Vector2)transform.position, (Vector2)GameManager.inst.player.transform.position, 0.04f);
     }
 
     Vector2 RandDirection()

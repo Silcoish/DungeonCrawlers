@@ -38,6 +38,11 @@ public class Player : Damageable
     public float teleportCooldown = 0.2F;
     private float teleportCooldownCur;
 
+	public float jumpForce = 1000.0f;
+	bool jumping = false;
+	public int allowedJumps = 2;
+	public int jumpCounter = 0;
+
     void Start() 
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -77,72 +82,28 @@ public class Player : Damageable
                     direction = (int)Facing.RIGHT;
                 else
                     direction = (int)Facing.LEFT;
-
-                // 4 Direction facing
-
-                //if (Mathf.Abs(facing.x) > Mathf.Abs(facing.y))
-                //{
-                //    if (facing.x > 0)
-                //        direction = (int)Facing.RIGHT;
-                //    else
-                //        direction = (int)Facing.LEFT;
-                //}
-                //else
-                //{
-                //    if (facing.y > 0)
-                //        direction = (int)Facing.UP;
-                //    else
-                //        direction = (int)Facing.DOWN;
-                //}
             }
             else
             {
                 direction = GetDirection();
             }
 
-            // Platform movement handling
-            // Offset distance that the player is placed above the new platform
-            // This is based on current player collider size, should make a better solution that can handle changes in collider
-            float platformOffsetDistance = 0.75F;
-            // Move up
-            if(vertical > 0.1 && teleportCooldownCur < 0)
-            {
-                // Raycast above player to see if a platform exists
-                // Create layer mask to only check against Platforms layer
-                int platformMask = 1 << LayerMask.NameToLayer("Platforms");
-                // Raycast(origin of ray, direction, distance to check (only want to check within 1 platform), Layer Mask);
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, platformCheckDistance, platformMask);
-                if(hit.collider != null)
-                {
-                    // Move player to platform if it is passable
-                    if(hit.collider.gameObject.tag == "Platform(PASSABLE)")
-                    {
-                        transform.position = new Vector3(transform.position.x, hit.collider.transform.position.y + platformOffsetDistance, 0);
+			//JUMP STUFF
 
-                        teleportCooldownCur = teleportCooldown;
-                    }
-                }
-            }
+			RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 0.9f);
+			if (hit.collider != null)
+			{
+				if (hit.collider.tag == "Ground")
+				{
+					jumpCounter = 0;
+				}
+			}
 
-            // Move down
-            if (vertical < -0.1 && teleportCooldownCur < 0)
-            {
-                // Raycast below player to see if a platform exists
-                // Create layer mask to only check against Platforms layer
-                int platformMask = 1 << LayerMask.NameToLayer("Platforms");
-                // Raycast(origin of ray, direction, distance to check (only want to check within 1 platform), Layer Mask);
-                // Need to adjust starting position slightly to be below current platform
-                RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, 1, 0), -Vector2.up, platformCheckDistance, platformMask);
-                if (hit.collider != null)
-                {
-                    transform.position = new Vector3(transform.position.x, hit.collider.transform.position.y + platformOffsetDistance, 0);
-
-                    teleportCooldownCur = teleportCooldown;
-                }
-            }
-
-            Debug.DrawRay(transform.position, Vector2.up * platformCheckDistance, Color.yellow);
-            Debug.DrawRay(transform.position - new Vector3(0, 1, 0), -Vector2.up, Color.blue);
+			if (Input.GetKeyDown(KeyCode.W) && jumpCounter < allowedJumps)
+			{
+				rb2D.AddForce(new Vector2(0, 1000f));
+				jumpCounter++;
+			}
 
             anim.SetInteger("Facing", direction);
             armRight.SetInteger("Facing", direction);
