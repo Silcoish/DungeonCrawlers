@@ -107,7 +107,8 @@ public class Player : Damageable
 
 			if (Input.GetKeyDown(KeyCode.W) && jumpCounter < allowedJumps)
 			{
-				rb2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                rb2D.velocity = new Vector2(rb2D.velocity.x, 0);
+                rb2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
 				jumpCounter++;
 			}
 
