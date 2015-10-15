@@ -2221,7 +2221,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 406070, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.75
+      value: .129999995
       objectReference: {fileID: 0}
     - target: {fileID: 406070, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2245,27 +2245,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 406070, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
       propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11427898, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
-      propertyPath: platformCheckDistance
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5027564, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
-      propertyPath: m_GravityScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6106080, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5027564, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11427898, guid: 471dc67efa7088445afffba3d953b58e, type: 2}
-      propertyPath: baseMoveSpeed
-      value: 30
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 471dc67efa7088445afffba3d953b58e, type: 2}

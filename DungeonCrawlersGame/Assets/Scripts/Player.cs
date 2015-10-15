@@ -30,7 +30,7 @@ public class Player : Damageable
     public float swingColliderUptime = 0.5F;
     private float swingTimerRight = 0;
 
-    public int baseMoveSpeed = 10;
+    public float baseMoveSpeed = 10F;
     public float cdSwap = 0.5F;
     private float cdSwapCur;
     public int direction;
@@ -38,7 +38,7 @@ public class Player : Damageable
     public float teleportCooldown = 0.2F;
     private float teleportCooldownCur;
 
-	public float jumpForce = 1000.0f;
+	public float jumpForce = 10.0F;
 	bool jumping = false;
 	public int allowedJumps = 2;
 	public int jumpCounter = 0;
@@ -59,6 +59,12 @@ public class Player : Damageable
 
 	}
 	
+    void FixedUpdate()
+    {
+        float move = Input.GetAxis("Horizontal");
+        rb2D.velocity = new Vector2(move * baseMoveSpeed, rb2D.velocity.y);
+    }
+
 	public override void UpdateOverride() 
     {
         if(controlsEnabled)
@@ -68,7 +74,7 @@ public class Player : Damageable
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
 
-            rb2D.AddForce(new Vector2(gameObject.transform.right.x * horizontal, 0 /*gameObject.transform.up.y * vertical*/) * (baseMoveSpeed + GameManager.inst.stats.spd));
+            //rb2D.AddForce(new Vector2(gameObject.transform.right.x * horizontal, 0 /*gameObject.transform.up.y * vertical*/) * (baseMoveSpeed + GameManager.inst.stats.spd));
 
             anim.SetFloat("MoveSpeed", (Mathf.Abs(horizontal)/* + Mathf.Abs(vertical)*/)); // Get ANY movement on either axis.
             armRight.SetFloat("MoveSpeed", (Mathf.Abs(horizontal)/* + Mathf.Abs(vertical)*/)); // Get ANY movement on either axis.
@@ -101,7 +107,7 @@ public class Player : Damageable
 
 			if (Input.GetKeyDown(KeyCode.W) && jumpCounter < allowedJumps)
 			{
-				rb2D.AddForce(new Vector2(0, 1000f));
+				rb2D.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
 				jumpCounter++;
 			}
 

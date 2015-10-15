@@ -47,6 +47,7 @@ GameObject:
   - 114: {fileID: 11427898}
   - 95: {fileID: 9522078}
   - 114: {fileID: 11480818}
+  - 58: {fileID: 5888084}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -170,6 +171,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &195240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 410566}
+  m_Layer: 2
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &404714
 Transform:
   m_ObjectHideFlags: 1
@@ -190,13 +206,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.94999981, y: 5.75, z: 0}
+  m_LocalPosition: {x: -8.94999981, y: .129999995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 416996}
   - {fileID: 404714}
   - {fileID: 455288}
   - {fileID: 471366}
+  - {fileID: 410566}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &406856
@@ -212,6 +229,18 @@ Transform:
   - {fileID: 499988}
   m_Father: {fileID: 404714}
   m_RootOrder: 0
+--- !u!4 &410566
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195240}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.0170000009, y: -.661000013, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 406070}
+  m_RootOrder: 4
 --- !u!4 &416996
 Transform:
   m_ObjectHideFlags: 1
@@ -341,14 +370,27 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133668}
   m_Mass: 1
-  m_LinearDrag: 5
+  m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
+--- !u!58 &5888084
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133668}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -.00999999978, y: -.409999996}
+  serializedVersion: 2
+  m_Radius: .25
 --- !u!60 &6067570
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -377,9 +419,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -.00937831402, y: -.0703377724}
+  m_Offset: {x: -.00937831402, y: .0299999993}
   serializedVersion: 2
-  m_Size: {x: .512326479, y: 1.00937843}
+  m_Size: {x: .512326479, y: .889999986}
 --- !u!81 &8143720
 AudioListener:
   m_ObjectHideFlags: 1
@@ -543,10 +585,13 @@ MonoBehaviour:
   weaponCollider: {fileID: 0}
   controlsEnabled: 1
   swingColliderUptime: .200000003
-  baseMoveSpeed: 15
+  baseMoveSpeed: 10
   cdSwap: .5
   direction: 0
   teleportCooldown: .200000003
+  jumpForce: 17
+  allowedJumps: 2
+  jumpCounter: 0
 --- !u!114 &11480818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -748,6 +793,26 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: whatIsGround.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: baseMoveSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: jumpForce
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
